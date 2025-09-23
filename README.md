@@ -21,11 +21,13 @@ De las empresas se podrá registrar:
 -	Teléfono
 -	Email
 -	Dirección
+  
 De cada autoparte se registrará:
 -	Número de autoparte (código único)
 -	Nombre
 -	Tipo de autoparte (1: motor; 2: carrocería; 3: chasis; 4: interior)
 -	Cantidad de unidades en stock
+  
 La aplicación permitirá gestionar tanto la información básica de empresas y autopartes como también generar distintos reportes y consultas de interés para la proveedora.
 Entre sus principales funcionalidades se incluyen:
 -	Identificar qué componente fue entregado en cada operación.
