@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="../AutoPartes" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="../AutoPartes" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,6 +34,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Clientes.cpp" />
+		<Unit filename="Clientes.h" />
+		<Unit filename="Entrega.cpp" />
+		<Unit filename="Entrega.h" />
+		<Unit filename="Stock.cpp" />
+		<Unit filename="Stock.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>
