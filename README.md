@@ -14,13 +14,17 @@ El sistema a desarrollar permitirá gestionar, principalmente, las entregas de a
 
 ### DESCRIPCIÓN DETALLADA DEL SISTEMA
 El objetivo principal del programa es llevar el control de las autopartes que fabrica la proveedora, así como de las empresas a las que provee.
-De las empresas se podrá registrar:
-- CUIT
-- Nombre
--	Nombre y apellido del responsable
--	Teléfono
--	Email
--	Dirección
+La aplicación permitirá gestionar tanto la información básica de empresas y autopartes como también generar distintos reportes y consultas de interés para la proveedora.
+Entre sus principales funcionalidades se incluyen:
+
+- Identificar qué componente fue entregado en cada operación.
+- Saber a qué empresa se le realizó la entrega correspondiente.
+- Registrar y consultar la fecha de la entrega, la cantidad de unidades entregadas y el importe total.
+- Generar un reporte con el producto más vendido y el menos vendido, permitiendo analizar el movimiento de stock.
+- Controlar el stock disponible de cada autoparte, incluyendo un sistema de gestión de stock crítico que alerta sobre piezas con pocas unidades.
+- Consultar el historial de entregas realizadas para un seguimiento detallado de las operaciones efectuadas.
+
+
   
 De cada autoparte se registrará:
 -	Número de autoparte (código único)
