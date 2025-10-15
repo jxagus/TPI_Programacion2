@@ -44,38 +44,50 @@ La aplicación elaborará tres tipos de salidas, categorizadas en Listados, Cons
 2.	Recaudación por cliente
 3.	Recaudación por autoparte(Menor recaudación y mayor)
 
+## ARCHIVO
+-	Clientes.dat
+-	Autopartes.dat
+-	Venta.dat
+-	DetalleVentas.dat
+-	Personal.dat
 
 ## CLASES
 
-1.	Clase Clientes(empresas)
-Representa a las empresas que reciben autopartes.
-Propiedades:
--	CUIT
--	Nombre
--	Responsable (nombre y apellido)
--	Teléfono
--	Email
+# Venta
+-	_idVenta : int
+-	_fechaEntrega : int 
+-	_idCliente : int
+-	_importeTotal : float
+-	_idPersonal : int
 
+# Cliente (Empresas)
+-	_idCliente : int
+-	_categoria: char[20] (para el tipo de empresa como talleres, consecionaria, distribuidoras, otros)
+-	_direccion: char[50]
+-	_nombre : char[20]
+-	_telefono : int
+-	_cuit: char[10]
+-	_mail : char[100]
 
-2.	Clase Stock(autopartes)
-Representa los componentes fabricados por la proveedora.
-Propiedades:
--	Número de autoparte (código único)
--	Nombre
--	Tipo (1: motor, 2: carrocería, 3: chasis, 4: interior)
--	Stock (cantidad disponible)
--	Precio
+# Autoparte (Stock)
+-	_idAutoparte : int
+-	_nombre : char[20]
+-	_tipo :int 
+-	_stock : int
+-	_precio : float
 
-
-
-
-3.	Clase Entrega
-Registra cada operación de venta o envío de autopartes a una empresa.
-Propiedades:
--	ID de entrega
--	Fecha de entrega
--	Cantidad de unidades entregadas
--	Importe total de la entrega
--	Empresa asociada (a quién se le entregó)
--	Autoparte asociada (qué se entregó)
-
+# DetalleVenta
+-	_idDetalle : int
+-	_idVenta : int
+-	_idAutoparte : int
+-	_cantidad : int
+-	_precio : float
+  
+# Personal
+-	_id:int
+-	_nombre:char[20]
+-	_apellido:char[20]
+-	_dni : int
+-	_rol:char[20]
+-	_telefono : char[15]
+-	_mail : char[40]
