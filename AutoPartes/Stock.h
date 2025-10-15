@@ -8,9 +8,9 @@ class Stock
         Stock();
         virtual ~Stock();
 
-    protected:
 
     private:
+
 };
 
 #endif // STOCK_H
