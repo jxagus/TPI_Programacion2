@@ -6,13 +6,13 @@ Integrantes:
 - Perez Salcedo Aldo
 - Guillermo Hernandez.
 
-## Tipo de proyecto: Gestión.
+ Tipo de proyecto: Gestión.
 
-Descripción: Proveedora autopartes
 ## INTRODUCCIÓN
 El sistema a desarrollar permitirá gestionar, principalmente, las entregas de autopartes a distintas empresas. Para esto contará con un menú principal y una serie de submenúes que serán la interfaz gráfica para la gestión de las empresas, las autopartes y las entregas realizadas.
 
-### DESCRIPCIÓN DETALLADA DEL SISTEMA
+## DESCRIPCIÓN DETALLADA DEL SISTEMA
+
 El objetivo principal del programa es llevar el control de las autopartes que fabrica la proveedora, así como de las empresas a las que provee.
 La aplicación permitirá gestionar tanto la información básica de empresas y autopartes como también generar distintos reportes y consultas de interés para la proveedora.
 Entre sus principales funcionalidades se incluyen:
@@ -26,7 +26,8 @@ Entre sus principales funcionalidades se incluyen:
 
 De esta manera, la aplicación brinda por una parte, soluciona problemas reales de abastecimiento de stock. Por otra parte y mas importante, el sistema será una herramienta para  administrar tanto el registro de clientes y productos como la gestión de entregas, stock y reportes de la proveedora de autopartes.
 
-### SALIDAS DEL SISTEMA
+## SALIDAS DEL SISTEMA
+
 La aplicación elaborará tres tipos de salidas, categorizadas en Listados, Consultas e Informes:
 -	Listados: 
 1.	Listado de empresas: ordenados por su nombre o categoría
@@ -45,6 +46,7 @@ La aplicación elaborará tres tipos de salidas, categorizadas en Listados, Cons
 3.	Recaudación por autoparte(Menor recaudación y mayor)
 
 ## ARCHIVO
+
 -	Clientes.dat
 -	Autopartes.dat
 -	Venta.dat
@@ -53,14 +55,14 @@ La aplicación elaborará tres tipos de salidas, categorizadas en Listados, Cons
 
 ## CLASES
 
-# Venta
+ Venta
 -	_idVenta : int
 -	_fechaEntrega : int 
 -	_idCliente : int
 -	_importeTotal : float
 -	_idPersonal : int
 
-# Cliente (Empresas)
+Cliente (Empresas)
 -	_idCliente : int
 -	_categoria: char[20] (para el tipo de empresa como talleres, consecionaria, distribuidoras, otros)
 -	_direccion: char[50]
@@ -69,21 +71,21 @@ La aplicación elaborará tres tipos de salidas, categorizadas en Listados, Cons
 -	_cuit: char[10]
 -	_mail : char[100]
 
-# Autoparte (Stock)
+Autoparte (Stock)
 -	_idAutoparte : int
 -	_nombre : char[20]
 -	_tipo :int 
 -	_stock : int
 -	_precio : float
 
-# DetalleVenta
+DetalleVenta
 -	_idDetalle : int
 -	_idVenta : int
 -	_idAutoparte : int
 -	_cantidad : int
 -	_precio : float
   
-# Personal
+Personal
 -	_id:int
 -	_nombre:char[20]
 -	_apellido:char[20]
