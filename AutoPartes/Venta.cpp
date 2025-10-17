@@ -18,20 +18,40 @@ Venta::Venta(int idVenta, int fecha, int idCliente, float importe, int idPersona
     _idPersonal = idPersonal;
 }
 
-int Venta::getIdVenta() const { return _idVenta; }
-void Venta::setIdVenta(int id) { _idVenta = id; }
+int Venta::getIdVenta() {
+    return _idVenta;
+    }
+void Venta::setIdVenta(int id) {
+     _idVenta = id;
+     }
 
-int Venta::getFechaEntrega() const { return _fechaEntrega; }
-void Venta::setFechaEntrega(int fecha) { _fechaEntrega = fecha; }
+int Venta::getFechaEntrega()  {
+     return _fechaEntrega;
+    }
+void Venta::setFechaEntrega(int fecha) {
+     _fechaEntrega = fecha;
+     }
 
-int Venta::getIdCliente() const { return _idCliente; }
-void Venta::setIdCliente(int idCliente) { _idCliente = idCliente; }
+int Venta::getIdCliente()  {
+     return _idCliente;
+     }
+void Venta::setIdCliente(int idCliente) {
+     _idCliente = idCliente;
+    }
 
-float Venta::getImporteTotal() const { return _importeTotal; }
-void Venta::setImporteTotal(float importe) { _importeTotal = importe; }
+float Venta::getImporteTotal()  {
+     return _importeTotal;
+    }
+void Venta::setImporteTotal(float importe) {
+     _importeTotal = importe;
+     }
 
-int Venta::getIdPersonal() const { return _idPersonal; }
-void Venta::setIdPersonal(int idPersonal) { _idPersonal = idPersonal; }
+int Venta::getIdPersonal()  {
+    return _idPersonal;
+    }
+void Venta::setIdPersonal(int idPersonal) {
+     _idPersonal = idPersonal;
+    }
 
 void Venta::cargar() {
     cout << "ID Cliente: ";
@@ -44,7 +64,7 @@ void Venta::cargar() {
     cin >> _idPersonal;
 }
 
-void Venta::mostrar() const {
+void Venta::mostrar()  {
     cout << "ID Venta: " << _idVenta << endl;
     cout << "Fecha entrega: " << _fechaEntrega << endl;
     cout << "ID Cliente: " << _idCliente << endl;
