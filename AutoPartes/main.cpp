@@ -1,9 +1,11 @@
 #include <iostream>
+#include "VentaMenu.h"
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    VentaMenu menu;
+    menu.ejecutar();
     return 0;
 }

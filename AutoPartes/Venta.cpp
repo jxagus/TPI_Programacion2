@@ -1,29 +1,54 @@
+#include "Venta.h"
 #include <iostream>
-#include <Venta.h>
 using namespace std;
 
-class Venta {
-private:
-    int _idVenta;
-    int _fechaEntrega;
-    int _idCliente;
-    float _importeTotal;
-    int _idPersonal;
+Venta::Venta() {
+    _idVenta = 0;
+    _fechaEntrega = 0;
+    _idCliente = 0;
+    _importeTotal = 0;
+    _idPersonal = 0;
+}
 
-public:
-    int getIdVenta() const;
-    void setIdVenta(int);
-    int getFechaEntrega() const;
-    void setFechaEntrega(int);
-    int getIdCliente() const;
-    void setIdCliente(int);
-    float getImporteTotal() const;
-    void setImporteTotal(float);
-    int getIdPersonal() const;
-    void setIdPersonal(int);
+Venta::Venta(int idVenta, int fecha, int idCliente, float importe, int idPersonal) {
+    _idVenta = idVenta;
+    _fechaEntrega = fecha;
+    _idCliente = idCliente;
+    _importeTotal = importe;
+    _idPersonal = idPersonal;
+}
 
-    std::string toString() const;
+int Venta::getIdVenta() const { return _idVenta; }
+void Venta::setIdVenta(int id) { _idVenta = id; }
 
-    Venta();
-    Venta(int, int, int, float, int);
-};
+int Venta::getFechaEntrega() const { return _fechaEntrega; }
+void Venta::setFechaEntrega(int fecha) { _fechaEntrega = fecha; }
+
+int Venta::getIdCliente() const { return _idCliente; }
+void Venta::setIdCliente(int idCliente) { _idCliente = idCliente; }
+
+float Venta::getImporteTotal() const { return _importeTotal; }
+void Venta::setImporteTotal(float importe) { _importeTotal = importe; }
+
+int Venta::getIdPersonal() const { return _idPersonal; }
+void Venta::setIdPersonal(int idPersonal) { _idPersonal = idPersonal; }
+
+void Venta::cargar() {
+    cout << "ID Cliente: ";
+    cin >> _idCliente;
+    cout << "Fecha de entrega (AAAAMMDD): ";
+    cin >> _fechaEntrega;
+    cout << "Importe total: ";
+    cin >> _importeTotal;
+    cout << "ID Personal: ";
+    cin >> _idPersonal;
+}
+
+void Venta::mostrar() const {
+    cout << "ID Venta: " << _idVenta << endl;
+    cout << "Fecha entrega: " << _fechaEntrega << endl;
+    cout << "ID Cliente: " << _idCliente << endl;
+    cout << "Importe total: $" << _importeTotal << endl;
+    cout << "ID Personal: " << _idPersonal << endl;
+    cout << "---------------------------" << endl;
+}

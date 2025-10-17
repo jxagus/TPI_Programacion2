@@ -5,9 +5,24 @@
 1760707654 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\main.cpp
 	<iostream>
 
-1760718800 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\venta.cpp
+1760727988 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\venta.cpp
+	"Venta.h"
 	<iostream>
-	<Venta.h>
 
-1760718848 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\venta.h
+1760727988 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\venta.h
+	<iostream>
+
+1760727988 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventaarchivo.cpp
+	"VentaArchivo.h"
+	<cstdio>
+
+1760728031 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventaarchivo.h
+	"Venta.h"
+
+1760727884 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventamanager.cpp
+	"VentaManager.h"
+	<iostream>
+
+1760728034 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventamanager.h
+	"VentaArchivo.h"
 

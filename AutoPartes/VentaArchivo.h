@@ -1,5 +1,4 @@
-#ifndef VENTAARCHIVO_H_INCLUDED
-#define VENTAARCHIVO_H_INCLUDED
+#pragma once
 #include "Venta.h"
 
 class VentaArchivo {
@@ -16,4 +15,3 @@ public:
     bool leerTodos(Venta* vec, int cantidad);
 };
 
-#endif // VENTAARCHIVO_H_INCLUDED

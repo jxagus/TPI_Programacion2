@@ -1,16 +1,12 @@
-#ifndef VENTAMANAGER_H
-#define VENTAMANAGER_H
+#pragma once
+#include "VentaArchivo.h"
 
-
-class VentaManager
-{
-    public:
-        VentaManager();
-        virtual ~VentaManager();
-
-    protected:
-
-    private:
+class VentaManager {
+private:
+    VentaArchivo _archivo;
+public:
+    void agregarVenta();
+    void listarVentas();
+    void buscarVentaPorID();
 };
 
-#endif // VENTAMANAGER_H

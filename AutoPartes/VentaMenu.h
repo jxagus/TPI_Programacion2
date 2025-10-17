@@ -1,4 +1,4 @@
-#pragmaonce
+#pragma once
 #include "VentaManager.h"
 
 class VentaMenu {
