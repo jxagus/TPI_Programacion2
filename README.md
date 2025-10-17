@@ -2,8 +2,6 @@
 
 Integrantes:  
 - Acosta Ramón Agustin 
-- Fernández Fernando Ariel
-- Perez Salcedo Aldo
 - Guillermo Hernandez.
 
  Tipo de proyecto: Gestión.
