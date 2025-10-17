@@ -1,16 +1,13 @@
-#ifndef DETALLEVENTAMANAGER_H
-#define DETALLEVENTAMANAGER_H
+#pragma once
+#include "DetalleVentaArchivo.h"
 
+class DetalleVentaManager {
+private:
+    DetalleVentaArchivo _archivo;
 
-class DetalleVentaManager
-{
-    public:
-        DetalleVentaManager();
-        virtual ~DetalleVentaManager();
-
-    protected:
-
-    private:
+public:
+    void agregarDetalleVenta();
+    void listarDetalles();
+    void listarPorIdVenta(int idVenta);
+    float calcularTotalPorVenta(int idVenta);
 };
-
-#endif // DETALLEVENTAMANAGER_H

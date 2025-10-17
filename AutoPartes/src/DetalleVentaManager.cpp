@@ -1,18 +1,41 @@
+#include "DetalleVentaManager.h"
 #include <iostream>
 using namespace std;
 
-int main(){
+void DetalleVentaManager::agregarDetalleVenta() {
+    DetalleVenta reg;
+    int idDetalle, idVenta, idAutoparte, cantidad;
+    float precio;
 
-     return 0;
+    cout << "ID Detalle: ";
+    cin >> idDetalle;
+    cout << "ID Venta: ";
+    cin >> idVenta;
+    cout << "ID Autoparte: ";
+    cin >> idAutoparte;
+    cout << "Cantidad: ";
+    cin >> cantidad;
+    cout << "Precio unitario: ";
+    cin >> precio;
+
+    reg.setIdDetalle(idDetalle);
+    reg.setIdVenta(idVenta);
+    reg.setIdAutoparte(idAutoparte);
+    reg.setCantidad(cantidad);
+    reg.setPrecio(precio);
+
+    if (_archivo.guardar(reg)) cout << "Detalle guardado correctamente.\n";
+    else cout << "Error al guardar el detalle.\n";
 }
-#include "DetalleVentaManager.h"
 
-DetalleVentaManager::DetalleVentaManager()
-{
-    //ctor
+void DetalleVentaManager::listarDetalles() {
+    _archivo.listarTodos();
 }
 
-DetalleVentaManager::~DetalleVentaManager()
-{
-    //dtor
+void DetalleVentaManager::listarPorIdVenta(int idVenta) {
+
+}
+
+float DetalleVentaManager::calcularTotalPorVenta(int idVenta) {
+
 }

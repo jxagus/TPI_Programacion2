@@ -42,6 +42,10 @@
 		<Unit filename="Clientes.h" />
 		<Unit filename="DetalleVenta.cpp" />
 		<Unit filename="DetalleVenta.h" />
+		<Unit filename="DetalleVentaArchivo.cpp" />
+		<Unit filename="DetalleVentaArchivo.h" />
+		<Unit filename="DetalleVentaManager.cpp" />
+		<Unit filename="DetalleVentaManager.h" />
 		<Unit filename="Personal.cpp" />
 		<Unit filename="Personal.h" />
 		<Unit filename="Venta.cpp" />
@@ -52,7 +56,9 @@
 		<Unit filename="VentaManager.h" />
 		<Unit filename="VentaMenu.cpp" />
 		<Unit filename="VentaMenu.h" />
+		<Unit filename="include/DetalleVentaManager.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/DetalleVentaManager.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

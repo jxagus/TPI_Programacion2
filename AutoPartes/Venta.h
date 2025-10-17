@@ -29,7 +29,7 @@ public:
 
     // Otros métodos
     void cargar();
-    void mostrar() const;
+    void mostrar();
     private:
     int _idVenta;
     int _fechaEntrega;
