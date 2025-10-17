@@ -4,12 +4,7 @@
 using namespace std;
 
 class Venta {
-private:
-    int _idVenta;
-    int _fechaEntrega;
-    int _idCliente;
-    float _importeTotal;
-    int _idPersonal;
+
 
 public:
     // Constructores
@@ -17,18 +12,28 @@ public:
     Venta(int idVenta, int fecha, int idCliente, float importe, int idPersonal);
 
     // Getters y Setters
-    int getIdVenta() const;
     void setIdVenta(int id);
-    int getFechaEntrega() const;
+    int getIdVenta();
+
     void setFechaEntrega(int fecha);
-    int getIdCliente() const;
+    int getFechaEntrega();
+
     void setIdCliente(int idCliente);
-    float getImporteTotal() const;
+    int getIdCliente();
+
     void setImporteTotal(float importe);
-    int getIdPersonal() const;
+    float getImporteTotal();
+
     void setIdPersonal(int idPersonal);
+    int getIdPersonal();
 
     // Otros métodos
     void cargar();
     void mostrar() const;
+    private:
+    int _idVenta;
+    int _fechaEntrega;
+    int _idCliente;
+    float _importeTotal;
+    int _idPersonal;
 };
