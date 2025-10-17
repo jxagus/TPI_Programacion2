@@ -22,11 +22,6 @@ Autoparte::Autoparte (string Nombre, int idAutoparte,int Tipo,int Stock,float pr
     _precioUnitario = precioUnitario;
 }
 
-Stock::~Stock()
-{
-    //dtor
-}
-
 string Autoparte::getNombre (){
     return _nombre;
 }

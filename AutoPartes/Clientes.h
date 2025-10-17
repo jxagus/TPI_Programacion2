@@ -1,21 +1,22 @@
 #pragma once
+using namespace std;
 
 class Clientes{
     public:
         Clientes();
-        Clientes (int idCliente, int Telefono, std::string Nombre,std::string Cuit,std::string Direccion,std::string Mail);
+        Clientes (int idCliente, int Telefono, string Nombre,string Cuit,string Direccion,string Mail);
         virtual ~Clientes();
 
-        std::string getNombre();
-        void setNombre (std::string Nombre);
-        std::string getCuit ();
-        void setCuit (std::string Cuit);
-        std::string getCategoria();
-        void setCategoria (std::string Categoria);
-        std::string getDireccion();
-        void setDireccion (std::string Direccion);
-        std::string getMail ();
-        void setMail (std::string Mail);
+        string getNombre();
+        void setNombre (string Nombre);
+        string getCuit ();
+        void setCuit (string Cuit);
+        string getCategoria();
+        void setCategoria (string Categoria);
+        string getDireccion();
+        void setDireccion (string Direccion);
+        string getMail ();
+        void setMail (string Mail);
         int getidCliente ();
         void setidCliente (int idCliente);
         int getTelefono ();

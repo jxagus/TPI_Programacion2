@@ -1,11 +1,11 @@
 #pragma once
+using namespace std;
 
-class Autoparte
-{
+class Autoparte{
     public:
-            Autoparte();
-        //virtual ~Stock();
+        Autoparte();
         Autoparte (std::string Nombre,int idAutoparte, int Tipo, int stock, float precioUnitario);
+        virtual ~Stock();
 
         int getIDAutoparte();
         int getTipo ();

@@ -1,25 +1,25 @@
 #pragma once
+using namespace std;
 
-class Personal
-{
+class Personal{
     public:
         Personal();
-        Personal (std::string Nombre, std::string Apellido, std::string Rol, std::string Telefono, std::string Mail, int DNI, int id);
+        Personal (string Nombre, string Apellido, string Rol, string Telefono, string Mail, int DNI, int id);
         virtual ~Personal();
 
-        std::string getNombre ();
-        std::string getApellido ();
-        std::string getRol ();
-        std::string getTelefono ();
-        std::string getMail ();
+        string getNombre ();
+        string getApellido ();
+        string getRol ();
+        string getTelefono ();
+        string getMail ();
         int getDNI ();
         int getID ();
 
-        void setNombre (std::string Nombre);
-        void setApellido (std::string Apellido);
-        void setRol (std::string Rol);
-        void setTelefono (std::string Telefono);
-        void setMail (std Mail);
+        void setNombre (string Nombre);
+        void setApellido (string Apellido);
+        void setRol (string Rol);
+        void setTelefono (string Telefono);
+        void setMail (string Mail);
         void setDNI (int DNI);
         void setID (int id);
 
