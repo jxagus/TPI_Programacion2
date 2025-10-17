@@ -1,22 +1,29 @@
 #pragma once
-#include "Autoparte.h"
-#include "Clientes.h"
-#include "Personal.h"
+#include <iostream>
+using namespace std;
 
-class DetalleVenta{
-    public:
-        DetalleVenta();
-        virtual ~DetalleVenta();
+class DetalleVenta {
+private:
+    int _idDetalle;
+    int _idVenta;
+    int _idAutoparte;
+    int _cantidad;
+    float _precio;
 
+public:
+    DetalleVenta(int idDetalle = 0, int idVenta = 0, int idAutoparte = 0, int cantidad = 0, float precio = 0);
 
-    protected:
+    int getIdDetalle();
+    int getIdVenta();
+    int getIdAutoparte();
+    int getCantidad();
+    float getPrecio();
 
-    private:
-        int _IDDetalle;
-        int _IDVenta;
-        int _IDAutoparte;
-        int _Cantidad;
-        float _precio;
+    void setIdDetalle(int idDetalle);
+    void setIdVenta(int idVenta);
+    void setIdAutoparte(int idAutoparte);
+    void setCantidad(int cantidad);
+    void setPrecio(float precio);
+
+    void mostrar();
 };
-
-
