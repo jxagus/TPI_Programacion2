@@ -1,9 +1,9 @@
-#ifndef DETALLEVENTA_H
-#define DETALLEVENTA_H
+#pragma once
+#include "Autoparte.h"
+#include "Clientes.h"
+#include "Personal.h"
 
-
-class DetalleVenta
-{
+class DetalleVenta{
     public:
         DetalleVenta();
         virtual ~DetalleVenta();
@@ -19,4 +19,4 @@ class DetalleVenta
         float _precio;
 };
 
-#endif // DETALLEVENTA_H
+

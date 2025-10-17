@@ -37,14 +37,14 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Autoparte.cpp" />
+		<Unit filename="Autoparte.h" />
 		<Unit filename="Clientes.cpp" />
 		<Unit filename="Clientes.h" />
 		<Unit filename="DetalleVenta.cpp" />
 		<Unit filename="DetalleVenta.h" />
 		<Unit filename="Personal.cpp" />
 		<Unit filename="Personal.h" />
-		<Unit filename="Stock.cpp" />
-		<Unit filename="Stock.h" />
 		<Unit filename="Venta.cpp" />
 		<Unit filename="Venta.h" />
 		<Unit filename="main.cpp">

@@ -1,9 +1,7 @@
 #ifndef VENTA_H
 #define VENTA_H
 
-
-class Venta
-{
+class Venta{
     public:
         Venta();
         virtual ~Venta();
@@ -19,4 +17,4 @@ class Venta
         float _ImporteTotal;
 };
 
-#endif // VENTA_H
+
