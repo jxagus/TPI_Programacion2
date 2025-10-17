@@ -1,5 +1,4 @@
-#ifndef VENTA_H
-#define VENTA_H
+#pragma once
 
 class Venta{
     public:

@@ -4,7 +4,7 @@ class Autoparte
 {
     public:
             Autoparte();
-        virtual ~Stock();
+        //virtual ~Stock();
         Autoparte (std::string Nombre,int idAutoparte, int Tipo, int stock, float precioUnitario);
 
         int getIDAutoparte();
