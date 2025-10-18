@@ -3,13 +3,6 @@
 using namespace std;
 
 class DetalleVenta {
-private:
-    int _idDetalle;
-    int _idVenta;
-    int _idAutoparte;
-    int _cantidad;
-    float _precio;
-
 public:
     DetalleVenta(int idDetalle = 0, int idVenta = 0, int idAutoparte = 0, int cantidad = 0, float precio = 0);
 
@@ -26,4 +19,12 @@ public:
     void setPrecio(float precio);
 
     void mostrar();
+
+private:
+    int _idDetalle;
+    int _idVenta;
+    int _idAutoparte;
+    int _cantidad;
+    float _precio;
+
 };

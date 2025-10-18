@@ -1,16 +1,10 @@
-#ifndef PERSONALMENU_H
-#define PERSONALMENU_H
+#pragma once
+#include "PersonalManager.h"
 
+class PersonalMenu {
+private:
+    PersonalManager _manager;
 
-class PersonalMenu
-{
-    public:
-        PersonalMenu();
-        virtual ~PersonalMenu();
-
-    protected:
-
-    private:
+public:
+    void mostrarMenu();
 };
-
-#endif // PERSONALMENU_H

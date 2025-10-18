@@ -27,7 +27,7 @@ public:
     void setIdPersonal(int idPersonal);
     int getIdPersonal();
 
-    // Otros métodos
+    // metodos
     void cargar();
     void mostrar();
     private:
