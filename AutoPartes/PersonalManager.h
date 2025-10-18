@@ -1,15 +1,13 @@
 #pragma once
+#include "PersonalArchivo.h"
 
+class PersonalManager {
+private:
+    PersonalArchivo _archivo;
 
-class PersonalManager
-{
-    public:
-        PersonalManager();
-        //virtual ~PersonalManager();
-
-    protected:
-
-    private:
+public:
+    void agregarPersonal();
+    void listarPersonal();
+    void buscarPorId();
+    void modificarTelefono();
 };
-
-
