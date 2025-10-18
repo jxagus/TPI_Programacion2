@@ -50,6 +50,10 @@
 		<Unit filename="DetalleVentaManager.h" />
 		<Unit filename="Personal.cpp" />
 		<Unit filename="Personal.h" />
+		<Unit filename="PersonalArchivo.cpp" />
+		<Unit filename="PersonalArchivo.h" />
+		<Unit filename="PersonalManager.cpp" />
+		<Unit filename="PersonalManager.h" />
 		<Unit filename="Venta.cpp" />
 		<Unit filename="Venta.h" />
 		<Unit filename="VentaArchivo.cpp" />

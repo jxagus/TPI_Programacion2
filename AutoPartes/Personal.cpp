@@ -1,88 +1,71 @@
-#include <iostream>
-#include <cstring>
 #include "Personal.h"
-
+#include <cstring>
+#include <iostream>
 using namespace std;
 
-
-
-Personal::Personal(){
-    strcpy (_Nombre,"vacio");
-    strcpy (_Apellido, "vacio");
-    strcpy (_Rol, "vacio");
-    strcpy (_Telefono,"00000");
-    strcpy (_Mail, "vacio");
-    _DNI = 0;
+Personal::Personal() {
     _id = 0;
+    _dni = 0;
+    strcpy(_nombre, "");
+    strcpy(_apellido, "");
+    strcpy(_rol, "");
+    strcpy(_telefono, "");
+    strcpy(_mail, "");
 }
 
-Personal::Personal (string Nombre, string Apellido, string Rol, string Telefono, string Mail, int DNI, int id){
-    strncpy (_Nombre, Nombre.c_str(),sizeof (_Nombre));
-    strncpy (_Apellido, Apellido.c_str(),sizeof (_Apellido));
-    strncpy (_Rol, Rol.c_str(),sizeof (_Rol));
-    strncpy (_Telefono, Telefono.c_str(),sizeof (_Telefono));
-    strncpy (_Mail, Mail.c_str(),sizeof (_Mail));
-    _DNI = DNI;
-    _id = id;
-}
-
-Personal::~Personal()
-{
-    //dtor
-}
-
-string Personal::getNombre (){
-    return _Nombre;
-}
-
-void Personal::setNombre (string Nombre){
-    strncpy (_Nombre,Nombre.c_str(), sizeof (_Nombre));
-}
-
-string Personal::getApellido () {
-    return _Apellido;
-}
-
-void Personal::setApellido (string Apellido) {
-    strncpy (_Apellido,Apellido.c_str(),sizeof (_Apellido));
-}
-
-string Personal::getRol (){
-    return _Rol;
-}
-
-void Personal::setRol (string Rol){
-    strncpy (_Rol, Rol.c_str(),sizeof (_Rol));
-}
-
-string Personal::getTelefono (){
-    return _Telefono;
-}
-
-void Personal::setTelefono (string Telefono){
-    strncpy (_Telefono, Telefono.c_str(),sizeof (_Telefono));
-}
-
-string Personal::getMail (){
-    return _Mail;
-}
-
-void Personal::setMail (string Mail){
-    strncpy (_Mail, Mail.c_str(),sizeof (_Mail));
-}
-
-int Personal::getDNI (){
-    return _DNI;
-}
-
-void Personal::setDNI (int DNI){
-    _DNI = DNI;
-}
-
-int Personal::getID (){
+// Getters
+int Personal::getId(){
     return _id;
+    }
+char* Personal::getNombre(){
+    return _nombre;
+    }
+char* Personal::getApellido(){
+    return _apellido;
+    }
+int Personal::getDni(){
+    return _dni;
 }
+char* Personal::getRol(){
+    return _rol;
+    }
+char* Personal::getTelefono(){
+    return _telefono;
+    }
+char* Personal::getMail(){
+    return _mail;
+    }
 
-void Personal::setID (int id){
+// Setters
+void Personal::setId(int id){
     _id = id;
+    }
+void Personal::setNombre(char* nombre){
+    strcpy(_nombre, nombre);
+    }
+void Personal::setApellido( char* apellido){
+    strcpy(_apellido, apellido);
+    }
+void Personal::setDni(int dni){
+     _dni = dni;
+     }
+void Personal::setRol( char* rol){
+    strcpy(_rol, rol);
+    }
+void Personal::setTelefono( char* telefono){
+    strcpy(_telefono, telefono);
+    }
+void Personal::setMail( char* mail){
+    strcpy(_mail, mail);
+    }
+
+// Mostrar
+void Personal::mostrar() const {
+    cout << "ID: " << _id << endl;
+    cout << "Nombre: " << _nombre << endl;
+    cout << "Apellido: " << _apellido << endl;
+    cout << "DNI: " << _dni << endl;
+    cout << "Rol: " << _rol << endl;
+    cout << "Telefono: " << _telefono << endl;
+    cout << "Mail: " << _mail << endl;
 }
