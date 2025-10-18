@@ -24,7 +24,7 @@ class Personal{
         void setID (int id);
 
     private:
-        char _Nombnre [20];
+        char _Nombre [20];
         char _Apellido [20];
         char _Rol [20];
         char _Telefono [15];

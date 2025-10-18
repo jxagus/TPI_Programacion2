@@ -14,21 +14,20 @@ Autoparte::Autoparte(){
 
 }
 
-/*Autoparte::Autoparte (string Nombre, int idAutoparte,int Tipo,int Stock,float precioUnitario){
-    strncpy (_nombre, Nombre.c_str, sizeof (_nombre));
+Autoparte::Autoparte (string Nombre, int idAutoparte,int Tipo,int Stock,float precioUnitario){
+    strncpy (_nombre, Nombre.c_str(), sizeof (_nombre));
     _idAutoparte = idAutoparte;
     _tipo = Tipo;
     _stock = Stock;
     _precioUnitario = precioUnitario;
 }
-*/
 string Autoparte::getNombre (){
     return _nombre;
 }
 
-/*void Autoparte::setNombre (string Nombre){
-    strncpy (_nombre, Nombre.c_str, sizeof (_nombre));
-}*/
+void Autoparte::setNombre (string Nombre){
+    strncpy (_nombre, Nombre.c_str(), sizeof (_nombre));
+}
 
 int Autoparte::getIDAutoparte (){
     return _idAutoparte;
@@ -51,7 +50,9 @@ void Autoparte::setStock(int Stock){
 float Autoparte::getPrecioUnitario(){
     return _precioUnitario;
 }
-/*void Autoparte::setPrecioUnitario(int precioUnitario){
+void Autoparte::setPrecioUnitario(float precioUnitario){
     _precioUnitario = precioUnitario;
 }
-*/
+
+
+

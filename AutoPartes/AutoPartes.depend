@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1758764292 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\main.cpp
+1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\main.cpp
 	<iostream>
+	"VentaMenu.h"
 
 1760727988 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\main.cpp
 	<iostream>
@@ -66,4 +67,86 @@
 1760737183 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\src\detalleventamanager.cpp
 	"DetalleVentaManager.h"
 	<iostream>
+
+1760744707 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autoparte.cpp
+	<iostream>
+	<cstring>
+	"Autoparte.h"
+
+1760744707 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autoparte.h
+
+1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventa.cpp
+	"DetalleVenta.h"
+	<iostream>
+
+1760742213 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventa.h
+	<iostream>
+
+1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventaarchivo.cpp
+	"DetalleVentaArchivo.h"
+
+1760742213 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventaarchivo.h
+	"DetalleVenta.h"
+	<iostream>
+	<cstdio>
+
+1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventamanager.cpp
+	"DetalleVentaManager.h"
+	<iostream>
+
+1760742213 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventamanager.h
+	"DetalleVentaArchivo.h"
+
+1760742213 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamenu.h
+	"VentaManager.h"
+
+1760742213 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamanager.h
+	"VentaArchivo.h"
+
+1760742213 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventaarchivo.h
+	"Venta.h"
+
+1760742213 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\venta.h
+	<iostream>
+
+1760743112 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\src\detalleventamanager.cpp
+	<iostream>
+
+1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\venta.cpp
+	"Venta.h"
+	<iostream>
+
+1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventaarchivo.cpp
+	"VentaArchivo.h"
+	<cstdio>
+
+1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamanager.cpp
+	"VentaManager.h"
+	<iostream>
+
+1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamenu.cpp
+	"VentaMenu.h"
+	<iostream>
+
+1760742548 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientes.cpp
+	<iostream>
+	<cstring>
+	"Clientes.h"
+
+1760742377 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientes.h
+
+1760742704 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personal.cpp
+	<iostream>
+	<cstring>
+	"Personal.h"
+
+1760742681 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personal.h
+
+1760747754 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoautoparte.cpp
+	<iostream>
+	"Autoparte.h"
+	"ArchivoAutoparte.h"
+
+1760747735 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoautoparte.h
+	"Autoparte.h"
 

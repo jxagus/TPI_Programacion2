@@ -7,7 +7,7 @@ using namespace std;
 
 
 Personal::Personal(){
-    strcpy (_Nombnre,"vacio");
+    strcpy (_Nombre,"vacio");
     strcpy (_Apellido, "vacio");
     strcpy (_Rol, "vacio");
     strcpy (_Telefono,"00000");
@@ -16,8 +16,8 @@ Personal::Personal(){
     _id = 0;
 }
 
-Personal::Personal (std::string Nombre, std::string Apellido, std::string Rol, std::string Telefono, std::string Mail, int DNI, int id){
-    strncpy (_Nombnre, Nombre.c_str(),sizeof (_Nombre));
+Personal::Personal (string Nombre, sstring Apellido, string Rol, string Telefono, string Mail, int DNI, int id){
+    strncpy (_Nombre, Nombre.c_str(),sizeof (_Nombre));
     strncpy (_Apellido, Apellido.c_str(),sizeof (_Apellido));
     strncpy (_Rol, Rol.c_str(),sizeof (_Rol));
     strncpy (_Telefono, Telefono.c_str(),sizeof (_Telefono));

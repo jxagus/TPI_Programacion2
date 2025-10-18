@@ -1,4 +1,4 @@
-#include "DetalleVentaManager.h"
+/*#include "DetalleVentaManager.h"
 #include <iostream>
 using namespace std;
 
@@ -38,4 +38,4 @@ void DetalleVentaManager::listarPorIdVenta(int idVenta) {
 
 float DetalleVentaManager::calcularTotalPorVenta(int idVenta) {
 
-}
+}*/

@@ -4,7 +4,7 @@ using namespace std;
 class Clientes{
     public:
         Clientes();
-        Clientes (int idCliente, int Telefono, string Nombre,string Cuit,string Direccion,string Mail);
+        Clientes (int idCliente, int Telefono, string Nombre,string Cuit,string Categoria, string Direccion,string Mail);
         virtual ~Clientes();
 
         string getNombre();
