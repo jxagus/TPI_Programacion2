@@ -1,18 +1,11 @@
 #include <iostream>
-using namespace std;
-
-int main(){
-
-     return 0;
-}
 #include "PersonalArchivo.h"
+using namespace std;
 
 PersonalArchivo::PersonalArchivo()
 {
-    //ctor
 }
 
 PersonalArchivo::~PersonalArchivo()
 {
-    //dtor
 }

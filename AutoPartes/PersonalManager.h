@@ -1,16 +1,15 @@
-#ifndef PERSONALMANAGER_H
-#define PERSONALMANAGER_H
+#pragma once
 
 
 class PersonalManager
 {
     public:
         PersonalManager();
-        virtual ~PersonalManager();
+        //virtual ~PersonalManager();
 
     protected:
 
     private:
 };
 
-#endif // PERSONALMANAGER_H
+

@@ -1,7 +1,4 @@
-#ifndef PERSONALARCHIVO_H
-#define PERSONALARCHIVO_H
-
-
+#pragma once
 class PersonalArchivo
 {
     public:
@@ -13,4 +10,3 @@ class PersonalArchivo
     private:
 };
 
-#endif // PERSONALARCHIVO_H
