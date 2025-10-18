@@ -4,7 +4,8 @@
 
 using namespace std;
 
-//ArchivoAutoparte::ArchivoAutoparte(std::string _nombreArchivo = "Autoparte.dat"){
 
-//}
+ArchivoAutoparte::ArchivoAutoparte(string NombreArchivo):_nombreArchivo(NombreArchivo){
+
+}
 

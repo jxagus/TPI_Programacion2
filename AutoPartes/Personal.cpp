@@ -16,7 +16,7 @@ Personal::Personal(){
     _id = 0;
 }
 
-Personal::Personal (string Nombre, sstring Apellido, string Rol, string Telefono, string Mail, int DNI, int id){
+Personal::Personal (string Nombre, string Apellido, string Rol, string Telefono, string Mail, int DNI, int id){
     strncpy (_Nombre, Nombre.c_str(),sizeof (_Nombre));
     strncpy (_Apellido, Apellido.c_str(),sizeof (_Apellido));
     strncpy (_Rol, Rol.c_str(),sizeof (_Rol));

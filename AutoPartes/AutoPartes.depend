@@ -135,18 +135,18 @@
 
 1760742377 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientes.h
 
-1760742704 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personal.cpp
+1760752939 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personal.cpp
 	<iostream>
 	<cstring>
 	"Personal.h"
 
 1760742681 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personal.h
 
-1760747754 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoautoparte.cpp
+1760752921 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoautoparte.cpp
 	<iostream>
 	"Autoparte.h"
 	"ArchivoAutoparte.h"
 
-1760747735 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoautoparte.h
+1760752921 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoautoparte.h
 	"Autoparte.h"
 
