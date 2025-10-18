@@ -1,11 +1,11 @@
-#include <iostream>
 #include "PersonalArchivo.h"
+#include <cstdio>
+#include <iostream>
 using namespace std;
 
-PersonalArchivo::PersonalArchivo()
-{
+bool PersonalArchivo::guardar(const Personal& reg) {
+
 }
 
-PersonalArchivo::~PersonalArchivo()
-{
+bool PersonalArchivo::leer(Personal& reg, int pos) {
 }

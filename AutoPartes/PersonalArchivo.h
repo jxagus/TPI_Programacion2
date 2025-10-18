@@ -1,12 +1,15 @@
 #pragma once
-class PersonalArchivo
-{
-    public:
-        PersonalArchivo();
-        virtual ~PersonalArchivo();
+#include "Personal.h"
 
-    protected:
+class PersonalArchivo {
+private:
+    const char* _nombreArchivo = "personal.dat";
 
-    private:
+public:
+    bool guardar(const Personal& reg);
+    bool leer(Personal& reg, int pos);
+    int contarRegistros();
+    bool modificar(const Personal& reg, int pos);
+    Personal leerPorId(int id);
+    void listarTodos();
 };
-
