@@ -26,10 +26,6 @@ Personal::Personal (string Nombre, string Apellido, string Rol, string Telefono,
     _id = id;
 }
 
-Personal::~Personal()
-{
-    //dtor
-}
 
 string Personal::getNombre (){
     return _Nombre;

@@ -38,6 +38,10 @@
 		</Compiler>
 		<Unit filename="ArchivoAutoparte.cpp" />
 		<Unit filename="ArchivoAutoparte.h" />
+		<Unit filename="ArchivoClientes.cpp" />
+		<Unit filename="ArchivoClientes.h" />
+		<Unit filename="ArchivoPersonal.cpp" />
+		<Unit filename="ArchivoPersonal.h" />
 		<Unit filename="Autoparte.cpp" />
 		<Unit filename="Autoparte.h" />
 		<Unit filename="Clientes.cpp" />
@@ -48,16 +52,24 @@
 		<Unit filename="DetalleVentaArchivo.h" />
 		<Unit filename="DetalleVentaManager.cpp" />
 		<Unit filename="DetalleVentaManager.h" />
+		<Unit filename="ManagerAutoparte.cpp" />
+		<Unit filename="ManagerAutoparte.h" />
+		<Unit filename="ManagerCliente.cpp" />
+		<Unit filename="ManagerCliente.h" />
+		<Unit filename="ManagerPersonal.cpp" />
+		<Unit filename="ManagerPersonal.h" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
 		<Unit filename="Personal.cpp" />
 		<Unit filename="Personal.h" />
+		<Unit filename="SubMenu.cpp" />
+		<Unit filename="SubMenu.h" />
 		<Unit filename="Venta.cpp" />
 		<Unit filename="Venta.h" />
 		<Unit filename="VentaArchivo.cpp" />
 		<Unit filename="VentaArchivo.h" />
 		<Unit filename="VentaManager.cpp" />
 		<Unit filename="VentaManager.h" />
-		<Unit filename="VentaMenu.cpp" />
-		<Unit filename="VentaMenu.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>

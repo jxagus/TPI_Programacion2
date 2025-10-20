@@ -1,8 +1,15 @@
-#include "VentaMenu.h"
 #include <iostream>
+#include "SubMenu.h"
+
+
+
 using namespace std;
 
-void VentaMenu::mostrarOpciones() {
+
+SubMenu::SubMenu(){
+}
+
+void SubMenu::VentaMenuMostrar() {
     cout << "======== MENU VENTAS ========\n";
     cout << "1. Agregar venta\n";
     cout << "2. Listar ventas\n";
@@ -10,20 +17,21 @@ void VentaMenu::mostrarOpciones() {
     cout << "0. Volver\n";
 }
 
-void VentaMenu::ejecutar() {
+void SubMenu::VentaMenuEjecutar() {
     int opcion;
     do {
-        mostrarOpciones();
+        VentaMenuMostrar();
         cout << "Seleccione una opcion: ";
         cin >> opcion;
         system("cls");
         switch (opcion) {
-            case 1: _manager.agregarVenta(); break;
-            case 2: _manager.listarVentas(); break;
-            case 3: _manager.buscarVentaPorID(); break;
+            case 1: _managerVenta.agregarVenta(); break;
+            case 2: _managerVenta.listarVentas(); break;
+            case 3: _managerVenta.buscarVentaPorID(); break;
             case 0: break;
             default: cout << "Opcion invalida.\n";
         }
         cout << endl;
     } while (opcion != 0);
 }
+

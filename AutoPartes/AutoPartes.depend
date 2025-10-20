@@ -1,7 +1,7 @@
 # depslib dependency file v1.0
-1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\main.cpp
+1760907911 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\main.cpp
 	<iostream>
-	"VentaMenu.h"
+	"Menu.h"
 
 1760727988 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\main.cpp
 	<iostream>
@@ -73,7 +73,7 @@
 	<cstring>
 	"Autoparte.h"
 
-1760744707 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autoparte.h
+1760848035 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autoparte.h
 
 1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventa.cpp
 	"DetalleVenta.h"
@@ -142,11 +142,72 @@
 
 1760742681 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personal.h
 
-1760752921 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoautoparte.cpp
+1760906688 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoautoparte.cpp
 	<iostream>
+	<cstring>
 	"Autoparte.h"
 	"ArchivoAutoparte.h"
 
-1760752921 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoautoparte.h
+1760849536 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoautoparte.h
 	"Autoparte.h"
+
+1760906688 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoclientes.cpp
+	<iostream>
+	<cstring>
+	"ArchivoClientes.h"
+
+1760902541 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoclientes.h
+	"Clientes.h"
+
+1760833307 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managerautoparte.cpp
+	<iostream>
+	<cstring>
+	"ManagerAutoparte.h"
+	"Autoparte.h"
+	"ArchivoAutoparte.h"
+
+1760829724 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managerautoparte.h
+	"ArchivoAutoparte.h"
+	"Autoparte.h"
+
+1760849743 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivopersonal.cpp
+	<iostream>
+	"ArchivoPersonal.h"
+
+1760849536 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivopersonal.h
+	"Personal.h"
+
+1760899456 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managercliente.cpp
+	<iostream>
+	"ManagerCliente.h"
+
+1760899456 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managercliente.h
+	"Clientes.h"
+	"ArchivoClientes.h"
+
+1760901710 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managerpersonal.cpp
+	<iostream>
+	"ManagerPersonal.h"
+
+1760901710 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managerpersonal.h
+	"Personal.h"
+	"ArchivoPersonal.h"
+
+1760908014 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\submenu.cpp
+	<iostream>
+	"SubMenu.h"
+
+1760908002 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\submenu.h
+	"ManagerAutoparte.h"
+	"ManagerCliente.h"
+	"ManagerPersonal.h"
+	"DetalleVentaManager.h"
+	"VentaManager.h"
+
+1760907776 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\menu.cpp
+	<iostream>
+	"Menu.h"
+
+1760908002 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\menu.h
+	"SubMenu.h"
 
