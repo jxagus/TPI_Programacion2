@@ -26,9 +26,6 @@ Clientes::Clientes (int idCliente, int Telefono, string Nombre,string Cuit, stri
     _telefono = Telefono;
 }
 
-Clientes::~Clientes(){
-    //dtor
-}
 
 void Clientes::setNombre (string Nombre){
     strncpy (_nombre ,Nombre .c_str (),sizeof (_nombre));

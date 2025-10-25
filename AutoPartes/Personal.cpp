@@ -36,8 +36,61 @@ void Personal::setMail(string& mail){
     _mail = mail;
     }
 
+<<<<<<< HEAD
 // Getters
 int Personal::getId(){
+=======
+
+string Personal::getNombre (){
+    return _Nombre;
+}
+
+void Personal::setNombre (string Nombre){
+    strncpy (_Nombre,Nombre.c_str(), sizeof (_Nombre));
+}
+
+string Personal::getApellido () {
+    return _Apellido;
+}
+
+void Personal::setApellido (string Apellido) {
+    strncpy (_Apellido,Apellido.c_str(),sizeof (_Apellido));
+}
+
+string Personal::getRol (){
+    return _Rol;
+}
+
+void Personal::setRol (string Rol){
+    strncpy (_Rol, Rol.c_str(),sizeof (_Rol));
+}
+
+string Personal::getTelefono (){
+    return _Telefono;
+}
+
+void Personal::setTelefono (string Telefono){
+    strncpy (_Telefono, Telefono.c_str(),sizeof (_Telefono));
+}
+
+string Personal::getMail (){
+    return _Mail;
+}
+
+void Personal::setMail (string Mail){
+    strncpy (_Mail, Mail.c_str(),sizeof (_Mail));
+}
+
+int Personal::getDNI (){
+    return _DNI;
+}
+
+void Personal::setDNI (int DNI){
+    _DNI = DNI;
+}
+
+int Personal::getID (){
+>>>>>>> 5cc2d0789bf6bf52d22724078283e9bddf6b4d4b
     return _id;
     }
 string Personal::getNombre(){

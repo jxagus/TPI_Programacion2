@@ -5,7 +5,6 @@ class Personal{
     public:
         Personal();
         Personal (string Nombre, string Apellido, string Rol, string Telefono, string Mail, int DNI, int id);
-        virtual ~Personal();
 
         string getNombre ();
         string getApellido ();
