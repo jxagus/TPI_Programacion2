@@ -183,7 +183,7 @@
 	"Clientes.h"
 	"ArchivoClientes.h"
 
-1761435704 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managerpersonal.cpp
+1761436985 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managerpersonal.cpp
 	<iostream>
 	"ManagerPersonal.h"
 
@@ -191,11 +191,11 @@
 	"Personal.h"
 	"ArchivoPersonal.h"
 
-1761423554 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\submenu.cpp
+1761441149 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\submenu.cpp
 	<iostream>
 	"SubMenu.h"
 
-1760908002 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\submenu.h
+1761441281 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\submenu.h
 	"ManagerAutoparte.h"
 	"ManagerCliente.h"
 	"ManagerPersonal.h"
@@ -208,4 +208,139 @@
 
 1760908002 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\menu.h
 	"SubMenu.h"
+
+1760906688 source:c:\users\user\desktop\copia local tpi\archivoautoparte.cpp
+	<iostream>
+	<cstring>
+	"Autoparte.h"
+	"ArchivoAutoparte.h"
+
+1760848035 c:\users\user\desktop\copia local tpi\autoparte.h
+
+1760849536 c:\users\user\desktop\copia local tpi\archivoautoparte.h
+	"Autoparte.h"
+
+1761425790 source:c:\users\user\desktop\copia local tpi\archivoclientes.cpp
+	<iostream>
+	<cstring>
+	"ArchivoClientes.h"
+
+1761425790 c:\users\user\desktop\copia local tpi\archivoclientes.h
+	"Clientes.h"
+
+1760909219 c:\users\user\desktop\copia local tpi\clientes.h
+
+1761435744 source:c:\users\user\desktop\copia local tpi\archivopersonal.cpp
+	<iostream>
+	"ArchivoPersonal.h"
+
+1761435744 c:\users\user\desktop\copia local tpi\archivopersonal.h
+	"Personal.h"
+
+1760909219 c:\users\user\desktop\copia local tpi\personal.h
+
+1760744707 source:c:\users\user\desktop\copia local tpi\autoparte.cpp
+	<iostream>
+	<cstring>
+	"Autoparte.h"
+
+1760909233 source:c:\users\user\desktop\copia local tpi\clientes.cpp
+	<iostream>
+	<cstring>
+	"Clientes.h"
+
+1760742213 source:c:\users\user\desktop\copia local tpi\detalleventa.cpp
+	"DetalleVenta.h"
+	<iostream>
+
+1760742213 c:\users\user\desktop\copia local tpi\detalleventa.h
+	<iostream>
+
+1760742213 source:c:\users\user\desktop\copia local tpi\detalleventaarchivo.cpp
+	"DetalleVentaArchivo.h"
+
+1760742213 c:\users\user\desktop\copia local tpi\detalleventaarchivo.h
+	"DetalleVenta.h"
+	<iostream>
+	<cstdio>
+
+1760742213 source:c:\users\user\desktop\copia local tpi\detalleventamanager.cpp
+	"DetalleVentaManager.h"
+	<iostream>
+
+1760742213 c:\users\user\desktop\copia local tpi\detalleventamanager.h
+	"DetalleVentaArchivo.h"
+
+1760907911 source:c:\users\user\desktop\copia local tpi\main.cpp
+	<iostream>
+	"Menu.h"
+
+1760908002 c:\users\user\desktop\copia local tpi\menu.h
+	"SubMenu.h"
+
+1760908002 c:\users\user\desktop\copia local tpi\submenu.h
+	"ManagerAutoparte.h"
+	"ManagerCliente.h"
+	"ManagerPersonal.h"
+	"DetalleVentaManager.h"
+	"VentaManager.h"
+
+1761422878 c:\users\user\desktop\copia local tpi\managerautoparte.h
+	"ArchivoAutoparte.h"
+	"Autoparte.h"
+
+1761426251 c:\users\user\desktop\copia local tpi\managercliente.h
+	"Clientes.h"
+	"ArchivoClientes.h"
+
+1761436271 c:\users\user\desktop\copia local tpi\managerpersonal.h
+	"Personal.h"
+	"ArchivoPersonal.h"
+
+1760742213 c:\users\user\desktop\copia local tpi\ventamanager.h
+	"VentaArchivo.h"
+
+1760742213 c:\users\user\desktop\copia local tpi\ventaarchivo.h
+	"Venta.h"
+
+1760742213 c:\users\user\desktop\copia local tpi\venta.h
+	<iostream>
+
+1761435698 source:c:\users\user\desktop\copia local tpi\managerautoparte.cpp
+	<iostream>
+	<cstring>
+	"ManagerAutoparte.h"
+
+1761435698 source:c:\users\user\desktop\copia local tpi\managercliente.cpp
+	<iostream>
+	"ManagerCliente.h"
+
+1761436985 source:c:\users\user\desktop\copia local tpi\managerpersonal.cpp
+	<iostream>
+	"ManagerPersonal.h"
+
+1760907776 source:c:\users\user\desktop\copia local tpi\menu.cpp
+	<iostream>
+	"Menu.h"
+
+1760909233 source:c:\users\user\desktop\copia local tpi\personal.cpp
+	<iostream>
+	<cstring>
+	"Personal.h"
+
+1761423554 source:c:\users\user\desktop\copia local tpi\submenu.cpp
+	<iostream>
+	"SubMenu.h"
+
+1760742213 source:c:\users\user\desktop\copia local tpi\venta.cpp
+	"Venta.h"
+	<iostream>
+
+1760742213 source:c:\users\user\desktop\copia local tpi\ventaarchivo.cpp
+	"VentaArchivo.h"
+	<cstdio>
+
+1760742213 source:c:\users\user\desktop\copia local tpi\ventamanager.cpp
+	"VentaManager.h"
+	<iostream>
 

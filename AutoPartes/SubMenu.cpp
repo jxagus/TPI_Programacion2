@@ -4,16 +4,17 @@
 
 
 using namespace std;
-
+//menu llama a...
 
 SubMenu::SubMenu(){
 }
 
 void SubMenu::VentaMenuMostrar() {
     cout << "======== MENU VENTAS ========\n";
-    cout << "1. Agregar venta\n";
-    cout << "2. Listar ventas\n";
-    cout << "3. Buscar venta por ID\n";
+    cout << "1. Agregar venta\n"; //
+    cout << "2. Listar ventas\n"; //1. listado
+    cout << "3. Buscar venta por ID\n";//2. consultas
+    cout << "4. ordenar por ID/fecha/ "; //3consulta
     cout << "0. Volver\n";
 }
 
@@ -38,9 +39,9 @@ void SubMenu::VentaMenuEjecutar() {
 void SubMenu::AutoparteMenuMostrar () {
     cout << "======== MENU AUTOPARTES ========\n";
     cout << "1. Agregar Autoparte\n";
-    cout << "2. Stock on hand\n";
-    cout << "3. Buscar Autoparte por ID\n";
-    cout << "4. Reposicion de stock\n";
+    cout << "2. Stock on hand\n"; //consulta
+    cout << "3. Buscar Autoparte por ID\n"; //consulta
+    cout << "4. Reposicion de stock\n"; //listado
     cout << "0. Volver\n";
 }
 

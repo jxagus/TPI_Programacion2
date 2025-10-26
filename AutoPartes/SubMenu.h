@@ -18,14 +18,14 @@ class SubMenu
         void ClientesMenuMostrar();
         void ClientesMenuEjecutar();
 
-        void PersonalMenuMostrar();
-        void PersonalMenuEjecutar();
+        void PersonalMenuMostrar();  // faltantes de menu
+        void PersonalMenuEjecutar(); // faltantes de menu
 
-        void VentaMenuMostrar();
-        void VentaMenuEjecutar();
+        void VentaMenuMostrar();// faltantes de menu
+        void VentaMenuEjecutar(); // faltantes de menu
 
-        void DetalleVentaMenuMostrar();
-        void DetalleVentaMenuEjecutar();
+        void DetalleVentaMenuMostrar(); // faltantes de menu
+        void DetalleVentaMenuEjecutar();  // faltantes de menu
 
 
     private:
