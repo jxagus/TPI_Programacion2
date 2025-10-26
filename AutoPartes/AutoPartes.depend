@@ -128,19 +128,19 @@
 	"VentaMenu.h"
 	<iostream>
 
-1760742548 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientes.cpp
+1760909233 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientes.cpp
 	<iostream>
 	<cstring>
 	"Clientes.h"
 
-1760742377 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientes.h
+1760909219 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientes.h
 
-1760752939 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personal.cpp
+1760909233 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personal.cpp
 	<iostream>
 	<cstring>
 	"Personal.h"
 
-1760742681 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personal.h
+1760909219 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personal.h
 
 1760906688 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoautoparte.cpp
 	<iostream>
@@ -151,49 +151,47 @@
 1760849536 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoautoparte.h
 	"Autoparte.h"
 
-1760906688 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoclientes.cpp
+1761425790 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoclientes.cpp
 	<iostream>
 	<cstring>
 	"ArchivoClientes.h"
 
-1760902541 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoclientes.h
+1761425790 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivoclientes.h
 	"Clientes.h"
 
-1760833307 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managerautoparte.cpp
+1761435698 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managerautoparte.cpp
 	<iostream>
 	<cstring>
 	"ManagerAutoparte.h"
-	"Autoparte.h"
-	"ArchivoAutoparte.h"
 
-1760829724 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managerautoparte.h
+1761422878 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managerautoparte.h
 	"ArchivoAutoparte.h"
 	"Autoparte.h"
 
-1760849743 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivopersonal.cpp
+1761435744 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivopersonal.cpp
 	<iostream>
 	"ArchivoPersonal.h"
 
-1760849536 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivopersonal.h
+1761435744 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\archivopersonal.h
 	"Personal.h"
 
-1760899456 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managercliente.cpp
+1761435698 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managercliente.cpp
 	<iostream>
 	"ManagerCliente.h"
 
-1760899456 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managercliente.h
+1761426251 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managercliente.h
 	"Clientes.h"
 	"ArchivoClientes.h"
 
-1760901710 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managerpersonal.cpp
+1761435704 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managerpersonal.cpp
 	<iostream>
 	"ManagerPersonal.h"
 
-1760901710 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managerpersonal.h
+1761436271 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\managerpersonal.h
 	"Personal.h"
 	"ArchivoPersonal.h"
 
-1760908014 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\submenu.cpp
+1761423554 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\submenu.cpp
 	<iostream>
 	"SubMenu.h"
 

@@ -1,8 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include "ManagerAutoparte.h"
-#include "Autoparte.h"
-#include "ArchivoAutoparte.h"
+
 
 using namespace std;
 
@@ -28,17 +27,15 @@ void ManagerAutoparte::cargarAutoparte(){
     pos = _repor.buscarID(id);
 
     while (true) {
-        cout << "Ingrese ID: " << endl;
-        cin >> id;
-
-        pos = _repor.buscarID(id);
-
         if (pos == -1) {
             break;
         } else {
             cout << "ID ingresado ya está en uso. Intente nuevamente..." << endl;
         }
     }
+
+    cout << "Ingresar Nombre del Autoparte: " << endl;
+    cin >> nombre;
     cout << "Ingresar tipo: " << endl;
     cout << "1 = motor " << endl;
     cout << "2 = Tren Delantero "  << endl;
@@ -97,6 +94,36 @@ void ManagerAutoparte::mostrarAutoparte (Autoparte autoparte){
     cout << "Nombre: " <<_autoparte.getNombre() << endl;
     cout << "Tipo: " <<_autoparte.getTipo () << endl;
     cout << "Precio Unitario" <<_autoparte.getPrecioUnitario() << endl;
+}
+void ManagerAutoparte::listar(){
+    int cant = _repor.getCantidadRegistros();
+    if (cant == 0) {
+        cout << "No hay ventas registradas.\n";
+        return;
+    }
+
+    Autoparte *vec = new Autoparte[cant];
+    _repor.leerTodos(vec, cant);
+    for (int i = 0; i < cant; i++) {
+        mostrarAutoparte(vec[i]);
+    }
+
+    delete[] vec;
+}
+
+void ManagerAutoparte::BuscarPorID() {
+    int id;
+    cout << "Ingrese ID de venta a buscar: ";
+    cin >> id;
+
+    int pos = _repor.buscarID(id);
+    if (pos == -1) {
+        cout << "No se encontro el autoparte\n";
+        return;
+    }
+    _autoparte = _repor.leer(pos);
+
+    mostrarAutoparte(_autoparte);
 }
 
 

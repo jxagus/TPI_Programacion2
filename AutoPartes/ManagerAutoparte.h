@@ -11,7 +11,7 @@ class ManagerAutoparte{
         void cargarStock ();
         void mostrarAutoparte (Autoparte autoparte);
         void listar ();
-        void listarOrdenadoID ();
+        void BuscarPorID ();
 
     private:
         ArchivoAutoparte _repor;

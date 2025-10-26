@@ -13,7 +13,7 @@ class ManagerPersonal
         void cargarPersonal ();
         void mostrarPersonal (Personal personal);
         void listar ();
-        void listarOrdenadoID ();
+        void buscarID ();
         void eliminarPersonal ();
 
 

@@ -13,7 +13,7 @@ class ManagerCliente
         void cargarCliente ();
         void mostrarCliente (Clientes clientes);
         void listar ();
-        void listarOrdenadoID ();
+        void BuscarID ();
 
 
     private:
