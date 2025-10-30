@@ -6,10 +6,12 @@ class Menu
 {
     public:
         Menu();
+        void run();
 
     protected:
-        void MenuMostrar();
-        void MenuEjecutar();
+        void mostrarOpciones();
+        int seleccionOpcion();
+        void ejecutarOpcion(int opcion);
 
     private:
         int _cantidadOpciones;
