@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Menu.h"
+#include "SubMenu.h"
 
 using namespace std;
 
@@ -52,7 +53,7 @@ void Menu::ejecutarOpcion(int opcion){
     //_tareaMenu.mostrar();
   break;
   case 2:
-    //_personalMenu.mostrar();
+        //personalMenuMostrar;
     break;
   case 3:
     //_reporteMenu.mostrar();
