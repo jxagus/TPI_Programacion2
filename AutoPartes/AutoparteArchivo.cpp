@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include "Autoparte.h"
-#include "ArchivoAutoparte.h"
+#include "AutoparteArchivo.h"
 
 using namespace std;
 

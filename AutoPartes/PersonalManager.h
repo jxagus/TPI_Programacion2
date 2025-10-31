@@ -1,6 +1,6 @@
 #pragma once
 #include "Personal.h"
-#include "ArchivoPersonal.h"
+#include "PersonalArchivo.h"
 
 using namespace std;
 

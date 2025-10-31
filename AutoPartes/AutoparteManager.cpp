@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstring>
-#include "ManagerAutoparte.h"
+#include "AutoparteManager.h"
 
 
 using namespace std;

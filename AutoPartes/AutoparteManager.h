@@ -1,5 +1,5 @@
 #pragma once
-#include "ArchivoAutoparte.h"
+#include "AutoparteArchivo.h"
 #include "Autoparte.h"
 
 

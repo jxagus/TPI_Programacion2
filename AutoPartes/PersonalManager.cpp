@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ManagerPersonal.h"
+#include "PersonalManager.h"
 
 
 using namespace std;

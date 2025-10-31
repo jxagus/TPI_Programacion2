@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ArchivoPersonal.h"
+#include "PersonalArchivo.h"
 
 using namespace std;
 

@@ -1,11 +1,6 @@
 #include <iostream>
-using namespace std;
-
-int main(){
-
-     return 0;
-}
 #include "ClientesMenu.h"
+using namespace std;
 
 ClientesMenu::ClientesMenu()
 {
