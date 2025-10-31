@@ -1,10 +1,4 @@
-#pragma once
-#include "ManagerAutoparte.h"
-#include "ManagerCliente.h"
-#include "ManagerPersonal.h"
-#include "DetalleVentaManager.h"
-#include "VentaManager.h"
-
+/*
 class SubMenu
 {
     public:
@@ -29,13 +23,14 @@ class SubMenu
 
 
     private:
+
         int _cantidadOpciones;
         ManagerAutoparte _managerAutoparte;
         ManagerCliente _managerCliente;
         ManagerPersonal _managerPersonal;
         VentaManager _managerVenta;
         DetalleVenta _managerDetalleVenta;
-
 };
+        */
 
 
