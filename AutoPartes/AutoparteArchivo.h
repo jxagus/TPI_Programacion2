@@ -4,9 +4,9 @@
 using namespace std;
 
 
-class ArchivoAutoparte{
+class AutoparteArchivo{
     public:
-        ArchivoAutoparte(string _nombreArchivo = "Autoparte.dat");
+        AutoparteArchivo(string _nombreArchivo = "Autoparte.dat");
 
         bool guardarAutoparte(Autoparte registro);
         bool ModificarAutoparte(int pos, Autoparte modificar);

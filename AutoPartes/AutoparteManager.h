@@ -3,10 +3,9 @@
 #include "Autoparte.h"
 
 
-class ManagerAutoparte{
+class AutoparteManager{
     public:
-        ManagerAutoparte();
-
+        AutoparteManager();
         void cargarAutoparte ();
         void cargarStock ();
         void mostrarAutoparte (Autoparte autoparte);
@@ -14,7 +13,7 @@ class ManagerAutoparte{
         void BuscarPorID ();
 
     private:
-        ArchivoAutoparte _repor;
+        AutoparteArchivo _repor;
         Autoparte _autoparte;
 };
 

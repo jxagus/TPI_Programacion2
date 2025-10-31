@@ -13,6 +13,6 @@ class PersonalMenu
     void ejecutarOpcion(int opcion);
 
   private:
-  PersonalManager _personalManager;
+//  PersonalManager _personalManager;
   int _cantidadOpciones;
 };

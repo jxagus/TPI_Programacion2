@@ -7,11 +7,11 @@ using namespace std;
 
 
 
-ManagerAutoparte::ManagerAutoparte(){
+AutoparteManager::AutoparteManager(){
 
 }
 
-void ManagerAutoparte::cargarAutoparte(){
+void AutoparteManager::cargarAutoparte(){
     int id, tipo, pos;
     float precioUnitario;
     string nombre;
@@ -64,7 +64,7 @@ void ManagerAutoparte::cargarAutoparte(){
 
 }
 
-void ManagerAutoparte::cargarStock (){
+void AutoparteManager::cargarStock (){
    int stockActual = _autoparte.getStock();
 
     if (stockActual != 0) {
@@ -89,13 +89,13 @@ void ManagerAutoparte::cargarStock (){
     }
 }
 
-void ManagerAutoparte::mostrarAutoparte (Autoparte autoparte){
+void AutoparteManager::mostrarAutoparte (Autoparte autoparte){
     cout << "ID: " << _autoparte.getIDAutoparte() << endl;
     cout << "Nombre: " <<_autoparte.getNombre() << endl;
     cout << "Tipo: " <<_autoparte.getTipo () << endl;
     cout << "Precio Unitario" <<_autoparte.getPrecioUnitario() << endl;
 }
-void ManagerAutoparte::listar(){
+void AutoparteManager::listar(){
     int cant = _repor.getCantidadRegistros();
     if (cant == 0) {
         cout << "No hay ventas registradas.\n";
@@ -111,7 +111,7 @@ void ManagerAutoparte::listar(){
     delete[] vec;
 }
 
-void ManagerAutoparte::BuscarPorID() {
+void AutoparteManager::BuscarPorID() {
     int id;
     cout << "Ingrese ID de venta a buscar: ";
     cin >> id;

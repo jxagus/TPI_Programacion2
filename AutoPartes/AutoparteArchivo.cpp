@@ -6,11 +6,11 @@
 using namespace std;
 
 
-ArchivoAutoparte::ArchivoAutoparte(string NombreArchivo):_nombreArchivo(NombreArchivo){
+AutoparteArchivo::AutoparteArchivo(string NombreArchivo):_nombreArchivo(NombreArchivo){
 
 }
 
-bool ArchivoAutoparte::guardarAutoparte (Autoparte _registro){
+bool AutoparteArchivo::guardarAutoparte (Autoparte _registro){
     FILE *pfile;
     bool result;
 
@@ -27,7 +27,7 @@ bool ArchivoAutoparte::guardarAutoparte (Autoparte _registro){
     return result;
 }
 
-bool ArchivoAutoparte::ModificarAutoparte (int pos,Autoparte modificar){
+bool AutoparteArchivo::ModificarAutoparte (int pos,Autoparte modificar){
     FILE *pfile;
     bool result;
 
@@ -46,7 +46,7 @@ bool ArchivoAutoparte::ModificarAutoparte (int pos,Autoparte modificar){
     return result;
 }
 
-int ArchivoAutoparte::leerTodos (Autoparte autoparte[], int cantidad){
+int AutoparteArchivo::leerTodos (Autoparte autoparte[], int cantidad){
     FILE *pfile;
     int result;
 
@@ -63,7 +63,7 @@ int ArchivoAutoparte::leerTodos (Autoparte autoparte[], int cantidad){
     return result;
 }
 
-Autoparte ArchivoAutoparte::leer (int pos){
+Autoparte AutoparteArchivo::leer (int pos){
     FILE *pfile;
 
     pfile = fopen(_nombreArchivo.c_str(),"rb");
@@ -84,7 +84,7 @@ Autoparte ArchivoAutoparte::leer (int pos){
     return _registro;
 }
 
-int ArchivoAutoparte::getCantidadRegistros(){
+int AutoparteArchivo::getCantidadRegistros(){
     FILE *pfile;
     bool result;
     int cantidad;
@@ -104,7 +104,7 @@ int ArchivoAutoparte::getCantidadRegistros(){
     return cantidad;
 }
 
-int ArchivoAutoparte::getNuevoID(){
+int AutoparteArchivo::getNuevoID(){
 
     if (getCantidadRegistros()==0){
         return 1;
@@ -114,7 +114,7 @@ int ArchivoAutoparte::getNuevoID(){
 }
 
 
-int ArchivoAutoparte::buscarID (int id){
+int AutoparteArchivo::buscarID (int id){
     FILE *pfile;
     int pos = -1;
 

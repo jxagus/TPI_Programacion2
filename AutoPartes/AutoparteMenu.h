@@ -1,16 +1,7 @@
-#ifndef AUTOPARTEMENU_H
-#define AUTOPARTEMENU_H
+#pragma once
+#include "AutoparteManager.h"
 
-
-class AutoparteMenu
-{
-    public:
-        AutoparteMenu();
-        virtual ~AutoparteMenu();
-
-    protected:
-
-    private:
+class AutoparteMenu {
+public:
+    void mostrarMenu();
 };
-
-#endif // AUTOPARTEMENU_H

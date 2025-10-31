@@ -1,41 +1,56 @@
 #include <iostream>
+#include <cstdlib>
 #include "AutoparteMenu.h"
+
 using namespace std;
 
-
-void AutoparteMenuMostrar () {
-    cout << "======== MENU AUTOPARTES ========\n";
-    cout << "1. Agregar Autoparte\n";
-    cout << "2. Stock on hand\n"; //consulta
-    cout << "3. Buscar Autoparte por ID\n"; //consulta
-    cout << "4. Reposicion de stock\n"; //listado
-    cout << "0. Volver\n";
-}
-
-void AutoparteMenuEjecutar(){
+void AutoparteMenu::mostrarMenu() {
+    AutoparteManager manager;
     int opcion;
+
     do {
-        AutoparteMenuMostrar();
-        cout << "Seleccione una opcion: ";
+        system("cls"); // limpia pantalla (en Windows)
+        cout << "===== MENU DE AUTOPARTES =====" << endl;
+        cout << "1. Listar autopartes" << endl;
+        cout << "2. Buscar autoparte por ID" << endl;
+        cout << "3. Cargar nueva autoparte" << endl;
+        cout << "4. Cargar stock" << endl;
+        cout << "0. Volver al menu anterior" << endl;
+        cout << "-----------------------------" << endl;
+        cout << "Opcion: ";
         cin >> opcion;
+
+        // Evita que quede basura en el buffer
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
         system("cls");
+
         switch (opcion) {
             case 1:
-                _managerAutoparte.cargarAutoparte();
-                 break;
+                manager.listar();
+                break;
             case 2:
-                _managerAutoparte.listar();
+                manager.BuscarPorID();
                 break;
             case 3:
-                _managerAutoparte.BuscarPorID();
-            break;
-             case 4:
-                 _managerAutoparte.cargarStock();
-                 break;
-            case 0:
+                manager.cargarAutoparte();
                 break;
-            default: cout << "Opcion invalida.\n";
+            case 4:
+                manager.cargarStock();
+                break;
+            case 0:
+                cout << "Volviendo al menu principal..." << endl;
+                break;
+            default:
+                cout << "Opcion invalida. Intente nuevamente." << endl;
+                break;
         }
-        cout << endl;
+
+        if (opcion != 0) {
+            cout << endl;
+            system("pause"); // pausa hasta que el usuario presione una tecla
+        }
+
     } while (opcion != 0);
 }

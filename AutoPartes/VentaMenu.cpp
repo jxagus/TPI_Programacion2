@@ -2,7 +2,7 @@
 #include "VentaMenu.h"
 using namespace std;
 
-void SubMenu::VentaMenuMostrar() {
+void VentaMenuMostrar() {
     cout << "======== MENU VENTAS ========\n";
     cout << "1. Agregar venta\n"; //
     cout << "2. Listar ventas\n"; //1. listado
@@ -11,7 +11,7 @@ void SubMenu::VentaMenuMostrar() {
     cout << "0. Volver\n";
 }
 
-void SubMenu::VentaMenuEjecutar() {
+void VentaMenuEjecutar() {
     int opcion;
     do {
         VentaMenuMostrar();
