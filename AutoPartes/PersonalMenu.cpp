@@ -32,10 +32,10 @@ void PersonalMenuEjecutar(){
 void PersonalMenu::ejecutarOpcion(int opcion){
   switch(opcion){
   case 1:
-    _personalManager.cargar();
+ //   _personalManager.cargar();
   break;
   case 2:
-    _personalManager.mostrar();
+   // _personalManager.mostrar();
   break;
   case 3:
 

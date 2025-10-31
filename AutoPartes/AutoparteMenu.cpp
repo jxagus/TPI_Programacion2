@@ -22,7 +22,6 @@ void AutoparteMenu::mostrarMenu() {
 
         // Evita que quede basura en el buffer
         cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         system("cls");
 

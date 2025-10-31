@@ -1,16 +1,7 @@
-#ifndef VENTAMENU_H
-#define VENTAMENU_H
+#pragma once
+#include "VentaManager.h"
 
-
-class VentaMenu
-{
-    public:
-        VentaMenu();
-        virtual ~VentaMenu();
-
-    protected:
-
-    private:
+class VentaMenu {
+public:
+    void mostrarMenu();
 };
-
-#endif // VENTAMENU_H
