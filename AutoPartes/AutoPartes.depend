@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1760907911 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\main.cpp
+1762033809 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\main.cpp
 	<iostream>
 	"Menu.h"
 
@@ -74,7 +74,7 @@
 	<cstring>
 	"Autoparte.h"
 
-1760848035 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autoparte.h
+1762038872 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autoparte.h
 
 1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventa.cpp
 	"DetalleVenta.h"
@@ -98,7 +98,7 @@
 1760742213 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventamanager.h
 	"DetalleVentaArchivo.h"
 
-1760742213 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamenu.h
+1762033809 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamenu.h
 	"VentaManager.h"
 
 1760742213 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamanager.h
@@ -125,9 +125,10 @@
 	"VentaManager.h"
 	<iostream>
 
-1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamenu.cpp
-	"VentaMenu.h"
+1762033809 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamenu.cpp
 	<iostream>
+	<cstdlib>
+	"VentaMenu.h"
 
 1760909233 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientes.cpp
 	<iostream>
@@ -196,19 +197,17 @@
 	<iostream>
 	"SubMenu.h"
 
-1761441281 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\submenu.h
-	"ManagerAutoparte.h"
-	"ManagerCliente.h"
-	"ManagerPersonal.h"
-	"DetalleVentaManager.h"
-	"VentaManager.h"
+1762033809 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\submenu.h
 
-1760907776 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\menu.cpp
+1762040481 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\menu.cpp
 	<iostream>
 	"Menu.h"
 
-1760908002 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\menu.h
-	"SubMenu.h"
+1762040184 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\menu.h
+	"ClientesMenu.h"
+	"AutoparteMenu.h"
+	"PersonalMenu.h"
+	"VentaMenu.h"
 
 1760906688 source:c:\users\user\desktop\copia local tpi\archivoautoparte.cpp
 	<iostream>
@@ -490,4 +489,75 @@
 1761943431 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalmanager.h
 	"Personal.h"
 	"PersonalArchivo.h"
+
+1762033809 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartearchivo.cpp
+	<iostream>
+	<cstring>
+	"Autoparte.h"
+	"AutoparteArchivo.h"
+
+1762033809 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartearchivo.h
+	"Autoparte.h"
+
+1762041040 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartemanager.cpp
+	<iostream>
+	<cstring>
+	"AutoparteManager.h"
+
+1762033809 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartemanager.h
+	"AutoparteArchivo.h"
+	"Autoparte.h"
+
+1762033809 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartemenu.cpp
+	<iostream>
+	<cstdlib>
+	"AutoparteMenu.h"
+
+1762033809 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartemenu.h
+	"AutoparteManager.h"
+
+1762033809 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientesarchivo.cpp
+	<iostream>
+	<cstring>
+	"ClientesArchivo.h"
+
+1762033809 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientesarchivo.h
+	"Clientes.h"
+
+1762033809 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientesmanager.cpp
+	<iostream>
+	"ClienteManager.h"
+
+1762033809 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientemanager.h
+	"Clientes.h"
+	"ClientesArchivo.h"
+
+1762038108 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientesmenu.cpp
+	<iostream>
+	"ClientesMenu.h"
+
+1762038108 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientesmenu.h
+	"ClienteManager.h"
+
+1762033809 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personalarchivo.cpp
+	<iostream>
+	"PersonalArchivo.h"
+
+1762033809 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personalarchivo.h
+	"Personal.h"
+
+1762038872 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personalmanager.cpp
+	<iostream>
+	"PersonalManager.h"
+
+1762038872 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personalmanager.h
+	"Personal.h"
+	"PersonalArchivo.h"
+
+1762039723 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personalmenu.cpp
+	<iostream>
+	"PersonalMenu.h"
+
+1762039723 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personalmenu.h
+	"PersonalManager.h"
 

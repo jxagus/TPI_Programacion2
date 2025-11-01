@@ -4,10 +4,10 @@
 
 using namespace std;
 
-ManagerPersonal::ManagerPersonal(){
+PersonalManager::PersonalManager(){
 }
 
-void ManagerPersonal::cargarPersonal(){
+void PersonalManager::cargarPersonal(){
     int DNI, id, pos;
     string Nombre, Apellido, Rol, Telefono, Mail;
 
@@ -58,7 +58,7 @@ void ManagerPersonal::cargarPersonal(){
   }
 }
 
-void ManagerPersonal::mostrarPersonal(Personal personal){
+void PersonalManager::mostrarPersonal(Personal personal){
     cout <<"ID: "<< _personal.getID() <<endl;
     cout <<"Nombre: "<< _personal.getNombre() <<endl;
     cout <<"Apellido: "<<_personal.getApellido()  <<endl;
@@ -67,7 +67,7 @@ void ManagerPersonal::mostrarPersonal(Personal personal){
     cout <<"Mail: "<<_personal.getMail()<<endl;
 }
 
-void ManagerPersonal::listar(){
+void PersonalManager::listar(){
     int cant = _repor.getcantidadRegistros();
     if (cant == 0) {
         cout << "No hay ventas registradas.\n";
@@ -83,7 +83,7 @@ void ManagerPersonal::listar(){
     delete[] vec;
 }
 
-void ManagerPersonal::buscarID(){
+void PersonalManager::buscarID(){
     int id;
     cout << "Ingrese ID de venta a buscar: ";
     cin >> id;
@@ -98,7 +98,7 @@ void ManagerPersonal::buscarID(){
     mostrarPersonal(_personal);
 }
 
-void ManagerPersonal::eliminarPersonal(){
+void PersonalManager::eliminarPersonal(){
 
 }
 

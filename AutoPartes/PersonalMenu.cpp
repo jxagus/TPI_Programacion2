@@ -2,62 +2,54 @@
 #include "PersonalMenu.h"
 using namespace std;
 
-void PersonalMenuMostrar () {
-    cout << "======== MENU PERSONAL ========\n";
-    cout << "1. Agregar personal\n";
-    cout << "2. Listado del personal\n";
-    cout << "0. Volver\n";
+PersonalMenu::PersonalMenu(){
 }
-void PersonalMenuEjecutar(){
-    int opcion;
+
+void PersonalMenu::mostrarMenu() {
+   int opcion;
+
     do {
-        PersonalMenuMostrar();
-        cout << "Seleccione una opcion: ";
+        system("cls"); // limpia pantalla (en Windows)
+        cout << "===== MENU PERSONAL =====" << endl;
+        cout << "1. Listar personal" << endl;
+        cout << "2. Buscar personal por ID" << endl;
+        cout << "3. Cargar nuevo personal" << endl;
+        cout << "4. Eliminar personal" << endl;
+        cout << "0. Volver al menu anterior" << endl;
+        cout << "-----------------------------" << endl;
+        cout << "Opcion: ";
         cin >> opcion;
+
+        // Evita que quede basura en el buffer
+        cin.clear();
+
         system("cls");
+
         switch (opcion) {
             case 1:
-                //_managerAutoparte.cargarAutoparte();
-                 break;
+                _Manager.listar();
+                break;
             case 2:
-                //_managerAutoparte.listar();
+                _Manager.buscarID();
+                break;
+            case 3:
+                _Manager.cargarPersonal();
+                break;
+            case 4:
+                _Manager.eliminarPersonal();
                 break;
             case 0:
+                cout << "Volviendo al menu principal..." << endl;
                 break;
-            default: cout << "Opcion invalida.\n";
+            default:
+                cout << "Opcion invalida. Intente nuevamente." << endl;
+                break;
         }
-        cout << endl;
+
+        if (opcion != 0) {
+            cout << endl;
+            system("pause"); // pausa hasta que el usuario presione una tecla
+        }
+
     } while (opcion != 0);
-}
-void PersonalMenu::ejecutarOpcion(int opcion){
-  switch(opcion){
-  case 1:
- //   _personalManager.cargar();
-  break;
-  case 2:
-   // _personalManager.mostrar();
-  break;
-  case 3:
-
-  break;
-  case 4:
-
-  break;
-  }
-}
-
-
-int PersonalMenu::seleccionOpcion(){
-  int opcion;
-  mostrarOpciones();
-  cout << "---------------" << endl;
-  cout << "Opcion: ";
-  cin >> opcion;
-
-  while(opcion < 0 || opcion > _cantidadOpciones){
-    cout << "Opcion incorrecta..."<<endl;
-    cout << "Opcion: ";
-    cin >> opcion;
-  }
-  return opcion;
 }

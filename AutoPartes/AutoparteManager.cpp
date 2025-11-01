@@ -21,18 +21,16 @@ void AutoparteManager::cargarAutoparte(){
     tipo = _autoparte.getTipo();
     precioUnitario = _autoparte.getPrecioUnitario();
 
-    cout << "Ingresar ID: " << endl;
-    cin >> id;
-
-    pos = _repor.buscarID(id);
 
     while (true) {
+            cout << "Ingresar ID: " << endl;
+            cin >> id;
+            pos = _repor.buscarID(id);
         if (pos == -1) {
             break;
-        } else {
+        }
             cout << "ID ingresado ya está en uso. Intente nuevamente..." << endl;
         }
-    }
 
     cout << "Ingresar Nombre del Autoparte: " << endl;
     cin >> nombre;
@@ -98,7 +96,7 @@ void AutoparteManager::mostrarAutoparte (Autoparte autoparte){
 void AutoparteManager::listar(){
     int cant = _repor.getCantidadRegistros();
     if (cant == 0) {
-        cout << "No hay ventas registradas.\n";
+        cout << "No hay Autopartes registradas.\n";
         return;
     }
 
@@ -113,7 +111,7 @@ void AutoparteManager::listar(){
 
 void AutoparteManager::BuscarPorID() {
     int id;
-    cout << "Ingrese ID de venta a buscar: ";
+    cout << "Ingrese ID de Autoparte a buscar: ";
     cin >> id;
 
     int pos = _repor.buscarID(id);

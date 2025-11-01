@@ -5,10 +5,10 @@
 using namespace std;
 
 
-class ManagerPersonal
+class PersonalManager
 {
     public:
-        ManagerPersonal();
+        PersonalManager();
 
         void cargarPersonal ();
         void mostrarPersonal (Personal personal);

@@ -17,8 +17,6 @@ class Autoparte{
         void  setStock (int Stock) ;
         void  setPrecioUnitario (float PrecioUnitario) ;
         void  setNombre (string Nombre) ;
-        void CargarAutoparte ();
-        void MostrarAutoparte ();
 
     private:
         int _idAutoparte ;

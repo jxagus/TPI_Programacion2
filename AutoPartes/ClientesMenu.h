@@ -1,16 +1,11 @@
-#ifndef CLIENTESMENU_H
-#define CLIENTESMENU_H
+#pragma once
+#include "ClienteManager.h"
 
 
-class ClientesMenu
-{
+class ClientesMenu{
     public:
         ClientesMenu();
-        virtual ~ClientesMenu();
-
-    protected:
-
-    private:
+        void MostrarMenu ();
 };
 
-#endif // CLIENTESMENU_H
+

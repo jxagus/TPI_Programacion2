@@ -1,5 +1,8 @@
 #pragma once
-#include "SubMenu.h"
+#include "ClientesMenu.h"
+#include "AutoparteMenu.h"
+#include "PersonalMenu.h"
+#include "VentaMenu.h"
 
 
 class Menu
@@ -15,6 +18,10 @@ class Menu
 
     private:
         int _cantidadOpciones;
+        ClientesMenu _clientesMenu;
+        PersonalMenu _personalMenu;
+        AutoparteMenu _autoparteMenu;
+        VentaMenu _ventaMenu;
 
 };
 
