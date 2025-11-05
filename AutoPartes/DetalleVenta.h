@@ -26,4 +26,6 @@ public:
     void setPrecio(float precio);
 
     void mostrar();
+    void cargar(int idVenta);
+
 };

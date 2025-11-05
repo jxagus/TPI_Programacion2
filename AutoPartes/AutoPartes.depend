@@ -7,8 +7,9 @@
 	<iostream>
 	"Menu.h"
 
-1760736394 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\venta.cpp
+1762375599 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\venta.cpp
 	"Venta.h"
+	"DetalleVentaArchivo.h"
 	<iostream>
 
 1761441719 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\venta.h
@@ -21,9 +22,11 @@
 1761441719 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventaarchivo.h
 	"Venta.h"
 
-1760727884 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventamanager.cpp
+1762375074 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventamanager.cpp
 	"VentaManager.h"
 	<iostream>
+	"DetalleVentaArchivo.h"
+	"DetalleVenta.h"
 
 1760728034 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventamanager.h
 	"VentaArchivo.h"
@@ -36,17 +39,17 @@
 	<cstdlib>
 	"VentaMenu.h"
 
-1760736666 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\detalleventa.cpp
+1762375560 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\detalleventa.cpp
 	"DetalleVenta.h"
 	<iostream>
 
-1761441719 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\detalleventa.h
+1762375074 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\detalleventa.h
 	<iostream>
 
-1760737063 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\detalleventaarchivo.cpp
+1762375121 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\detalleventaarchivo.cpp
 	"DetalleVentaArchivo.h"
 
-1761441719 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\detalleventaarchivo.h
+1762375507 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\detalleventaarchivo.h
 	"DetalleVenta.h"
 	<iostream>
 	<cstdio>
@@ -63,7 +66,7 @@
 	<cstring>
 	"Autoparte.h"
 
-1761436395 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autoparte.h
+1762052209 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autoparte.h
 
 1760737183 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\src\detalleventamanager.cpp
 	"DetalleVentaManager.h"
@@ -377,8 +380,11 @@
 	<cstring>
 	"Clientes.h"
 
-1761857451 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\menu.h
-	"SubMenu.h"
+1762052209 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\menu.h
+	"ClientesMenu.h"
+	"AutoparteMenu.h"
+	"PersonalMenu.h"
+	"VentaMenu.h"
 
 1761944162 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\submenu.h
 
@@ -407,10 +413,9 @@
 	<iostream>
 	"ManagerPersonal.h"
 
-1761858349 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\menu.cpp
+1762052209 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\menu.cpp
 	<iostream>
 	"Menu.h"
-	"SubMenu.h"
 
 1761441719 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personal.cpp
 	<iostream>
@@ -429,17 +434,19 @@
 1761950117 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartemenu.h
 	"AutoparteManager.h"
 
-1761943448 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmenu.cpp
+1762052209 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmenu.cpp
 	<iostream>
 	"ClientesMenu.h"
 
-1761943052 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmenu.h
+1762052209 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmenu.h
+	"ClienteManager.h"
 
-1761943484 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalmenu.cpp
+1762052209 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalmenu.cpp
 	<iostream>
 	"PersonalMenu.h"
 
-1761943097 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalmenu.h
+1762052209 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalmenu.h
+	"PersonalManager.h"
 
 1761950954 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartearchivo.cpp
 	<iostream>
@@ -450,7 +457,7 @@
 1761951392 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartearchivo.h
 	"Autoparte.h"
 
-1761951427 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartemanager.cpp
+1762052209 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartemanager.cpp
 	<iostream>
 	<cstring>
 	"AutoparteManager.h"
@@ -482,11 +489,11 @@
 	<cstring>
 	"ClientesArchivo.h"
 
-1761952509 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalmanager.cpp
+1762052209 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalmanager.cpp
 	<iostream>
 	"PersonalManager.h"
 
-1761943431 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalmanager.h
+1762052209 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalmanager.h
 	"Personal.h"
 	"PersonalArchivo.h"
 

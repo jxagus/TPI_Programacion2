@@ -16,7 +16,17 @@ bool DetalleVentaArchivo::leer(DetalleVenta& reg, int pos) {
     fclose(p);
     return ok;
 }
+void DetalleVentaArchivo::listarPorIdVenta(int idVenta) {
+    int cant = contarRegistros();
+    DetalleVenta reg;
 
+    for (int i = 0; i < cant; i++) {
+        leer(reg, i);
+        if (reg.getIdVenta() == idVenta) {
+            reg.mostrar();
+        }
+    }
+}
 int DetalleVentaArchivo::contarRegistros() {
     FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) return 0;

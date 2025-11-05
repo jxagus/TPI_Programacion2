@@ -15,4 +15,6 @@ public:
     bool modificar(const DetalleVenta& reg, int pos);
     DetalleVenta leerPorId(int idDetalle);
     void listarTodos();
+    void listarPorIdVenta(int idVenta);
+
 };
