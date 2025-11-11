@@ -65,13 +65,13 @@ void ManagerCliente::cargarCliente (){
 }
 
 void ManagerCliente::mostrarCliente(Clientes cliente){
-     cout << "ID : " << _clientes.getidCliente() <<endl;
-     cout << "Nombre: " << _clientes.getNombre() <<endl;
-     cout << "CUIT : " << _clientes.getCuit() <<endl;
-     cout << "Telefono: " <<_clientes.getTelefono() <<endl;
-     cout << "Direccion: " << _clientes.getDireccion() <<endl;
-     cout << "Mail : " <<_clientes.getMail () <<endl;
-     cout << "Categoria : " <<_clientes.getCategoria() <<endl;
+     cout << "ID : " << cliente.getidCliente() <<endl;
+     cout << "Nombre: " << cliente.getNombre() <<endl;
+     cout << "CUIT : " << cliente.getCuit() <<endl;
+     cout << "Telefono: " <<cliente.getTelefono() <<endl;
+     cout << "Direccion: " << cliente.getDireccion() <<endl;
+     cout << "Mail : " <<cliente.getMail () <<endl;
+     cout << "Categoria : " <<cliente.getCategoria() <<endl;
 }
 
 void ManagerCliente::listar (){

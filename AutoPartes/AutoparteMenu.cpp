@@ -15,6 +15,7 @@ void AutoparteMenu::mostrarMenu() {
         cout << "2. Buscar autoparte por ID" << endl;
         cout << "3. Cargar nueva autoparte" << endl;
         cout << "4. Cargar stock" << endl;
+        cout << "5. Buscar autopartes por categoria" <<endl;
         cout << "0. Volver al menu anterior" << endl;
         cout << "-----------------------------" << endl;
         cout << "Opcion: ";
@@ -37,6 +38,9 @@ void AutoparteMenu::mostrarMenu() {
                 break;
             case 4:
                 manager.cargarStock();
+                break;
+            case 5:
+                manager.BuscarPorTipo();
                 break;
             case 0:
                 cout << "Volviendo al menu principal..." << endl;

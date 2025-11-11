@@ -11,6 +11,8 @@ class AutoparteManager{
         void mostrarAutoparte (Autoparte autoparte);
         void listar ();
         void BuscarPorID ();
+        void BuscarPorTipo ();
+        std::string  mostrarTipo (int tipo);
 
     private:
         AutoparteArchivo _repor;

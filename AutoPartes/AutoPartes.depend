@@ -72,24 +72,24 @@
 	"DetalleVentaManager.h"
 	<iostream>
 
-1760744707 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autoparte.cpp
+1762559550 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autoparte.cpp
 	<iostream>
 	<cstring>
 	"Autoparte.h"
 
 1762038872 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autoparte.h
 
-1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventa.cpp
+1762464036 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventa.cpp
 	"DetalleVenta.h"
 	<iostream>
 
-1760742213 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventa.h
+1762464036 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventa.h
 	<iostream>
 
-1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventaarchivo.cpp
+1762464036 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventaarchivo.cpp
 	"DetalleVentaArchivo.h"
 
-1760742213 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventaarchivo.h
+1762464036 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventaarchivo.h
 	"DetalleVenta.h"
 	<iostream>
 	<cstdio>
@@ -116,17 +116,20 @@
 1760743112 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\src\detalleventamanager.cpp
 	<iostream>
 
-1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\venta.cpp
+1762464036 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\venta.cpp
 	"Venta.h"
+	"DetalleVentaArchivo.h"
 	<iostream>
 
 1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventaarchivo.cpp
 	"VentaArchivo.h"
 	<cstdio>
 
-1760742213 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamanager.cpp
+1762464036 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamanager.cpp
 	"VentaManager.h"
 	<iostream>
+	"DetalleVentaArchivo.h"
+	"DetalleVenta.h"
 
 1762033809 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamenu.cpp
 	<iostream>
@@ -497,25 +500,26 @@
 	"Personal.h"
 	"PersonalArchivo.h"
 
-1762033809 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartearchivo.cpp
+1762636369 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartearchivo.cpp
 	<iostream>
 	<cstring>
+	<cstdio>
 	"Autoparte.h"
 	"AutoparteArchivo.h"
 
-1762033809 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartearchivo.h
+1762636283 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartearchivo.h
 	"Autoparte.h"
 
-1762041040 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartemanager.cpp
+1762647818 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartemanager.cpp
 	<iostream>
 	<cstring>
 	"AutoparteManager.h"
 
-1762033809 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartemanager.h
+1762646778 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartemanager.h
 	"AutoparteArchivo.h"
 	"Autoparte.h"
 
-1762033809 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartemenu.cpp
+1762636621 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartemenu.cpp
 	<iostream>
 	<cstdlib>
 	"AutoparteMenu.h"
@@ -531,7 +535,7 @@
 1762033809 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientesarchivo.h
 	"Clientes.h"
 
-1762033809 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientesmanager.cpp
+1762560021 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientesmanager.cpp
 	<iostream>
 	"ClienteManager.h"
 
