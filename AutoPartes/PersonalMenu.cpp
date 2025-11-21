@@ -1,5 +1,6 @@
 #include <iostream>
 #include "PersonalMenu.h"
+#include "PersonalArchivo.h"
 using namespace std;
 
 PersonalMenu::PersonalMenu(){
@@ -13,14 +14,14 @@ void PersonalMenu::mostrarMenu() {
         cout << "===== MENU PERSONAL =====" << endl;
         cout << "1. Listar personal" << endl;
         cout << "2. Buscar personal por ID" << endl;
-        cout << "3. Cargar nuevo personal" << endl;
+        cout << "3. Agregar nuevo personal" << endl;
         cout << "4. Eliminar personal" << endl;
         cout << "0. Volver al menu anterior" << endl;
         cout << "-----------------------------" << endl;
         cout << "Opcion: ";
         cin >> opcion;
 
-        // Evita que quede basura en el buffer
+        //- basura en el buffer
         cin.clear();
 
         system("cls");
@@ -48,7 +49,7 @@ void PersonalMenu::mostrarMenu() {
 
         if (opcion != 0) {
             cout << endl;
-            system("pause"); // pausa hasta que el usuario presione una tecla
+            system("pause");
         }
 
     } while (opcion != 0);
