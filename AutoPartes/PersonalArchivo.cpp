@@ -4,8 +4,7 @@
 using namespace std;
 
 
-ArchivoPersonal::ArchivoPersonal(string NombreArchivo):_nombreArchivo(NombreArchivo){
-
+ArchivoPersonal::ArchivoPersonal(string NombreArchivo): _nombreArchivo(NombreArchivo){
 }
 
 bool ArchivoPersonal::guardarPersonal (Personal personal){
@@ -44,15 +43,14 @@ bool ArchivoPersonal::modificarPersonal (Personal modificar,int pos){
     return result;
 }
 
-bool ArchivoPersonal::eliminarPersonal (int pos){
-      _registro = leer(pos);
-      if(_registro.getID() != -1){
-        _registro.setID(-1);
-        return modificarPersonal (_registro, pos);
-        }
+bool ArchivoPersonal::eliminarPersonal(int pos){
+    _registro = leer(pos);
 
-  return false;
-
+    // Si falla la lectura
+    if(_registro.getID() == -1)
+        return false;
+    _registro.setID(-1);
+    return modificarPersonal(_registro, pos);
 }
 
 Personal ArchivoPersonal::leer (int pos){
@@ -121,26 +119,22 @@ int ArchivoPersonal::getNuevoID (){
     return leer (getcantidadRegistros () - 1).getID()+1;
 }
 
-int ArchivoPersonal::bucarID(int id) {
-    FILE *pfile;
-    int pos = -1;
+int ArchivoPersonal::buscarID(int id) {
+    Personal reg;
+    int pos = 0;
 
-    pfile = fopen(_nombreArchivo.c_str(), "rb");
+    FILE *p = fopen(_nombreArchivo.c_str(), "rb");
+    if(p == NULL) return -1;
 
-    if(pfile == nullptr){
-        return -1;
-    }
-
-    while (fread(&_registro,sizeof (Personal), 1, pfile)){
-        if (_registro.getID() == id){
-            pos = ftell(pfile)/sizeof (Personal)-1;
-            break;
+    while(fread(&reg, sizeof(Personal), 1, p) == 1) {
+        if(reg.getID() == id) {
+            fclose(p);
+            return pos;
         }
-
-        fclose (pfile);
-
-        return pos;
+        pos++;
     }
 
+    fclose(p);
+    return -1;
 }
 

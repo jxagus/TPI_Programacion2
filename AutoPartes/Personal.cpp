@@ -9,17 +9,17 @@ using namespace std;
 Personal::Personal(){
     strcpy (_Nombre,"vacio");
     strcpy (_Apellido, "vacio");
-    strcpy (_Rol, "vacio");
+    //strcpy (_Rol, "vacio");
     strcpy (_Telefono,"00000");
     strcpy (_Mail, "vacio");
     _DNI = 0;
     _id = 0;
 }
 
-Personal::Personal (string Nombre, string Apellido, string Rol, string Telefono, string Mail, int DNI, int id){
+Personal::Personal (string Nombre, string Apellido, string Telefono, string Mail, int DNI, int id){
     strncpy (_Nombre, Nombre.c_str(),sizeof (_Nombre));
     strncpy (_Apellido, Apellido.c_str(),sizeof (_Apellido));
-    strncpy (_Rol, Rol.c_str(),sizeof (_Rol));
+    //strncpy (_Rol, Rol.c_str(),sizeof (_Rol));
     strncpy (_Telefono, Telefono.c_str(),sizeof (_Telefono));
     strncpy (_Mail, Mail.c_str(),sizeof (_Mail));
     _DNI = DNI;
@@ -43,13 +43,6 @@ void Personal::setApellido (string Apellido) {
     strncpy (_Apellido,Apellido.c_str(),sizeof (_Apellido));
 }
 
-string Personal::getRol (){
-    return _Rol;
-}
-
-void Personal::setRol (string Rol){
-    strncpy (_Rol, Rol.c_str(),sizeof (_Rol));
-}
 
 string Personal::getTelefono (){
     return _Telefono;
