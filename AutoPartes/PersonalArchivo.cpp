@@ -137,4 +137,20 @@ int ArchivoPersonal::buscarID(int id) {
     fclose(p);
     return -1;
 }
+/*int ArchivoPersonal::generarID() { //automatico test
+    FILE *p = fopen(_nombreArchivo.c_str(), "rb");
+    if (p == NULL) return 1;
 
+    Personal reg;
+    int ultimoID = 0;
+
+    while (fread(&reg, sizeof(Personal), 1, p) == 1) {
+        if (reg.getID() > ultimoID) {
+            ultimoID = reg.getID();
+        }
+    }
+
+    fclose(p);
+    return ultimoID + 1;
+}
+*/
