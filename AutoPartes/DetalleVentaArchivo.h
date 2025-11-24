@@ -16,5 +16,6 @@ public:
     DetalleVenta leerPorId(int idDetalle);
     void listarTodos();
     void listarPorIdVenta(int idVenta);
+    void buscarID(int id);
 
 };

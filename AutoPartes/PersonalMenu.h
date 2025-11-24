@@ -1,12 +1,12 @@
 #pragma once
 #include "PersonalManager.h"
 
-class PersonalMenu{
-  public:
+class PersonalMenu
+{
+public:
     PersonalMenu();
     void mostrarMenu();
 
-  private:
-  PersonalManager _Manager;
-  //int _cantidadOpciones;
+private:
+    PersonalManager _Manager;
 };

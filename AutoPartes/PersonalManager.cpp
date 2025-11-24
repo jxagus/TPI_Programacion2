@@ -1,6 +1,6 @@
 #include <iostream>
 #include "PersonalManager.h"
-
+#include "Personal.h"
 
 using namespace std;
 
@@ -9,63 +9,47 @@ PersonalManager::PersonalManager(){
 
 void PersonalManager::cargarPersonal(){
     int DNI, id, pos;
-    string Nombre, Apellido, Rol, Telefono, Mail;
+    string Nombre, Apellido, Telefono, Mail;
 
-    DNI = _personal.getDNI();
-    id = _personal.getID();
-    Nombre = _personal.getNombre();
-    Apellido = _personal.getApellido();
-    Rol = _personal.getRol();
-    Telefono = _personal.getTelefono();
-    Mail = _personal.getMail();
-
-    cout << "Ingresar ID: " << endl;
+    cout << "Ingresar ID: ";
     cin >> id;
 
-    pos = _repor.bucarID (id);
+    pos = _repor.buscarID(id);
 
-    while (true) {
-        if (pos == -1) {
-            break;
-        } else {
-            cout << "ID ingresado ya está en uso. Intente nuevamente..." << endl;
-        }
+    while (pos != -1) {
+        cout << "ID ingresado ya está en uso. Intente nuevamente... ";
+        cin >> id;
+        pos = _repor.buscarID(id);
     }
-    cout <<"Ingresar Nombre:"<< endl;
+
+    cout <<"Ingresar Nombre: ";
     cin >> Nombre;
-    cout <<"Ingresar Apellido:"<< endl;
+    cout <<"Ingresar Apellido: ";
     cin >> Apellido;
-    cout <<"Ingresar DNI:"<< endl;
+    cout <<"Ingresar DNI: ";
     cin >> DNI;
-    cout <<"Ingresar Telefono:"<< endl;
+    cout <<"Ingresar Telefono: ";
     cin >> Telefono;
-    cout <<"Ingresar Mail:"<< endl;
+    cout <<"Ingresar Mail: ";
     cin >> Mail;
-    cout <<"Ingresar Rol:"<< endl;
-    cout <<"1- Usuario:"<< endl;
-    cout <<"2- Admin: " << endl;
-    cin >> Rol;
 
-    Personal personal(Nombre,Apellido,Rol,Telefono,Mail,DNI,id);
+    Personal personal(Nombre, Apellido, Telefono, Mail, DNI, id);
 
-        if (_repor.guardarPersonal(personal))
-  {
-    cout << "Autoparte guardada exitosamente." << endl;
-  }
-  else
-  {
-    cout << "Error al guardar el autoparte." << endl;
-  }
+    if (_repor.guardarPersonal(personal)) {
+        cout << "Personal guardado exitosamente." << endl;
+    } else {
+        cout << "Error al guardar el personal." << endl;
+    }
 }
 
 void PersonalManager::mostrarPersonal(Personal personal){
-    cout <<"ID: "<< _personal.getID() <<endl;
-    cout <<"Nombre: "<< _personal.getNombre() <<endl;
-    cout <<"Apellido: "<<_personal.getApellido()  <<endl;
-    cout <<"Rol: "<<_personal.getRol()  <<endl;
-    cout <<"Telefono: "<<_personal.getTelefono()  <<endl;
-    cout <<"Mail: "<<_personal.getMail()<<endl;
+    cout <<"ID: "<< personal.getID() <<endl;
+    cout <<"Nombre: "<< personal.getNombre() <<endl;
+    cout <<"Apellido: "<< personal.getApellido()  <<endl;
+    cout <<"Telefono: "<< personal.getTelefono()  <<endl;
+    cout <<"Mail: "<< personal.getMail() <<endl;
 }
+
 
 void PersonalManager::listar(){
     int cant = _repor.getcantidadRegistros();
@@ -83,22 +67,48 @@ void PersonalManager::listar(){
     delete[] vec;
 }
 
-void PersonalManager::buscarID(){
+void PersonalManager::buscarID() {
     int id;
-    cout << "Ingrese ID de venta a buscar: ";
+    cout << "Ingrese ID del personal: ";
     cin >> id;
 
-    int pos = _repor.bucarID(id);
-    if (pos == -1) {
-        cout << "No se encontro el autoparte\n";
+    int pos = _repor.buscarID(id);
+
+    if(pos == -1) {
+        cout << "No existe registro." << endl;
         return;
     }
-    _personal = _repor.leer(pos);
 
-    mostrarPersonal(_personal);
+    Personal reg = _repor.leer(pos);
+    mostrarPersonal(reg);
 }
 
-void PersonalManager::eliminarPersonal(){
+void PersonalManager::eliminarPersonal() {
+    int id;
+    system("cls");
+    cout << "=== ELIMINAR PERSONAL ===" << endl;
+    cout << "Ingrese el ID del personal a eliminar: ";
+    cin >> id;
 
+    int pos = _repor.buscarID(id);
+
+    if (pos == -1) {
+        cout << "No existe registro con ese ID." << endl;
+        return;
+    }
+
+    Personal reg = _repor.leer(pos);
+
+    // Marcar como eliminad0
+    reg.setID(-1);
+
+    if (_repor.modificarPersonal(reg, pos)) {
+        cout << "Registro eliminado correctamente." << endl;
+    } else {
+        cout << "No se pudo eliminar." << endl;
+    }
 }
+
+
+
 
