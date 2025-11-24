@@ -86,7 +86,7 @@ void AutoparteManager::cargarStock() {
 
     // leer la autoparte desde el repo
     _autoparte = _repor.leer(pos);
-    int stockActual = _autoparte.getStock();
+    float stockActual = _autoparte.getStock();
     cout << "Stock actual del autoparte ID " << _autoparte.getIDAutoparte() << ": " << stockActual << endl;
 
     cout << "Ingrese cantidad de Stock fisico: ";
@@ -98,7 +98,7 @@ void AutoparteManager::cargarStock() {
         return;
     }
 
-    int nuevoStock = stockActual + cantidad;
+    float nuevoStock = stockActual + cantidad;
     if (nuevoStock < 0) {
         cout << "Operación invalida: el stock no puede quedar negativo.\n";
         return;

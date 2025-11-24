@@ -77,7 +77,7 @@ void ManagerCliente::mostrarCliente(Clientes cliente){
 void ManagerCliente::listar (){
     int cant = _repor.getCantidadRegistros();
     if (cant == 0) {
-        cout << "No hay ventas registradas.\n";
+        cout << "No hay clientes registradas.\n";
         return;
     }
 
@@ -97,7 +97,7 @@ void ManagerCliente::BuscarID() {
 
     int pos = _repor.buscarID(id);
     if (pos == -1) {
-        cout << "No se encontro el autoparte\n";
+        cout << "No se encontro el venta\n";
         return;
     }
     _clientes = _repor.leer(pos);

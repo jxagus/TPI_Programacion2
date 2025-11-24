@@ -3,6 +3,7 @@
 #include "AutoparteMenu.h"
 #include "PersonalMenu.h"
 #include "VentaMenu.h"
+#include "Reportes.h"
 
 
 class Menu

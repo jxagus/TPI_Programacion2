@@ -6,6 +6,7 @@ using namespace std;
 
 void AutoparteMenu::mostrarMenu() {
     AutoparteManager manager;
+    Reportes repor;
     int opcion;
 
     do {
@@ -41,6 +42,8 @@ void AutoparteMenu::mostrarMenu() {
                 break;
             case 5:
                 manager.BuscarPorTipo();
+                //repor.stockCritico();
+                //repor.valorTotalInventario();
                 break;
             case 0:
                 cout << "Volviendo al menu principal..." << endl;

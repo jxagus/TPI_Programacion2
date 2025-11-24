@@ -58,7 +58,7 @@ void Menu::ejecutarOpcion(int opcion){
             _ventaMenu.mostrarMenu();
             break;
         case 5:
-            // _reportesMenu.run();
+            //_reportesMenu.run();
             cout << "Reportes (pendiente)..." << endl;
             system("pause");
             break;
