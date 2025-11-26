@@ -10,6 +10,8 @@ class ArchivoPersonal
         ArchivoPersonal(string _nombreArchivo = "Personal.dat");
 
         bool guardarPersonal (Personal personal);
+        bool leer(Personal &reg, int pos);
+
         bool modificarPersonal (Personal modificar,int pos);
         bool eliminarPersonal (int pos);
 

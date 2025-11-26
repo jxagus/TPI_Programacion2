@@ -13,6 +13,7 @@ public:
     void listar();
     void eliminarPersonal();
     void buscarID();
+    void listarPorApellido();
 
 private:
     ArchivoPersonal _repor;

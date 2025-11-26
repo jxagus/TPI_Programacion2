@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 #include "PersonalManager.h"
 #include "Personal.h"
 
@@ -131,7 +133,6 @@ void PersonalManager::cargarPersonal() {
     }
 }
 
-
 void PersonalManager::mostrarPersonal(Personal personal){
     cout << "ID: " << personal.getID() << endl;
     cout << "Nombre: " << personal.getNombre() << endl;
@@ -159,6 +160,42 @@ void PersonalManager::listar() {
         }
     }
 }
+
+void PersonalManager::listarPorApellido() {
+    vector<Personal> lista;
+    Personal reg;
+    int pos = 0;
+
+    // Leer todos los registros
+    while (_repor.leer(reg, pos)) {
+        if (reg.getID() != -1) {   // evitar registros borrados
+            lista.push_back(reg);
+        }
+        pos++;
+    }
+
+    if (lista.empty()) {
+        cout << "No hay personal cargado." << endl;
+        return;
+    }
+
+    // ORDENAR por apellido A-Z
+    sort(lista.begin(), lista.end(),
+         [](const Personal &a, const Personal &b) {
+             return a.getApellido() < b.getApellido();
+         });
+
+    cout << "=== LISTADO ORDENADO POR APELLIDO (A-Z) ===\n";
+    for (auto &p : lista) {
+        cout << "ID: " << p.getID() << endl;
+        cout << "Nombre: " << p.getNombre() << endl;
+        cout << "Apellido: " << p.getApellido() << endl;
+        cout << "Telefono: " << p.getTelefono() << endl;
+        cout << "Mail: " << p.getMail() << endl;
+        cout << "---------------------------\n";
+    }
+}
+
 
 void PersonalManager::buscarID() {
     int id;

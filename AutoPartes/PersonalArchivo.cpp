@@ -58,6 +58,19 @@ Personal ArchivoPersonal::leer(int pos) {
     return registro;
 }
 
+bool ArchivoPersonal::leer(Personal &reg, int pos) {
+    FILE *p = fopen(_nombreArchivo.c_str(), "rb");
+    if (p == nullptr) return false;
+
+    fseek(p, pos * sizeof(Personal), SEEK_SET);
+
+    // Intentar leer
+    bool ok = fread(&reg, sizeof(Personal), 1, p);
+
+    fclose(p);
+
+    return ok;
+}
 
 int ArchivoPersonal::getcantidadRegistros() {
     FILE* pfile = fopen(_nombreArchivo.c_str(), "rb");
