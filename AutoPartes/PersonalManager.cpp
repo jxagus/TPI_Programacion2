@@ -33,7 +33,7 @@ void PersonalManager::cargarPersonal(){
     cout <<"Ingresar Mail: ";
     cin >> Mail;
 
-    Personal personal(Nombre, Apellido, Telefono, Mail, DNI, id);
+    Personal personal(id, DNI, Nombre, Apellido, Telefono, Mail);
 
     if (_repor.guardarPersonal(personal)) {
         cout << "Personal guardado exitosamente." << endl;
@@ -43,28 +43,31 @@ void PersonalManager::cargarPersonal(){
 }
 
 void PersonalManager::mostrarPersonal(Personal personal){
-    cout <<"ID: "<< personal.getID() <<endl;
-    cout <<"Nombre: "<< personal.getNombre() <<endl;
-    cout <<"Apellido: "<< personal.getApellido()  <<endl;
-    cout <<"Telefono: "<< personal.getTelefono()  <<endl;
-    cout <<"Mail: "<< personal.getMail() <<endl;
+    cout << "ID: " << personal.getID() << endl;
+    cout << "Nombre: " << personal.getNombre() << endl;
+    cout << "Apellido: " << personal.getApellido() << endl;
+    cout << "Telefono: " << personal.getTelefono() << endl;
+    cout << "Mail: " << personal.getMail() << endl;
+    cout << "---------------------------" << endl;
 }
 
-
-void PersonalManager::listar(){
+void PersonalManager::listar() {
     int cant = _repor.getcantidadRegistros();
     if (cant == 0) {
-        cout << "No hay ventas registradas.\n";
+        cout << "No hay personal registrado.\n";
         return;
     }
 
-    Personal *vec = new Personal[cant];
-    _repor.leerTodos(vec, cant);
-    for (int i = 0; i < cant; i++) {
-        mostrarPersonal(vec[i]);
-    }
+    cout << "===== LISTADO DE PERSONAL =====\n";
 
-    delete[] vec;
+    for (int i = 0; i < cant; i++) {
+        Personal reg = _repor.leer(i);
+
+        if (reg.getID() != -1) { // no mostrar borrados
+            mostrarPersonal(reg);
+            cout << "----------------------------\n";
+        }
+    }
 }
 
 void PersonalManager::buscarID() {
@@ -99,8 +102,7 @@ void PersonalManager::eliminarPersonal() {
 
     Personal reg = _repor.leer(pos);
 
-    // Marcar como eliminad0
-    reg.setID(-1);
+    reg.setID(-1); // marcar eliminado
 
     if (_repor.modificarPersonal(reg, pos)) {
         cout << "Registro eliminado correctamente." << endl;
@@ -108,7 +110,3 @@ void PersonalManager::eliminarPersonal() {
         cout << "No se pudo eliminar." << endl;
     }
 }
-
-
-
-
