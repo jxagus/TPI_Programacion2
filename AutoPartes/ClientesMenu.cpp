@@ -7,15 +7,17 @@ ClientesMenu::ClientesMenu(){
 }
 
 void ClientesMenu::MostrarMenu() {
-    ManagerCliente manager;
+    ClienteManager manager;
     int opcion;
 
     do {
-        system("cls"); // limpia pantalla (en Windows)
+        system("cls");
         cout << "===== MENU DE CLIENTES =====" << endl;
-        cout << "1. Listar clientes" << endl;
-        cout << "2. Buscar cliente por ID" << endl;
-        cout << "3. Cargar nuevo cliente" << endl;
+        cout << "1. Listar todos los clientes" << endl;
+        cout << "2. Listar clientes por categoria" << endl;
+        cout << "3. Buscar cliente por ID" << endl;
+        cout << "4. Buscar cliente por nombre" << endl;
+        cout << "5. Cargar nuevo cliente" << endl;
         cout << "0. Volver al menu anterior" << endl;
         cout << "-----------------------------" << endl;
         cout << "Opcion: ";
@@ -31,9 +33,16 @@ void ClientesMenu::MostrarMenu() {
                 manager.listar();
                 break;
             case 2:
-                manager.BuscarID();
+                cout << "Listar clientes por categoria" << endl;
+
                 break;
             case 3:
+                manager.BuscarID();
+                break;
+            case 4:
+                cout << "buscar cliente por nombres" << endl;
+                break;
+            case 5:
                 manager.cargarCliente();
                 break;
             case 0:

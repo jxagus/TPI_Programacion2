@@ -3,10 +3,10 @@
 
 using namespace std;
 
-class ArchivoClientes
+class ClienteArchivo
 {
     public:
-        ArchivoClientes(string _nombreArchivo = "Clientes.dat");
+        ClienteArchivo(string _nombreArchivo = "Clientes.dat");
 
         bool guardarCliente(Clientes registro);
         bool modificarCliente (Clientes modificar, int pos);

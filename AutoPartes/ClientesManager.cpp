@@ -1,107 +1,139 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 #include "ClienteManager.h"
 
 using namespace std;
 
+ClienteManager::ClienteManager() {}
 
+void ClienteManager::cargarCliente() {
+    int idCliente, Telefono, pos;
+    string Nombre, Cuit, Categoria, Direccion, Mail;
 
-ManagerCliente::ManagerCliente(){
-}
+    do {
+        cout << "Ingresar ID: ";
+        cin >> idCliente;
+        cin.ignore(); // Limpiar buffer
 
-void ManagerCliente::cargarCliente (){
-    int idCliente,Telefono, pos;
-    string Nombre,Cuit,Categoria,Direccion,Mail;
-
-    idCliente = _clientes.getidCliente ();
-    Telefono =  _clientes.getTelefono();
-    Nombre = _clientes.getNombre () ;
-    Cuit = _clientes.getCuit();
-    Categoria = _clientes.getCategoria();
-    Direccion = _clientes.getDireccion();
-    Mail = _clientes.getMail();
-
-   cout << "Ingresar ID: " << endl;
-    cin >> idCliente;
-
-    pos = _repor.buscarID(idCliente);
-
-    while (true) {
-        if (pos == -1) {
-            break;
-        } else {
+        pos = _repor.buscarID(idCliente);
+        if (pos != -1) {
             cout << "ID ingresado ya está en uso. Intente nuevamente..." << endl;
         }
-    }
-    cout << "Ingresar Razon social: " << endl;
-    cin >> Nombre;
-    cout << "Ingresar Cuit: " << endl;
-    cin >> Cuit;
-    cout << "Ingresar Telefono: " << endl;
+    } while (pos != -1);
+
+    cout << "Ingresar Razon social: ";
+    getline(cin, Nombre);
+
+    cout << "Ingresar Cuit: ";
+    getline(cin, Cuit);
+
+    cout << "Ingresar Telefono: ";
     cin >> Telefono;
-    cout << "ingresar Direccion: " << endl;
-    cin >> Direccion;
-    cout << "Ingresar Mail: " << endl;
-    cin >> Mail;
-    cout << "Seleccionar una Categoria: " << endl;
-    cout << "1- Taller " << endl;
-    cout << "2- Concesionaria " << endl;
+    cin.ignore();
+
+    cout << "Ingresar Direccion: ";
+    getline(cin, Direccion);
+
+    cout << "Ingresar Mail: ";
+    getline(cin, Mail);
+
+    int opcionCategoria;
+    cout << "Seleccionar una Categoria:" << endl;
+    cout << "1- Taller" << endl;
+    cout << "2- Concesionaria" << endl;
     cout << "3- Fabrica" << endl;
     cout << "4- Chapista" << endl;
     cout << "-----------------------------" << endl;
-    cout << "Ej: TALLER HERNANDEZ'S, 1..." << endl;
-    cout << "-----------------------------" << endl;
-    cin >> Categoria;
+    cout << "Ingrese opción (1-4): ";
+    cin >> opcionCategoria;
+    cin.ignore();
 
-    Clientes clientes(idCliente, Telefono, Nombre, Cuit, Categoria, Direccion, Mail);
+    switch(opcionCategoria) {
+        case 1: Categoria = "Taller"; break;
+        case 2: Categoria = "Concesionaria"; break;
+        case 3: Categoria = "Fabrica"; break;
+        case 4: Categoria = "Chapista"; break;
+        default: Categoria = "Otros"; break;
+    }
 
-    if (_repor.guardarCliente(clientes))
-  {
-    cout << "Autoparte guardada exitosamente." << endl;
-  }
-  else
-  {
-    cout << "Error al guardar el autoparte." << endl;
-  }
+    Clientes clientes(idCliente, Categoria, Direccion, Nombre, Telefono, Cuit, Mail);
+
+    if (_repor.guardarCliente(clientes)) {
+        cout << "Cliente guardado exitosamente." << endl;
+    } else {
+        cout << "Error al guardar el cliente." << endl;
+    }
 }
 
-void ManagerCliente::mostrarCliente(Clientes cliente){
-     cout << "ID : " << cliente.getidCliente() <<endl;
-     cout << "Nombre: " << cliente.getNombre() <<endl;
-     cout << "CUIT : " << cliente.getCuit() <<endl;
-     cout << "Telefono: " <<cliente.getTelefono() <<endl;
-     cout << "Direccion: " << cliente.getDireccion() <<endl;
-     cout << "Mail : " <<cliente.getMail () <<endl;
-     cout << "Categoria : " <<cliente.getCategoria() <<endl;
+// Mostrar datos de un cliente
+void ClienteManager::mostrarCliente(Clientes cliente){
+    cout << "---------------------------\n";
+    cout << "ID : " << cliente.getIDCliente() << endl;
+    cout << "Nombre: " << cliente.getNombre() << endl;
+    cout << "CUIT : " << cliente.getCUIT() << endl;
+    cout << "Telefono: " << cliente.getTelefono() << endl;
+    cout << "Direccion: " << cliente.getDireccion() << endl;
+    cout << "Mail : " << cliente.getMail() << endl;
+    cout << "Categoria : " << cliente.getCategoria() << endl;
+    cout << "---------------------------\n";
 }
 
-void ManagerCliente::listar (){
+void ClienteManager::listar() {
     int cant = _repor.getCantidadRegistros();
     if (cant == 0) {
-        cout << "No hay clientes registradas.\n";
+        cout << "No hay clientes registrados.\n";
         return;
     }
 
     Clientes *vec = new Clientes[cant];
-    _repor.leerTodos(vec, cant);
-    for (int i = 0; i < cant; i++) {
+    int leidos = _repor.leerTodos(vec, cant);
+
+    for (int i = 0; i < leidos; i++) {
         mostrarCliente(vec[i]);
     }
 
     delete[] vec;
 }
 
-void ManagerCliente::BuscarID() {
+void ClienteManager::listarPorNombre() {
+    vector<Clientes> lista;
+    int cant = _repor.getCantidadRegistros();
+
+    for (int pos = 0; pos < cant; pos++) {
+        Clientes reg = _repor.leer(pos);
+        if (reg.getIDCliente() != -1) {
+            lista.push_back(reg);
+        }
+    }
+
+    if (lista.empty()) {
+        cout << "No hay clientes cargados." << endl;
+        return;
+    }
+
+    sort(lista.begin(), lista.end(),
+         [](const Clientes &a, const Clientes &b) {
+             return a.getNombre() < b.getNombre();
+         });
+
+    cout << "=== LISTADO ORDENADO POR NOMBRE (A-Z) ===\n";
+    for (auto &p : lista) {
+        mostrarCliente(p);
+    }
+}
+
+void ClienteManager::BuscarID() {
     int id;
-    cout << "Ingrese ID de venta a buscar: ";
+    cout << "Ingrese ID del cliente a buscar: ";
     cin >> id;
 
     int pos = _repor.buscarID(id);
     if (pos == -1) {
-        cout << "No se encontro el venta\n";
+        cout << "No se encontro el cliente.\n";
         return;
     }
-    _clientes = _repor.leer(pos);
 
-    mostrarCliente(_clientes);
+    Clientes cliente = _repor.leer(pos);
+    mostrarCliente(cliente);
 }
-

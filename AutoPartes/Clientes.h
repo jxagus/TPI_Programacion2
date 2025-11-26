@@ -1,34 +1,42 @@
 #pragma once
+#include <string>
 using namespace std;
 
-class Clientes{
-    public:
-        Clientes();
-        Clientes (int idCliente, int Telefono, string Nombre,string Cuit,string Categoria, string Direccion,string Mail);
+class Clientes
+{
+private:
+    int _idCliente;
+    char _categoria[20];  // tipo de empresa: talleres, concesionaria, distribuidoras, otros
+    char _direccion[50];
+    char _nombre[20];
+    int _telefono;
+    char _cuit[10];
+    char _mail[50];
 
-        string getNombre();
-        void setNombre (string Nombre);
-        string getCuit ();
-        void setCuit (string Cuit);
-        string getCategoria();
-        void setCategoria (string Categoria);
-        string getDireccion();
-        void setDireccion (string Direccion);
-        string getMail ();
-        void setMail (string Mail);
-        int getidCliente ();
-        void setidCliente (int idCliente);
-        int getTelefono ();
-        void setTelefono (int Telefono);
+public:
+    // Constructores
+    Clientes();
+    Clientes(int idCliente, const string &categoria, const string &direccion,
+            const string &nombre, int telefono, const string &cuit, const string &mail);
 
-    private:
-        char _nombre [20];
-        char _cuit  [10];
-        char _categoria  [10];
-        char _direccion  [50];
-        char _mail [40];
-        int _idCliente;
-        int _telefono;
+    // Setters
+    void setIDCliente(int idCliente);
+    void setCategoria(const string &categoria);
+    void setDireccion(const string &direccion);
+    void setNombre(const string &nombre);
+    void setTelefono(int telefono);
+    void setCUIT(const string &cuit);
+    void setMail(const string &mail);
+
+    // Getters
+    int getIDCliente() const;
+    string getCategoria() const;
+    string getDireccion() const;
+    string getNombre() const;
+    int getTelefono() const;
+    string getCUIT() const;
+    string getMail() const;
 };
+
 
 
