@@ -1,77 +1,65 @@
-#include <iostream>
-#include <cstring>
 #include "Personal.h"
+#include <cstring>
 
-using namespace std;
+// ===== CONSTRUCTOR POR DEFECTO =====
+Personal::Personal()
+{
+    _id = -1;
+    _dni = 0;
 
-
-
-Personal::Personal(){
-    strcpy (_Nombre,"vacio");
-    strcpy (_Apellido, "vacio");
-    //strcpy (_Rol, "vacio");
-    strcpy (_Telefono,"00000");
-    strcpy (_Mail, "vacio");
-    _DNI = 0;
-    _id = 0;
+    _nombre[0] = '\0';
+    _apellido[0] = '\0';
+    _telefono[0] = '\0';
+    _mail[0] = '\0';
 }
 
-Personal::Personal (string Nombre, string Apellido, string Telefono, string Mail, int DNI, int id){
-    strncpy (_Nombre, Nombre.c_str(),sizeof (_Nombre));
-    strncpy (_Apellido, Apellido.c_str(),sizeof (_Apellido));
-    //strncpy (_Rol, Rol.c_str(),sizeof (_Rol));
-    strncpy (_Telefono, Telefono.c_str(),sizeof (_Telefono));
-    strncpy (_Mail, Mail.c_str(),sizeof (_Mail));
-    _DNI = DNI;
-    _id = id;
+// ===== CONSTRUCTOR CON PARÁMETROS =====
+Personal::Personal(int id, int dni, const std::string &nombre,
+                   const std::string &apellido, const std::string &telefono,
+                   const std::string &mail)
+{
+    setID(id);
+    setDNI(dni);
+    setNombre(nombre);
+    setApellido(apellido);
+    setTelefono(telefono);
+    setMail(mail);
 }
 
+// ===== SETTERS =====
+void Personal::setID(int id) { _id = id; }
+void Personal::setDNI(int dni) { _dni = dni; }
 
-string Personal::getNombre (){
-    return _Nombre;
+void Personal::setNombre(const std::string &nombre)
+{
+    strncpy(_nombre, nombre.c_str(), sizeof(_nombre) - 1);
+    _nombre[sizeof(_nombre) - 1] = '\0';
 }
 
-void Personal::setNombre (string Nombre){
-    strncpy (_Nombre,Nombre.c_str(), sizeof (_Nombre));
+void Personal::setApellido(const std::string &apellido)
+{
+    strncpy(_apellido, apellido.c_str(), sizeof(_apellido) - 1);
+    _apellido[sizeof(_apellido) - 1] = '\0';
 }
 
-string Personal::getApellido () {
-    return _Apellido;
+void Personal::setTelefono(const std::string &telefono)
+{
+    strncpy(_telefono, telefono.c_str(), sizeof(_telefono) - 1);
+    _telefono[sizeof(_telefono) - 1] = '\0';
 }
 
-void Personal::setApellido (string Apellido) {
-    strncpy (_Apellido,Apellido.c_str(),sizeof (_Apellido));
+void Personal::setMail(const std::string &mail)
+{
+    strncpy(_mail, mail.c_str(), sizeof(_mail) - 1);
+    _mail[sizeof(_mail) - 1] = '\0';
 }
 
+// ===== GETTERS =====
+int Personal::getID() const { return _id; }
+int Personal::getDNI() const { return _dni; }
 
-string Personal::getTelefono (){
-    return _Telefono;
-}
+std::string Personal::getNombre() const { return std::string(_nombre); }
+std::string Personal::getApellido() const { return std::string(_apellido); }
+std::string Personal::getTelefono() const { return std::string(_telefono); }
+std::string Personal::getMail() const { return std::string(_mail); }
 
-void Personal::setTelefono (string Telefono){
-    strncpy (_Telefono, Telefono.c_str(),sizeof (_Telefono));
-}
-
-string Personal::getMail (){
-    return _Mail;
-}
-
-void Personal::setMail (string Mail){
-    strncpy (_Mail, Mail.c_str(),sizeof (_Mail));
-}
-
-int Personal::getDNI (){
-    return _DNI;
-}
-
-void Personal::setDNI (int DNI){
-    _DNI = DNI;
-}
-
-int Personal::getID (){
-    return _id;
-}
-
-void Personal::setID (int id){
-    _id = id;
-}
