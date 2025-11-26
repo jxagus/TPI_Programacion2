@@ -3,7 +3,7 @@
 #include "AutoparteMenu.h"
 #include "PersonalMenu.h"
 #include "VentaMenu.h"
-#include "Reportes.h"
+#include "ReportesMenu.h"
 
 
 class Menu
@@ -23,6 +23,7 @@ class Menu
         PersonalMenu _personalMenu;
         AutoparteMenu _autoparteMenu;
         VentaMenu _ventaMenu;
+        ReportesMenu _reportesMenu;
 
 };
 

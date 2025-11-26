@@ -36,12 +36,12 @@ void Reportes::stockCritico(int limite) {
 float Reportes::valorTotalInventario() {
     AutoparteArchivo archivo("autopartes.dat");
     int cantidad = archivo.getCantidadRegistros();
-    float total = 0.0f;
+    float total = 0.0;
 
     for (int i = 0; i < cantidad; i++) {
         Autoparte a = archivo.leer(i);
-    float valorAutoparte = a.getStock() * a.getPrecioUnitario();
-    total += valorAutoparte;
+        float valorAutoparte = a.getStock() * a.getPrecioUnitario();
+        total += valorAutoparte;
     }
 
 cout << "========================================" << endl;
@@ -49,5 +49,24 @@ cout << "VALOR TOTAL DEL INVENTARIO / DEPOSITO" << endl;
 cout << "========================================" << endl;
 cout << "Valor total: $" << fixed << setprecision(2) << total << endl;
 cout << "========================================" << endl;
+}
+
+float Reportes::RecaudacionTotal (){
+    DetalleVentaArchivo archivo;
+    int cantidad = archivo.contarRegistros();
+    float total = 0.0;
+
+    for (int i = 0; i < cantidad; i++){
+        DetalleVenta  d = archivo.leer(d, i);
+        float recaudacion;
+        recaudacion += d.getPrecio ();
+    }
+    cout << "========================================" << endl;
+    cout << "GANANCIAS TOTALES REGISTRADAS" << endl;
+    cout << "========================================" << endl;
+    cout << "Total: $" << fixed << setprecision(2) << total << endl;
+    cout << "========================================" << endl;
+
+    return total;
 }
 

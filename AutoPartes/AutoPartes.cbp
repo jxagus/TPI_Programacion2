@@ -70,6 +70,8 @@
 		<Unit filename="PersonalMenu.h" />
 		<Unit filename="Reportes.cpp" />
 		<Unit filename="Reportes.h" />
+		<Unit filename="ReportesMenu.cpp" />
+		<Unit filename="ReportesMenu.h" />
 		<Unit filename="Venta.cpp" />
 		<Unit filename="Venta.h" />
 		<Unit filename="VentaArchivo.cpp" />

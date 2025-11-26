@@ -1,29 +1,30 @@
+#include "ReportesMenu.h"
 #include <iostream>
-#include <cstdlib>
-#include "AutoparteMenu.h"
+#include <cctype>
 
 using namespace std;
 
-void AutoparteMenu::mostrarMenu() {
-    AutoparteManager manager;
+void ReportesMenu::MostrarMenu() {
+    Reportes repor;
     int opcion;
 
     do {
-        system("cls"); // limpia pantalla (en Windows)
-        cout << "===== MENU DE AUTOPARTES =====" << endl;
-        cout << "1. Listar autopartes" << endl;
-        cout << "2. Buscar autoparte por ID" << endl;
-        cout << "3. Cargar nueva autoparte" << endl;
-        cout << "4. Cargar stock" << endl;
-        cout << "5. Buscar autopartes por categoria" <<endl;
-        cout << "6. Buscar autoparte por nombre" << endl;
-        cout << "0. Volver al menu anterior" << endl;
+        system("cls");
+
+        cout << "===== MENU DE REPORTES =====" << endl;
+        cout << "1. RECAUDACION TOTAL ANUAL Y POR MES" << endl;
+        cout << "2. RECAUDACION POR CLIENTE" << endl;
+        cout << "3. RECAUDACION POR AUTOPARTE (MENOR Y MAYOR)" << endl;
+        cout << "4. STOCK CRITICO" << endl;
+        cout << "5. VALOR TOTAL DEL INVENTARIO" << endl;
+        cout << "0. VOLVER AL MENU ANTERIOR" << endl;
         cout << "-----------------------------" << endl;
-        cout << "Opcion: ";
+
         string entrada;
         bool aux = false;
 
         while (!aux) {
+            cout << "Opcion: ";
             cin >> entrada;
 
             if (entrada.size() > 10) {
@@ -50,35 +51,33 @@ void AutoparteMenu::mostrarMenu() {
 
         switch (opcion) {
             case 1:
-                manager.listar();
+                repor.RecaudacionTotal ();
                 break;
             case 2:
-                manager.BuscarPorID();
+                // repor.recaudacionCliente();
                 break;
             case 3:
-                manager.cargarAutoparte();
+                // repor.recaudacionAutoparte();
                 break;
             case 4:
-                manager.cargarStock();
+                repor.stockCritico();
                 break;
             case 5:
-                manager.BuscarPorTipo();
-                break;
-            case 6:
-                manager.BuscarPorNombre();
+                repor.valorTotalInventario();
                 break;
             case 0:
-                cout << "Volviendo al menu principal..." << endl;
+                cout << "Volviendo al menu principal..." << endl;;
                 break;
             default:
-                cout << "Opcion invalida. Intente nuevamente." << endl;
+                cout << "Opcion invalida..." << endl;
                 break;
         }
 
         if (opcion != 0) {
             cout << endl;
-            system("pause"); // pausa hasta que el usuario presione una tecla
+            system("pause");
         }
 
     } while (opcion != 0);
 }
+

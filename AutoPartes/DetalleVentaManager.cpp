@@ -36,5 +36,5 @@ void DetalleVentaManager::listarPorIdVenta(int idVenta) {
 
 }
 
-float DetalleVentaManager::calcularTotalPorVenta(int idVenta) {
-}
+//float DetalleVentaManager::calcularTotalPorVenta(int idVenta) {
+//}

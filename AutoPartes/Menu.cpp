@@ -58,9 +58,7 @@ void Menu::ejecutarOpcion(int opcion){
             _ventaMenu.mostrarMenu();
             break;
         case 5:
-            //_reportesMenu.run();
-            cout << "Reportes (pendiente)..." << endl;
-            system("pause");
+            _reportesMenu.MostrarMenu();
             break;
   case 0:
     cout << "Gracias por utilizar mi APP :) " << endl;
