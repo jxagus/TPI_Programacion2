@@ -1,6 +1,7 @@
 #pragma once
 #include "AutoparteArchivo.h"
 #include "Autoparte.h"
+#include "Validaciones.h"
 
 
 class AutoparteManager{
@@ -19,6 +20,7 @@ class AutoparteManager{
     private:
         AutoparteArchivo _repor;
         Autoparte _autoparte;
+        Validaciones _validaciones;
 };
 
 

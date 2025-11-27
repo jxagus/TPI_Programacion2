@@ -23,7 +23,7 @@ void VentaManager::agregarVenta() {
 
 
     int posCliente;
-    ArchivoClientes archClientes;
+    ClienteArchivo archClientes;
     do {
         cout << "INGRESAR ID CLIENTE: ";
         cin >> idCliente;
@@ -36,7 +36,7 @@ void VentaManager::agregarVenta() {
         else {
             cout << "Cliente encontrado:\n";
             Clientes cli = archClientes.leer(posCliente);
-            ManagerCliente clientesM;
+            ClienteManager clientesM;
             clientesM.mostrarCliente(cli);
         }
 

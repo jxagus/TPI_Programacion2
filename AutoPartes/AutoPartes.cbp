@@ -72,6 +72,8 @@
 		<Unit filename="Reportes.h" />
 		<Unit filename="ReportesMenu.cpp" />
 		<Unit filename="ReportesMenu.h" />
+		<Unit filename="Validaciones.cpp" />
+		<Unit filename="Validaciones.h" />
 		<Unit filename="Venta.cpp" />
 		<Unit filename="Venta.h" />
 		<Unit filename="VentaArchivo.cpp" />

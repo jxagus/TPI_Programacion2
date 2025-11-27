@@ -7,7 +7,7 @@
 class Reportes{
 private:
     AutoparteArchivo _archivo;
-    ArchivoClientes _archivocliente;
+    ClienteArchivo _archivocliente;
     VentaArchivo _archivoventas;
 
 public:
