@@ -259,9 +259,13 @@ void AutoparteManager::BuscarPorTipo() {
         cout << "5 = Interior" << endl;
         cout << "6 = Encendido" << endl;
         cout << "======================" << endl;
+        cout << "0 = Salir" << endl;
 
-    tipo = Validaciones::leerIntEnRango("Ingrese una opcion: ",1,6);
+    tipo = Validaciones::leerIntEnRango("Ingrese una opcion: ",0,6);
+    if (tipo == 0){
+            break;
 
+    }
     int cant = _repor.getCantidadRegistros();
     if (cant == 0) {
         cout << "No hay autopartes registradas." << endl;

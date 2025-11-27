@@ -225,7 +225,7 @@
 1764282747 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartearchivo.h
 	"Autoparte.h"
 
-1764280385 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartemanager.cpp
+1764284196 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartemanager.cpp
 	<iostream>
 	<cstring>
 	<ctype.h>
@@ -358,7 +358,7 @@
 	"DetalleVentaArchivo.h"
 	"VentaManager.h"
 
-1764283200 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\menu.cpp
+1764283336 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\menu.cpp
 	<iostream>
 	"Menu.h"
 
@@ -380,7 +380,7 @@
 	"PersonalMenu.h"
 	"PersonalArchivo.h"
 
-1764251750 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\reportes.cpp
+1764283336 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\reportes.cpp
 	<iostream>
 	<iomanip>
 	"Reportes.h"
