@@ -1,6 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
 #include "PersonalManager.h"
 #include "Personal.h"
 
@@ -42,7 +40,6 @@ void PersonalManager::cargarPersonal() {
         if (ok) break;
     } while (true);
 
-
     //Nombre
     do {
         cout << "Ingresar Nombre: ";
@@ -58,7 +55,6 @@ void PersonalManager::cargarPersonal() {
 
     } while (true);
 
-
     //Apellido
     do {
         cout << "Ingresar Apellido: ";
@@ -73,7 +69,6 @@ void PersonalManager::cargarPersonal() {
         else break;
 
     } while (true);
-
 
     //DNI
     string strDNI;
@@ -93,7 +88,6 @@ void PersonalManager::cargarPersonal() {
 
     DNI = stoi(strDNI);
 
-
     //Teléfono
     do {
         cout << "Ingresar Telefono: ";
@@ -108,8 +102,6 @@ void PersonalManager::cargarPersonal() {
         else break;
 
     } while (true);
-
-
     //Email
     do {
         cout << "Ingresar Mail: ";
@@ -122,8 +114,6 @@ void PersonalManager::cargarPersonal() {
 
     } while (true);
 
-
-    // Crear el objeto
     Personal personal(id, DNI, Nombre, Apellido, Telefono, Mail);
 
     if (_repor.guardarPersonal(personal)) {
@@ -144,57 +134,65 @@ void PersonalManager::mostrarPersonal(Personal personal){
 
 void PersonalManager::listar() {
     int cant = _repor.getcantidadRegistros();
+
     if (cant == 0) {
         cout << "No hay personal registrado.\n";
         return;
     }
+    Personal *vec = nullptr;
+    vec = new Personal[cant];
 
-    cout << "===== LISTADO DE PERSONAL =====\n";
-
-    for (int i = 0; i < cant; i++) {
-        Personal reg = _repor.leer(i);
-
-        if (reg.getID() != -1) { // no mostrar borrados
-            mostrarPersonal(reg);
-            cout << "----------------------------\n";
-        }
-    }
-}
-
-void PersonalManager::listarPorApellido() {
-    vector<Personal> lista;
-    Personal reg;
-    int pos = 0;
-
-    while (_repor.leer(reg, pos)) {
-        if (reg.getID() != -1) {   // evitar registros borrados
-            lista.push_back(reg);
-        }
-        pos++;
-    }
-
-    if (lista.empty()) {
-        cout << "No hay personal cargado." << endl;
+    if (vec == nullptr) {
+        cout << "ERROR DE ASIGNACION DE MEMORIA\n";
         return;
     }
 
-    //A-Z
-    sort(lista.begin(), lista.end(),
-         [](const Personal &a, const Personal &b) {
-             return a.getApellido() < b.getApellido();
-         });
-
-    cout << "=== LISTADO ORDENADO POR APELLIDO (A-Z) ===\n";
-    for (auto &p : lista) {
-        cout << "ID: " << p.getID() << endl;
-        cout << "Nombre: " << p.getNombre() << endl;
-        cout << "Apellido: " << p.getApellido() << endl;
-        cout << "Telefono: " << p.getTelefono() << endl;
-        cout << "Mail: " << p.getMail() << endl;
-        cout << "---------------------------\n";
+    int leidos = _repor.leerTodos(vec, cant);
+    cout << "===== LISTADO DE PERSONAL =====\n";
+    for (int i = 0; i < leidos; i++) {
+        if (vec[i].getID() != -1) {
+            mostrarPersonal(vec[i]);
+            cout << "----------------------------\n";
+        }
     }
+    delete[] vec;
 }
 
+void PersonalManager::listarPorApellido() {
+    int cant = _repor.getcantidadRegistros();
+
+    if (cant == 0) {
+        cout << "No hay personal registrado." << endl;
+        return;
+    }
+    Personal *vec = nullptr;
+    vec = new Personal[cant];
+
+    if (vec == nullptr) {
+        cout << "ERROR DE ASIGNACION DE MEMORIA\n";
+        return;
+    }
+
+    int leidos = _repor.leerTodos(vec, cant);
+    for (int i = 0; i < leidos - 1; i++) {
+        for (int j = 0; j < leidos - i - 1; j++) {
+            if (vec[j].getApellido() > vec[j + 1].getApellido()) {
+                Personal temp = vec[j];
+                vec[j]     = vec[j + 1];
+                vec[j + 1] = temp;
+            }
+        }
+    }
+
+    cout << "=== LISTADO DE PERSONAL ORDENADO POR APELLIDO ===\n";
+    for (int i = 0; i < leidos; i++) {
+        if (vec[i].getID() != -1) {
+            mostrarPersonal(vec[i]);
+            cout << "---------------------------\n";
+        }
+    }
+    delete[] vec;
+}
 
 void PersonalManager::buscarID() {
     int id;
@@ -202,7 +200,6 @@ void PersonalManager::buscarID() {
     cin >> id;
 
     int pos = _repor.buscarID(id);
-
     if(pos == -1) {
         cout << "No existe registro." << endl;
         return;
