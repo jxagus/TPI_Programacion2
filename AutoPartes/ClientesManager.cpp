@@ -142,12 +142,17 @@ void ClienteManager::listar() {
         cout << "No hay clientes registrados.\n";
         return;
     }
+    Clientes *vec = nullptr;
+    vec = new Clientes[cant];
+    if (vec == nullptr) {
+        cout << "ERROR DE ASIGNACION DE MEMORIA\n";
+        return;
+    }
 
-    Clientes *vec = new Clientes[cant];
     int leidos = _repor.leerTodos(vec, cant);
 
     for (int i = 0; i < leidos; i++) {
-        if (vec[i].getIDCliente() != -1) {  //filtro importante -1
+        if (vec[i].getIDCliente() != -1) { // id -1
             mostrarCliente(vec[i]);
         }
     }
@@ -163,9 +168,16 @@ void ClienteManager::listarPorNombre() {
         return;
     }
 
-    Clientes *vec = new Clientes[cant];
+    Clientes *vec = nullptr;
+    vec = new Clientes[cant];
+    if (vec == nullptr) {
+        cout << "ERROR DE ASIGNACION DE MEMORIA\n";
+        return;
+    }
+
     int leidos = _repor.leerTodos(vec, cant);
 
+    //Ordenamiento
     for (int i = 0; i < leidos - 1; i++) {
         for (int j = 0; j < leidos - i - 1; j++) {
             if (vec[j].getNombre() > vec[j + 1].getNombre()) {
@@ -177,12 +189,12 @@ void ClienteManager::listarPorNombre() {
     }
 
     cout << "=== LISTADO DE CLIENTES ORDENADO POR NOMBRE ===\n";
+
     for (int i = 0; i < leidos; i++) {
-    if (vec[i].getIDCliente() != -1) {
-        mostrarCliente(vec[i]);
+        if (vec[i].getIDCliente() != -1) {   // id -1 elimina2
+            mostrarCliente(vec[i]);
         }
     }
-
     delete[] vec;
 }
 
@@ -219,20 +231,31 @@ void ClienteManager::listarPorCategoria() {
     }
 
     int cant = _repor.getCantidadRegistros();
+
     if (cant == 0) {
         cout << "No hay clientes registrados." << endl;
         return;
     }
 
-    Clientes *vec = new Clientes[cant];
+    Clientes *vec = nullptr;
+    vec = new Clientes[cant];
+
+    if (vec == nullptr) {
+        cout << "ERROR DE ASIGNACION DE MEMORIA\n";
+        return;
+    }
+
     int leidos = _repor.leerTodos(vec, cant);
 
     bool hay = false;
 
-    cout << "=== LISTADO DE CLIENTES EN LA CATEGORIA: " << categoria << " ===\n";
+    cout << "=== LISTADO DE CLIENTES EN LA CATEGORIA: "
+         << categoria << " ===\n";
 
     for (int i = 0; i < leidos; i++) {
-        if (vec[i].getIDCliente() != -1 && vec[i].getCategoria() == categoria) {
+        if (vec[i].getIDCliente() != -1 &&
+            vec[i].getCategoria() == categoria) {
+
             mostrarCliente(vec[i]);
             hay = true;
         }
@@ -241,7 +264,6 @@ void ClienteManager::listarPorCategoria() {
     if (!hay) {
         cout << "No hay clientes en esta categoria." << endl;
     }
-
     delete[] vec;
 }
 
@@ -258,20 +280,30 @@ void ClienteManager::BuscarPorNombre() {
         return;
     }
 
-    Clientes *vec = new Clientes[cant];
+    Clientes *vec = nullptr;
+    vec = new Clientes[cant];
+
+    if (vec == nullptr) {
+        cout << "ERROR DE ASIGNACION DE MEMORIA\n";
+        return;
+    }
+
     int leidos = _repor.leerTodos(vec, cant);
 
     bool encontrado = false;
 
     for (int i = 0; i < leidos; i++) {
-        if (vec[i].getNombre() == nombreBuscado) {
+        if (vec[i].getIDCliente() != -1 &&
+            vec[i].getNombre() == nombreBuscado) {
+
             mostrarCliente(vec[i]);
             encontrado = true;
         }
     }
 
     if (!encontrado) {
-        cout << "No se encontraron clientes con el nombre: " << nombreBuscado << endl;
+        cout << "No se encontraron clientes con el nombre: "
+             << nombreBuscado << endl;
     }
 
     delete[] vec;
