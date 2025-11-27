@@ -66,7 +66,6 @@ void ClienteManager::cargarCliente() {
     }
 }
 
-// Mostrar datos de un cliente
 void ClienteManager::mostrarCliente(Clientes cliente){
     cout << "---------------------------\n";
     cout << "ID : " << cliente.getIDCliente() << endl;
@@ -97,30 +96,98 @@ void ClienteManager::listar() {
 }
 
 void ClienteManager::listarPorNombre() {
-    vector<Clientes> lista;
     int cant = _repor.getCantidadRegistros();
 
-    for (int pos = 0; pos < cant; pos++) {
-        Clientes reg = _repor.leer(pos);
-        if (reg.getIDCliente() != -1) {
-            lista.push_back(reg);
-        }
-    }
-
-    if (lista.empty()) {
-        cout << "No hay clientes cargados." << endl;
+    if (cant == 0) {
+        cout << "No hay clientes registrados." << endl;
         return;
     }
 
-    sort(lista.begin(), lista.end(),
-         [](const Clientes &a, const Clientes &b) {
-             return a.getNombre() < b.getNombre();
-         });
+    Clientes *vec = new Clientes[cant];
+    int leidos = _repor.leerTodos(vec, cant);
 
-    cout << "=== LISTADO ORDENADO POR NOMBRE (A-Z) ===\n";
-    for (auto &p : lista) {
-        mostrarCliente(p);
+    for (int i = 0; i < leidos - 1; i++) {
+        for (int j = 0; j < leidos - i - 1; j++) {
+            if (vec[j].getNombre() > vec[j + 1].getNombre()) {
+                Clientes temp = vec[j];
+                vec[j] = vec[j + 1];
+                vec[j + 1] = temp;
+            }
+        }
     }
+
+    cout << "=== LISTADO DE CLIENTES ORDENADO POR NOMBRE ===\n";
+    for (int i = 0; i < leidos; i++) {
+        mostrarCliente(vec[i]);
+    }
+
+    delete[] vec;
+}
+
+void ClienteManager::listarPorCategoria() {
+    string categoria;
+    cout << "Ingrese la categoria a listar (Taller, Concesionaria, Fabrica, Chapista, Otros): ";
+    cin.ignore();
+    getline(cin, categoria);
+
+    int cant = _repor.getCantidadRegistros();
+
+    if (cant == 0) {
+        cout << "No hay clientes registrados." << endl;
+        return;
+    }
+
+    Clientes *vec = new Clientes[cant];
+    int leidos = _repor.leerTodos(vec, cant);
+
+    bool hay = false;
+
+    cout << "=== LISTADO DE CLIENTES EN LA CATEGORIA: " << categoria << " ===\n";
+
+    for (int i = 0; i < leidos; i++) {
+        if (vec[i].getCategoria() == categoria) {
+            mostrarCliente(vec[i]);
+            hay = true;
+        }
+    }
+
+    if (!hay) {
+        cout << "No hay clientes en esta categoria." << endl;
+    }
+
+    delete[] vec;
+}
+
+void ClienteManager::BuscarPorNombre() {
+    string nombreBuscado;
+    cout << "Ingrese el nombre a buscar: ";
+    cin.ignore();
+    getline(cin, nombreBuscado);
+
+    int cant = _repor.getCantidadRegistros();
+
+    if (cant == 0) {
+        cout << "No hay clientes registrados." << endl;
+        return;
+    }
+
+    Clientes *vec = new Clientes[cant];
+    int leidos = _repor.leerTodos(vec, cant);
+
+    bool encontrado = false;
+
+    for (int i = 0; i < leidos; i++) {
+        if (vec[i].getNombre() == nombreBuscado) {
+            mostrarCliente(vec[i]);
+            encontrado = true;
+        }
+    }
+
+    if (!encontrado) {
+        cout << "No se encontraron clientes con el nombre: " << nombreBuscado << endl;
+    }
+
+    delete[] vec;
 }
 
 void ClienteManager::BuscarID() {

@@ -9,5 +9,7 @@ public:
     void agregarDetalleVenta();
     void listarDetalles();
     void listarPorIdVenta(int idVenta);
+
+
     //float calcularTotalPorVenta(int idVenta);
 };

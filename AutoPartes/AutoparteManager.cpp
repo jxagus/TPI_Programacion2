@@ -196,6 +196,7 @@ void AutoparteManager::mostrarAutoparte (Autoparte autoparte){
     cout << "Precio Unitario: " << autoparte.getPrecioUnitario() << endl;
     cout << "Stock: " << autoparte.getStock() << endl;
 }
+
 void AutoparteManager::listar(){
     int cant = _repor.getCantidadRegistros();
     if (cant == 0) {
@@ -344,6 +345,7 @@ void AutoparteManager::BuscarPorID() {
 
     mostrarAutoparte(_autoparte);
 }
+
 string AutoparteManager::mostrarTipo(int tipo) {
     string nombreTipo;
 

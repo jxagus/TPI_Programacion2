@@ -5,20 +5,23 @@
 using namespace std;
 
 
-class ManagerCliente
+class ClienteManager
 {
     public:
-        ManagerCliente();
+        ClienteManager();
 
         void cargarCliente ();
+        void listarPorNombre();
         void mostrarCliente (Clientes clientes);
         void listar ();
         void BuscarID ();
+        void listarPorCategoria();
+        void BuscarPorNombre();
 
 
     private:
         Clientes _clientes;
-        ArchivoClientes _repor;
+        ClienteArchivo _repor;
 };
 
 

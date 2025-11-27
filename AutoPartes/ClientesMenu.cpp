@@ -15,9 +15,10 @@ void ClientesMenu::MostrarMenu() {
         cout << "===== MENU DE CLIENTES =====" << endl;
         cout << "1. Listar todos los clientes" << endl;
         cout << "2. Listar clientes por categoria" << endl;
-        cout << "3. Buscar cliente por ID" << endl;
-        cout << "4. Buscar cliente por nombre" << endl;
-        cout << "5. Cargar nuevo cliente" << endl;
+        cout << "3. Listar cliente por nombre" << endl;
+        cout << "4. Buscar cliente por ID" << endl;
+        cout << "5. Buscar cliente por Nombre" << endl;
+        cout << "6. Cargar nuevo cliente" << endl;
         cout << "0. Volver al menu anterior" << endl;
         cout << "-----------------------------" << endl;
         cout << "Opcion: ";
@@ -33,16 +34,18 @@ void ClientesMenu::MostrarMenu() {
                 manager.listar();
                 break;
             case 2:
-                cout << "Listar clientes por categoria" << endl;
-
+                manager.listarPorCategoria();
                 break;
             case 3:
-                manager.BuscarID();
+                manager.listarPorNombre();
                 break;
             case 4:
-                cout << "buscar cliente por nombres" << endl;
+                manager.BuscarID();
                 break;
             case 5:
+                manager.BuscarPorNombre();
+                break;
+            case 6:
                 manager.cargarCliente();
                 break;
             case 0:
