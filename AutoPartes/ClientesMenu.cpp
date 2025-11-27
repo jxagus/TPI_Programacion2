@@ -24,8 +24,6 @@ void ClientesMenu::MostrarMenu() {
         cout << "-----------------------------" << endl;
         cout << "Opcion: ";
         cin >> opcion;
-
-        // Evita que quede basura en el buffer
         cin.clear();
 
         system("cls");
@@ -62,7 +60,7 @@ void ClientesMenu::MostrarMenu() {
 
         if (opcion != 0) {
             cout << endl;
-            system("pause"); // pausa hasta que el usuario presione una tecla
+            system("pause");
         }
 
     } while (opcion != 0);

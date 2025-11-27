@@ -83,7 +83,7 @@ void ClienteManager::cargarCliente() {
         break;
     } while (true);
 
-    // Direccion (sin validacion)
+    // Direccion (sin validacion apropositto)
     cout << "Ingresar Direccion: ";
     getline(cin, Direccion);
 
@@ -115,7 +115,6 @@ void ClienteManager::cargarCliente() {
         default: Categoria = "Otros"; break;
     }
 
-    // Crear cliente y guardar
     Clientes clientes(idCliente, Categoria, Direccion, Nombre, Telefono, Cuit, Mail);
 
     if (_repor.guardarCliente(clientes)) {
@@ -124,6 +123,7 @@ void ClienteManager::cargarCliente() {
         cout << "Error al guardar el cliente." << endl;
     }
 }
+
 void ClienteManager::mostrarCliente(Clientes cliente){
     cout << "---------------------------\n";
     cout << "ID : " << cliente.getIDCliente() << endl;
