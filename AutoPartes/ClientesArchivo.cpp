@@ -4,136 +4,109 @@
 
 using namespace std;
 
+ClienteArchivo::ClienteArchivo(string NombreArchivo) : _nombreArchivo(NombreArchivo) {}
 
 
-ArchivoClientes::ArchivoClientes(string NombreArchivo):_nombreArchivo(NombreArchivo){
-
-
-}
-bool ArchivoClientes::guardarCliente (Clientes registro){
+bool ClienteArchivo::guardarCliente(Clientes registro) {
     FILE *pfile;
-    bool result;
-
-    pfile = fopen (_nombreArchivo.c_str(),"ab");
-
-    if (pfile == nullptr){
+    pfile = fopen(_nombreArchivo.c_str(), "ab");
+    if (pfile == nullptr) {
         return false;
     }
 
-    result = fwrite (&_registro,sizeof (Clientes),1,pfile);
-
-    fclose (pfile);
+    bool result = fwrite(&registro, sizeof(Clientes), 1, pfile);
+    fclose(pfile);
 
     return result;
 }
 
-bool ArchivoClientes::modificarCliente (Clientes modificar,int pos){
+bool ClienteArchivo::modificarCliente(Clientes modificar, int pos) {
     FILE *pfile;
-    bool result;
-
-    pfile = fopen (_nombreArchivo.c_str(),"rn+");
-
-    if (pfile == nullptr){
+    pfile = fopen(_nombreArchivo.c_str(), "r+b");
+    if (pfile == nullptr) {
         return false;
     }
 
-    fseek (pfile,pos *sizeof (Clientes),SEEK_SET);
-
-    result = fwrite (&_registro,sizeof (Clientes), 1,pfile);
-
-    fclose (pfile);
+    fseek(pfile, pos * sizeof(Clientes), SEEK_SET);
+    bool result = fwrite(&modificar, sizeof(Clientes), 1, pfile);
+    fclose(pfile);
 
     return result;
 }
 
-Clientes ArchivoClientes::leer(int pos){
-    FILE  *pfile;
+Clientes ClienteArchivo::leer(int pos) {
+    FILE *pfile;
+    pfile = fopen(_nombreArchivo.c_str(), "rb");
+    Clientes temp;
 
-    pfile = fopen (_nombreArchivo.c_str(),"rb");
-
-    if (pfile == nullptr){
-        _registro.setidCliente(-1);
-        return _registro;
+    if (pfile == nullptr) {
+        temp.setIDCliente(-1);
+        return temp;
     }
 
-    fseek (pfile,pos *sizeof (Clientes), SEEK_SET);
-
-    if(!fread(&_registro,sizeof (Clientes),1, pfile)){
-        _registro.setidCliente (-1);
+    fseek(pfile, pos * sizeof(Clientes), SEEK_SET);
+    if (!fread(&temp, sizeof(Clientes), 1, pfile)) {
+        temp.setIDCliente(-1);
     }
 
-    pclose (pfile);
-
-    return _registro;
+    fclose(pfile);
+    return temp;
 }
 
-int ArchivoClientes::leerTodos(Clientes clientes[], int cantidad){
-    FILE  *pfile;
-    int result;
-
-    pfile = fopen (_nombreArchivo.c_str(), "rb");
-
-    if (pfile == nullptr){
+int ClienteArchivo::leerTodos(Clientes clientes[], int cantidad) {
+    FILE *pfile;
+    pfile = fopen(_nombreArchivo.c_str(), "rb");
+    if (pfile == nullptr) {
         return 0;
     }
 
-    fread(clientes,sizeof clientes,cantidad,pfile);
+    int leidos = fread(clientes, sizeof(Clientes), cantidad, pfile);
+    fclose(pfile);
 
-    fclose (pfile);
-
-    return result;
+    return leidos;
 }
 
-int ArchivoClientes::getCantidadRegistros(){
-    FILE  *pfile;
-    bool result;
-    int cantidad;
-
-    pfile = fopen (_nombreArchivo.c_str(),"rb");
-
-    if (pfile == nullptr){
+int ClienteArchivo::getCantidadRegistros() {
+    FILE *pfile;
+    pfile = fopen(_nombreArchivo.c_str(), "rb");
+    if (pfile == nullptr) {
         return 0;
     }
 
-    fseek (pfile, 0, SEEK_END);
-
-    cantidad=ftell(pfile)/sizeof (Clientes);
-
-    fclose (pfile);
+    fseek(pfile, 0, SEEK_END);
+    int cantidad = ftell(pfile) / sizeof(Clientes);
+    fclose(pfile);
 
     return cantidad;
 }
 
-int ArchivoClientes::getNuevoID (){
-    if (getCantidadRegistros()==0){
+int ClienteArchivo::getNuevoID() {
+    int cantidad = getCantidadRegistros();
+    if (cantidad == 0) {
         return 1;
     }
 
-    return leer (getCantidadRegistros () - 1).getidCliente()+1;
-
+    return leer(cantidad - 1).getIDCliente() + 1;
 }
 
-int ArchivoClientes::buscarID (int id){
+int ClienteArchivo::buscarID(int id) {
     FILE *pfile;
-    int pos = -1;
-
     pfile = fopen(_nombreArchivo.c_str(), "rb");
-
-    if(pfile == nullptr){
+    if (pfile == nullptr) {
         return -1;
     }
 
-    while (fread(&_registro,sizeof (Clientes), 1, pfile)){
-        if (_registro.getidCliente() == id){
-            pos = ftell(pfile)/sizeof (Clientes)-1;
+    int pos = -1;
+    int index = 0;
+    Clientes temp;
+    while (fread(&temp, sizeof(Clientes), 1, pfile)) {
+        if (temp.getIDCliente() == id) {
+            pos = index;
             break;
         }
-
-        fclose (pfile);
-
-        return pos;
+        index++;
     }
 
+    fclose(pfile);
+    return pos;
 }
-
-

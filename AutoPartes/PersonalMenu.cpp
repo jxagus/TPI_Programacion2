@@ -13,9 +13,10 @@ void PersonalMenu::mostrarMenu() {
         system("cls"); // limpia pantalla (en Windows)
         cout << "===== MENU PERSONAL =====" << endl;
         cout << "1. Listar personal" << endl;
-        cout << "2. Buscar personal por ID" << endl;
-        cout << "3. Agregar nuevo personal" << endl;
-        cout << "4. Eliminar personal" << endl;
+        cout << "2. Listar personal por Apellido" << endl;
+        cout << "3. Buscar personal por ID" << endl;
+        cout << "4. Agregar nuevo personal" << endl;
+        cout << "5. Eliminar personal" << endl;
         cout << "0. Volver al menu anterior" << endl;
         cout << "-----------------------------" << endl;
         cout << "Opcion: ";
@@ -31,12 +32,15 @@ void PersonalMenu::mostrarMenu() {
                 _Manager.listar();
                 break;
             case 2:
-                _Manager.buscarID();
+                _Manager.listarPorApellido();
                 break;
             case 3:
-                _Manager.cargarPersonal();
+                _Manager.buscarID();
                 break;
             case 4:
+                _Manager.cargarPersonal();
+                break;
+            case 5:
                 _Manager.eliminarPersonal();
                 break;
             case 0:

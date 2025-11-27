@@ -1,32 +1,40 @@
 #pragma once
+#include <string>
+
 using namespace std;
 
-class Personal{
+class Personal
+{
     public:
         Personal();
-        Personal (string Nombre, string Apellido, string Telefono, string Mail, int DNI, int id);
+        Personal(int id, int dni, const string &nombre,const string &apellido, const string &telefono, const string &mail);
 
-        string getNombre ();
-        string getApellido ();
-        string getTelefono ();
-        string getMail ();
-        int getDNI ();
-        int getID ();
+        // SETTERS
+        void setID(int id);
+        void setDNI(int dni);
+        void setNombre(const string &nombre);
+        void setApellido(const string &apellido);
+        void setTelefono(const string &telefono);
+        void setMail(const string &mail);
 
-        void setNombre (string Nombre);
-        void setApellido (string Apellido);
-        void setTelefono (string Telefono);
-        void setMail (string Mail);
-        void setDNI (int DNI);
-        void setID (int id);
+        // GETTERS
+        int getID() const;
+        int getDNI() const;
+        string getNombre() const;
+        string getApellido() const;
+        string getTelefono() const;
+        string getMail() const;
 
     private:
-
-        char _Nombre [20];
-        char _Apellido [20];
-        char _Telefono [15];
-        char _Mail [40];
-        int _DNI;
         int _id;
+        int _dni;
+
+        char _nombre[40];
+        char _apellido[40];
+        char _telefono[20];
+        char _mail[60];
+
+
 };
+
 

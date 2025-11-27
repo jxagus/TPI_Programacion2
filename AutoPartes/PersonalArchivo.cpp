@@ -3,120 +3,91 @@
 
 using namespace std;
 
-
-ArchivoPersonal::ArchivoPersonal(string NombreArchivo): _nombreArchivo(NombreArchivo){
+ArchivoPersonal::ArchivoPersonal(string NombreArchivo) : _nombreArchivo(NombreArchivo) {
 }
 
-bool ArchivoPersonal::guardarPersonal (Personal personal){
-    FILE *pfile;
-    bool result;
+bool ArchivoPersonal::guardarPersonal(Personal personal) {
+    FILE* pfile = fopen(_nombreArchivo.c_str(), "ab");
+    if (pfile == nullptr) return false;
 
-    pfile = fopen (_nombreArchivo.c_str(),"ab");
+    bool result = fwrite(&personal, sizeof(Personal), 1, pfile);
 
-    if (pfile == nullptr){
-        return false;
-    }
-
-    result = fwrite (&_registro,sizeof (Personal),1,pfile);
-
-    fclose (pfile);
-
+    fclose(pfile);
     return result;
 }
 
-bool ArchivoPersonal::modificarPersonal (Personal modificar,int pos){
-    FILE *pfile;
-    bool result;
+bool ArchivoPersonal::modificarPersonal(Personal modificar, int pos) {
+    FILE* pfile = fopen(_nombreArchivo.c_str(), "rb+");
+    if (pfile == nullptr) return false;
 
-    pfile = fopen (_nombreArchivo.c_str(),"rn+");
+    fseek(pfile, pos * sizeof(Personal), SEEK_SET);
 
-    if (pfile == nullptr){
-        return false;
-    }
+    bool result = fwrite(&modificar, sizeof(Personal), 1, pfile);
 
-    fseek (pfile,pos *sizeof (Personal),SEEK_SET);
-
-    result = fwrite (&_registro,sizeof (Personal), 1,pfile);
-
-    fclose (pfile);
-
+    fclose(pfile);
     return result;
 }
 
-bool ArchivoPersonal::eliminarPersonal(int pos){
-    _registro = leer(pos);
+bool ArchivoPersonal::eliminarPersonal(int pos) {
+    Personal reg = leer(pos);
 
-    // Si falla la lectura
-    if(_registro.getID() == -1)
-        return false;
-    _registro.setID(-1);
-    return modificarPersonal(_registro, pos);
+    if (reg.getID() == -1) return false;
+
+    reg.setID(-1);
+    return modificarPersonal(reg, pos);
 }
 
-Personal ArchivoPersonal::leer (int pos){
+Personal ArchivoPersonal::leer(int pos) {
+    Personal registro;
     FILE *pfile;
 
-    pfile = fopen(_nombreArchivo.c_str(),"rb");
+    pfile = fopen(_nombreArchivo.c_str(), "rb");
 
-    if (pfile == nullptr){
-        _registro.setID(-1);
-        return _registro;
+    if (pfile == nullptr) {
+        registro.setID(-1);
+        return registro;
     }
 
-    fseek (pfile,pos * sizeof (Personal),SEEK_SET);
+    fseek(pfile, pos * sizeof(Personal), SEEK_SET);
 
-    if(!fread(&_registro,sizeof (Personal),1, pfile)){
-        _registro.setID (-1);
+    if (!fread(&registro, sizeof(Personal), 1, pfile)) {
+        registro.setID(-1);
     }
 
-    fclose (pfile);
-
-    return _registro;
+    fclose(pfile);
+    return registro;
 }
 
-int ArchivoPersonal::leerTodos (Personal personal[], int cantidad){
-    FILE *pfile;
-    int result;
+bool ArchivoPersonal::leer(Personal &reg, int pos) {
+    FILE *p = fopen(_nombreArchivo.c_str(), "rb");
+    if (p == nullptr) return false;
 
-    pfile = fopen (_nombreArchivo.c_str(),"rb");
+    fseek(p, pos * sizeof(Personal), SEEK_SET);
 
-    if (pfile == nullptr){
-        return 0;
-    }
+    // Intentar leer
+    bool ok = fread(&reg, sizeof(Personal), 1, p);
 
-    result = fread (personal,sizeof (Personal), cantidad, pfile);
+    fclose(p);
 
-    fclose (pfile);
-
-    return result;
+    return ok;
 }
 
-int ArchivoPersonal::getcantidadRegistros(){
-    FILE *pfile;
-    bool result;
-    int cantidad;
+int ArchivoPersonal::getcantidadRegistros() {
+    FILE* pfile = fopen(_nombreArchivo.c_str(), "rb");
+    if (pfile == nullptr) return 0;
 
-    pfile = fopen(_nombreArchivo.c_str(),"rb");
+    fseek(pfile, 0, SEEK_END);
+    int cantidad = ftell(pfile) / sizeof(Personal);
 
-    if (pfile == nullptr){
-        return 0;
-    }
-
-    fseek (pfile, 0, SEEK_END);
-
-    cantidad=ftell(pfile)/sizeof (Personal);
-
-    fclose (pfile);
-
+    fclose(pfile);
     return cantidad;
 }
 
-int ArchivoPersonal::getNuevoID (){
-        if (getcantidadRegistros()==0){
-        return 1;
-    }
+int ArchivoPersonal::getNuevoID() {
+    int cant = getcantidadRegistros();
+    if (cant == 0) return 1;
 
-    return leer (getcantidadRegistros () - 1).getID()+1;
+    return leer(cant - 1).getID() + 1;
 }
 
 int ArchivoPersonal::buscarID(int id) {
@@ -124,10 +95,10 @@ int ArchivoPersonal::buscarID(int id) {
     int pos = 0;
 
     FILE *p = fopen(_nombreArchivo.c_str(), "rb");
-    if(p == NULL) return -1;
+    if (p == nullptr) return -1;
 
-    while(fread(&reg, sizeof(Personal), 1, p) == 1) {
-        if(reg.getID() == id) {
+    while (fread(&reg, sizeof(Personal), 1, p) == 1) {
+        if (reg.getID() == id) {
             fclose(p);
             return pos;
         }
@@ -137,20 +108,13 @@ int ArchivoPersonal::buscarID(int id) {
     fclose(p);
     return -1;
 }
-/*int ArchivoPersonal::generarID() { //automatico test
-    FILE *p = fopen(_nombreArchivo.c_str(), "rb");
-    if (p == NULL) return 1;
 
-    Personal reg;
-    int ultimoID = 0;
+int ArchivoPersonal::leerTodos(Personal personales[], int cantidad) {
+    FILE* pFile = fopen(_nombreArchivo.c_str(), "rb");
+    if (pFile == nullptr) return 0;
 
-    while (fread(&reg, sizeof(Personal), 1, p) == 1) {
-        if (reg.getID() > ultimoID) {
-            ultimoID = reg.getID();
-        }
-    }
+    int result = fread(personales, sizeof(Personal), cantidad, pFile);
 
-    fclose(p);
-    return ultimoID + 1;
+    fclose(pFile);
+    return result;
 }
-*/
