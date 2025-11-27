@@ -13,7 +13,7 @@ void PersonalManager::cargarPersonal() {
     int DNI, id, pos;
     string Nombre, Apellido, Telefono, Mail;
 
-    // === VALIDACION: ID solo numeros + ID unico ===
+    //ID solo numeros + ID unico
     string strID;
     do {
         cout << "Ingresar ID: ";
@@ -39,11 +39,11 @@ void PersonalManager::cargarPersonal() {
             ok = false;
         }
 
-        if (ok) break; // si todo está bien, sale
+        if (ok) break;
     } while (true);
 
 
-    // === VALIDACION: Nombre ===
+    //Nombre
     do {
         cout << "Ingresar Nombre: ";
         cin >> Nombre;
@@ -59,7 +59,7 @@ void PersonalManager::cargarPersonal() {
     } while (true);
 
 
-    // === VALIDACION: Apellido ===
+    //Apellido
     do {
         cout << "Ingresar Apellido: ";
         cin >> Apellido;
@@ -75,7 +75,7 @@ void PersonalManager::cargarPersonal() {
     } while (true);
 
 
-    // === VALIDACION: DNI ===
+    //DNI
     string strDNI;
     do {
         cout << "Ingresar DNI: ";
@@ -94,7 +94,7 @@ void PersonalManager::cargarPersonal() {
     DNI = stoi(strDNI);
 
 
-    // === VALIDACION: Teléfono ===
+    //Teléfono
     do {
         cout << "Ingresar Telefono: ";
         cin >> Telefono;
@@ -110,7 +110,7 @@ void PersonalManager::cargarPersonal() {
     } while (true);
 
 
-    // === VALIDACION: Email ===
+    //Email
     do {
         cout << "Ingresar Mail: ";
         cin >> Mail;
@@ -166,7 +166,6 @@ void PersonalManager::listarPorApellido() {
     Personal reg;
     int pos = 0;
 
-    // Leer todos los registros
     while (_repor.leer(reg, pos)) {
         if (reg.getID() != -1) {   // evitar registros borrados
             lista.push_back(reg);
@@ -179,7 +178,7 @@ void PersonalManager::listarPorApellido() {
         return;
     }
 
-    // ORDENAR por apellido A-Z
+    //A-Z
     sort(lista.begin(), lista.end(),
          [](const Personal &a, const Personal &b) {
              return a.getApellido() < b.getApellido();
@@ -229,7 +228,7 @@ void PersonalManager::eliminarPersonal() {
 
     Personal reg = _repor.leer(pos);
 
-    reg.setID(-1); // marcar eliminado
+    reg.setID(-1);
 
     if (_repor.modificarPersonal(reg, pos)) {
         cout << "Registro eliminado correctamente." << endl;

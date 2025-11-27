@@ -10,7 +10,7 @@ void PersonalMenu::mostrarMenu() {
    int opcion;
 
     do {
-        system("cls"); // limpia pantalla (en Windows)
+        system("cls");
         cout << "===== MENU PERSONAL =====" << endl;
         cout << "1. Listar personal" << endl;
         cout << "2. Listar personal por Apellido" << endl;
@@ -22,7 +22,6 @@ void PersonalMenu::mostrarMenu() {
         cout << "Opcion: ";
         cin >> opcion;
 
-        //- basura en el buffer
         cin.clear();
 
         system("cls");

@@ -207,3 +207,211 @@
 	"Validaciones.h"
 	<limits>
 
+1764010295 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autoparte.cpp
+	<iostream>
+	<cstring>
+	"Autoparte.h"
+
+1764166396 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autoparte.h
+	<string>
+
+1764251750 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartearchivo.cpp
+	<iostream>
+	<cstring>
+	<cstdio>
+	"Autoparte.h"
+	"AutoparteArchivo.h"
+
+1764251750 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartearchivo.h
+	"Autoparte.h"
+
+1764251750 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartemanager.cpp
+	<iostream>
+	<cstring>
+	<ctype.h>
+	"AutoparteManager.h"
+
+1764251750 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartemanager.h
+	"AutoparteArchivo.h"
+	"Autoparte.h"
+	"Validaciones.h"
+
+1764251750 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\validaciones.h
+	<string>
+
+1764166396 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartemenu.cpp
+	<iostream>
+	<cstdlib>
+	"AutoparteMenu.h"
+
+1764166396 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartemenu.h
+	"AutoparteManager.h"
+
+1764192401 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientes.cpp
+	"Clientes.h"
+	<cstring>
+
+1764192424 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientes.h
+	<string>
+
+1764200203 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesarchivo.cpp
+	<iostream>
+	<cstring>
+	"ClientesArchivo.h"
+
+1764194753 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesarchivo.h
+	"Clientes.h"
+
+1764207869 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmanager.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<cctype>
+	"ClienteManager.h"
+
+1764206734 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientemanager.h
+	"Clientes.h"
+	"ClientesArchivo.h"
+
+1764206743 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmenu.cpp
+	<iostream>
+	"ClientesMenu.h"
+
+1762052209 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmenu.h
+	"ClienteManager.h"
+
+1764251750 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\detalleventa.cpp
+	"DetalleVenta.h"
+	<iostream>
+
+1764251750 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\detalleventa.h
+	<iostream>
+
+1764251750 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\detalleventaarchivo.cpp
+	"DetalleVentaArchivo.h"
+	<iostream>
+
+1764251750 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\detalleventaarchivo.h
+	"DetalleVenta.h"
+	<iostream>
+	<cstdio>
+
+1764251750 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\detalleventamanager.cpp
+	"DetalleVentaManager.h"
+	<iostream>
+
+1764251750 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\detalleventamanager.h
+	"VentaManager.h"
+	"DetalleVentaArchivo.h"
+	"AutoparteManager.h"
+
+1764251750 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventamanager.h
+	"ClientesArchivo.h"
+	"ClienteManager.h"
+	"AutoparteArchivo.h"
+	"PersonalManager.h"
+	"VentaArchivo.h"
+	"Venta.h"
+	"DetalleVentaArchivo.h"
+	"DetalleVenta.h"
+	"DetalleVentaManager.h"
+
+1764183823 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalmanager.h
+	"Personal.h"
+	"PersonalArchivo.h"
+
+1764184009 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personal.h
+	<string>
+
+1764184900 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalarchivo.h
+	"Personal.h"
+
+1761441719 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventaarchivo.h
+	"Venta.h"
+
+1764251750 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\venta.h
+	<iostream>
+
+1761862419 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\main.cpp
+	<iostream>
+	"Menu.h"
+
+1764166396 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\menu.h
+	"ClientesMenu.h"
+	"AutoparteMenu.h"
+	"PersonalMenu.h"
+	"VentaMenu.h"
+	"ReportesMenu.h"
+
+1763763836 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalmenu.h
+	"PersonalManager.h"
+
+1761951836 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventamenu.h
+	"VentaManager.h"
+
+1764166396 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\reportesmenu.h
+	"Reportes.h"
+
+1764251750 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\reportes.h
+	"AutoparteArchivo.h"
+	"DetalleVentaArchivo.h"
+	"VentaManager.h"
+
+1764166396 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\menu.cpp
+	<iostream>
+	"Menu.h"
+
+1764189464 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personal.cpp
+	"Personal.h"
+	<cstring>
+
+1764185024 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalarchivo.cpp
+	<iostream>
+	"PersonalArchivo.h"
+
+1764184132 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalmanager.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	"PersonalManager.h"
+	"Personal.h"
+
+1764183799 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalmenu.cpp
+	<iostream>
+	"PersonalMenu.h"
+	"PersonalArchivo.h"
+
+1764251750 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\reportes.cpp
+	<iostream>
+	<iomanip>
+	"Reportes.h"
+
+1764251750 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\reportesmenu.cpp
+	"ReportesMenu.h"
+	<iostream>
+	<cctype>
+
+1764251750 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\validaciones.cpp
+	<iostream>
+	"Validaciones.h"
+	<limits>
+
+1764251750 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\venta.cpp
+	"Venta.h"
+	"DetalleVentaArchivo.h"
+	<iostream>
+
+1760727988 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventaarchivo.cpp
+	"VentaArchivo.h"
+	<cstdio>
+
+1764251750 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventamanager.cpp
+	"VentaManager.h"
+	<iostream>
+	<ctime>
+
+1764251750 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventamenu.cpp
+	<iostream>
+	<cstdlib>
+	"VentaMenu.h"
+
