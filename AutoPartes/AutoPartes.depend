@@ -441,7 +441,7 @@
 1764166396 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\autopartemenu.h
 	"AutoparteManager.h"
 
-1764205633 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmenu.cpp
+1764206743 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmenu.cpp
 	<iostream>
 	"ClientesMenu.h"
 
@@ -483,13 +483,14 @@
 1764184900 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\personalarchivo.h
 	"Personal.h"
 
-1764205633 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmanager.cpp
+1764207503 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmanager.cpp
 	<iostream>
 	<vector>
 	<algorithm>
+	<cctype>
 	"ClienteManager.h"
 
-1764205633 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientemanager.h
+1764206734 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientemanager.h
 	"Clientes.h"
 	"ClientesArchivo.h"
 

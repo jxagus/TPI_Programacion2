@@ -17,6 +17,8 @@ class ClienteManager
         void BuscarID ();
         void listarPorCategoria();
         void BuscarPorNombre();
+        void eliminarCliente();
+
 
 
     private:
