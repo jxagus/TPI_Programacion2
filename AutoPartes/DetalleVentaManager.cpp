@@ -59,7 +59,6 @@ DetalleVenta DetalleVentaManager::cargarDetalle(int idVenta) {
     return det;
 }
 
-
 void DetalleVentaManager::listarDetallesPorVenta(int idVenta) {
     DetalleVentaArchivo archDetalle;
     int cant = archDetalle.contarRegistros();

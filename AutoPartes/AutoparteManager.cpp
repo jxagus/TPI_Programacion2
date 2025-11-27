@@ -122,7 +122,7 @@ void AutoparteManager::listar() {
         cout << "ORDENAR SEGUN: : " << endl;
         cout << "1- ID"  << endl;
         cout << "2- NOMBRE" << endl;
-        cout << "3- TIPO " << endl;
+        cout << "3- CATEGORIA " << endl;
         cout << "4- PRECIO UNITARIO" << endl;
 
         campo = Validaciones::leerIntEnRango("Seleccione una opcion: ",1,4);

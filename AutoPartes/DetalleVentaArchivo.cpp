@@ -15,14 +15,6 @@ bool DetalleVentaArchivo::guardar(const DetalleVenta& reg) {
 
     return ok;
 }
-/*
-bool DetalleVentaArchivo::AgregarDetalleVenta(const DetalleVenta& reg) {
-    FILE* p = fopen(_nombreArchivo, "ab");
-    if (p == nullptr) return false;
-    bool ok = fwrite(&reg, sizeof(DetalleVenta), 1, p);
-    fclose(p);
-    return ok;
-}    */
 
 bool DetalleVentaArchivo::leer(DetalleVenta& reg, int pos) {
     FILE* p = fopen(_nombreArchivo, "rb");
@@ -32,6 +24,7 @@ bool DetalleVentaArchivo::leer(DetalleVenta& reg, int pos) {
     fclose(p);
     return ok;
 }
+
 int DetalleVentaArchivo::buscarPorID(int idVenta) {
     DetalleVenta reg;
     FILE *p = fopen("detalleventas.dat", "rb");
@@ -50,6 +43,7 @@ int DetalleVentaArchivo::buscarPorID(int idVenta) {
     fclose(p);
     return -1;
 }
+
 int DetalleVentaArchivo::contarRegistros() {
     FILE* p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) return 0;
@@ -67,16 +61,6 @@ bool DetalleVentaArchivo::modificar(const DetalleVenta& reg, int pos) {
     fclose(p);
     return ok;
 }
-/*
-DetalleVenta DetalleVentaArchivo::leerPorId(int idDetalle) {
-    DetalleVenta reg;
-    int cant = contarRegistros();
-    for (int i = 0; i < cant; i++) {
-        leer(reg, i);
-        if (reg.getIdDetalle() == idDetalle) return reg;
-    }
-    return DetalleVenta(); // devuelve vacío si no lo encuentra
-}*/
 
 bool DetalleVentaArchivo::leerTodos(DetalleVenta* vec, int cantidad) {
     FILE* pfile = fopen(_nombreArchivo, "rb");

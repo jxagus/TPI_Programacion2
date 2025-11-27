@@ -15,7 +15,6 @@ class AutoparteArchivo{
         Autoparte leer(int pos);
         bool leerTodos(Autoparte autoparte[], int cantidad);
         int getCantidadRegistros();
-        int getNuevoID();
 
 
     private:

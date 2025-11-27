@@ -19,7 +19,7 @@ public:
     void listarVentas();  //terminado
     void buscarVentaPorID();  //terminado
     void buscarVentaPorCliente (); //terminado
-    void buscarVentaPorAutopartes ();
+    void buscarVentaPorAutopartes (); //termina2
     void buscarVentasPorFecha (); //terminado
     void ordenarVentas (Venta *vec,int cant, int aux, bool asc);
 };

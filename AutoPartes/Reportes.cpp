@@ -51,24 +51,7 @@ cout << "Valor total: $" << fixed << setprecision(2) << total << endl;
 cout << "========================================" << endl;
 }
 
-/*float Reportes::RecaudacionTotal (){
-    DetalleVentaArchivo archivo;
-    int cantidad = archivo.contarRegistros();
-    float total = 0.0;
 
-    for (int i = 0; i < cantidad; i++){
-        DetalleVenta  d = archivo.leer(d, i);
-        float recaudacion;
-        recaudacion += d.getPrecio ();
-    }
-    cout << "========================================" << endl;
-    cout << "GANANCIAS TOTALES REGISTRADAS" << endl;
-    cout << "========================================" << endl;
-    cout << "Total: $" << fixed << setprecision(2) << total << endl;
-    cout << "========================================" << endl;
-
-    return total;
-} */
 float Reportes::recaudacionTotalPorAnio() {
     int opcionAnio;
 

@@ -6,15 +6,14 @@ using namespace std;
 void VentaManager::agregarVenta() {
      int idVenta, fecha, idCliente, idPersonal;
      float importeTotal = 0.0;
+     cout <<"INGRESAR ID DE LA VENTA" << endl;
+     cin >> idVenta;
+     time_t t = time(nullptr);
+     tm* fechaActual = localtime(&t);
 
-    cout <<"INGRESAR ID DE LA VENTA" << endl;
-    cin >> idVenta;
-    time_t t = time(nullptr);
-    tm* fechaActual = localtime(&t);
-
-    int dia = fechaActual->tm_mday;
-    int mes = fechaActual->tm_mon + 1;     // tm_mon va de 0 a 11
-    int anio = fechaActual->tm_year + 1900; // tm_year cuenta desde 1900
+     int dia = fechaActual->tm_mday;
+     int mes = fechaActual->tm_mon + 1;     // tm_mon va de 0 a 11
+     int anio = fechaActual->tm_year + 1900; // tm_year cuenta desde 1900
 
     cout << "FECHA ASIGNADA AUTOMATICAMENTE: "
          << dia << "/" << mes << "/" << anio << endl;
@@ -70,11 +69,6 @@ void VentaManager::agregarVenta() {
 
         DetalleVentaManager detalleventaM;
         DetalleVenta det = detalleventaM.cargarDetalle(idVenta);
-        // Carga idAutoparte, cantidad
-        //if (det.getIdAutoparte() == -1) {
-        //cout << "No se guardó el detalle porque la autoparte no existe." << endl;
-        //break;   // <-- vuelve al inicio del ciclo
-        //}
 
         importeTotal += det.getCantidad() * det.getPrecio();
 
@@ -119,11 +113,29 @@ void VentaManager::listarVentas() {
         cout << "No hay ventas registradas.\n";
         return;
     }
+    int campo, modo;
+
+    // Validación de campo de orden
+    cout << "ORDENAR SEGUN: : " << endl;
+    cout << "1- ID"  << endl;
+    cout << "2- FECHA" << endl;
+    cout << "3- CLIENTE" << endl;
+
+    campo = Validaciones::leerIntEnRango("Seleccione una opcion: ",1,3);
+
+    // Validación de modo
+    cout << "MODO:" << endl;
+    cout << "1- ASCENDENTE " << endl;
+    cout << "2- DESCENDENTE " << endl;
+
+    modo = Validaciones::leerIntEnRango("Seleciione una opcion: ",1,2);
+
+    bool asc = (modo == 1);
     DetalleVenta detalleventa;
     DetalleVentaManager detalleventaM;
     Venta* vec = new Venta[cant];
     _archivo.leerTodos(vec, cant);
-
+    ordenarVentas(vec, cant, campo, asc);
     //ordenarVentas()
 
 
@@ -216,6 +228,26 @@ void VentaManager::buscarVentasPorFecha (){
     if (!encontrado) {
         cout << "No se encontraron ventas en esa fecha." << endl;
     }
+}
+void VentaManager::buscarVentaPorAutopartes (){
+    int idAutoparte;
+    cout << "Ingrese el ID del autoparte a buscar: ";
+    cin >> idAutoparte;
+
+    DetalleVentaArchivo detmanagerArch;
+    int pos = detmanagerArch.buscarPorID(idAutoparte);
+
+    if (pos == -1) {
+        cout << "No se encontro autoparte con ese ID." << endl;
+        return;
+    }
+
+    Venta venta = _archivo.leer(pos);
+    cout << "\n=== DATOS DE LA VENTA ===" << endl;
+    mostrarVenta(venta);
+
+    DetalleVentaManager detManager;
+    detManager.listarDetallesPorVenta(idAutoparte);
 }
 
 void  VentaManager::ordenarVentas(Venta *vec, int cant, int campo, bool asc) {

@@ -31,7 +31,7 @@ void ClienteManager::cargarCliente() {
         } while (!valido);
 
         idCliente = stoi(temp);
-        cin.ignore(); // Limpiar buffer
+        cin.ignore();
 
         pos = _repor.buscarID(idCliente);
         if (pos != -1) {

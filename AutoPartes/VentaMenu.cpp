@@ -13,7 +13,10 @@ void VentaMenu::mostrarMenu() {
         cout << "===== MENU DE VENTAS =====" << endl;
         cout << "1. Listar ventas" << endl;
         cout << "2. Buscar venta por ID" << endl;
-        cout << "3. Agregar nueva venta" << endl;
+        cout << "3. Buscar venta por Cliente" << endl;
+        cout << "4. Buscar venta por Autoparte" << endl;
+        cout << "5. Buscar venta por Fecha" << endl;
+        cout << "6. Agregar nueva venta" << endl;
         cout << "0. Volver al menu anterior" << endl;
         cout << "--------------------------" << endl;
         cout << "Opcion: ";
@@ -30,6 +33,15 @@ void VentaMenu::mostrarMenu() {
                manager.buscarVentaPorID();
                 break;
             case 3:
+                manager.buscarVentaPorCliente();
+                break;
+            case 4:
+                manager.buscarVentaPorAutopartes();
+                break;
+            case 5:
+                manager.buscarVentasPorFecha();
+                break;
+            case 6:
                 manager.agregarVenta();
                 break;
             case 0:

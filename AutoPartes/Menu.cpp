@@ -4,8 +4,9 @@
 using namespace std;
 
 Menu::Menu(){
-    _cantidadOpciones =5;
+    //_cantidadOpciones =5;
 }
+
 void Menu::run(){
   int opcion;
 
@@ -32,14 +33,7 @@ int Menu::seleccionOpcion(){
   int opcion;
   mostrarOpciones();
   cout << "---------------" << endl;
-  cout << "Opcion: ";
-  cin >> opcion;
-
-  while(opcion < 0 || opcion > _cantidadOpciones){
-    cout << "Opcion incorrecta..."<<endl;
-    cout << "Opcion: ";
-    cin >> opcion;
-  }
+  opcion = Validaciones::leerIntEnRango("Opcion: ", 0,5);
   return opcion;
 }
 

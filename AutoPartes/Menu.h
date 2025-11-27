@@ -4,6 +4,7 @@
 #include "PersonalMenu.h"
 #include "VentaMenu.h"
 #include "ReportesMenu.h"
+#include "Validaciones.h"
 
 
 class Menu

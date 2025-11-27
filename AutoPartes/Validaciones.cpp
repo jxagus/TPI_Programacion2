@@ -86,9 +86,6 @@ char Validaciones::leerCharOpciones(const char* mensaje, const char* opciones) {
     }
 }
 
-
-
-
 string Validaciones::leerString(const char* mensaje) {
     string s;
 

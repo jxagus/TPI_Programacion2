@@ -28,7 +28,7 @@ bool AutoparteArchivo::guardarAutoparte (Autoparte _registro){
     return result;
 }
 
-bool AutoparteArchivo::ModificarAutoparte (int pos,Autoparte modificar){
+bool AutoparteArchivo::ModificarAutoparte (int pos,Autoparte modificar){ //-
     FILE *pfile;
     bool result;
 
@@ -88,16 +88,6 @@ int AutoparteArchivo::getCantidadRegistros() {
     fclose(pfile);
     return cantidad;
 }
-
-int AutoparteArchivo::getNuevoID(){
-
-    if (getCantidadRegistros()==0){
-        return 1;
-    }
-
-    return leer (getCantidadRegistros () - 1).getIDAutoparte()+1;
-}
-
 
 int AutoparteArchivo::buscarID(int id) {
     FILE *pfile = fopen(_nombreArchivo, "rb");
