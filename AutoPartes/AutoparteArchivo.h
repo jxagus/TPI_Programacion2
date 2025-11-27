@@ -3,7 +3,6 @@
 
 using namespace std;
 
-
 class AutoparteArchivo{
     public:
         AutoparteArchivo(const char *nombreArchivo = "Autopartes.dat");

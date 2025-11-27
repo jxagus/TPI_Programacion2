@@ -99,28 +99,27 @@ int AutoparteArchivo::getNuevoID(){
 }
 
 
-int AutoparteArchivo::buscarID (int id){
-    FILE *pfile;
-    int pos = -1;
-
-    pfile = fopen(_nombreArchivo, "rb");
-
-    if(pfile == nullptr){
+int AutoparteArchivo::buscarID(int id) {
+    FILE *pfile = fopen(_nombreArchivo, "rb");
+    if (pfile == nullptr) {
         return -1;
     }
 
-    while (fread(&_registro,sizeof (Autoparte), 1, pfile)){
-        if (_registro.getIDAutoparte() == id){
-            pos = ftell(pfile)/sizeof (Autoparte)-1;
-            break;
+    Autoparte aux;
+    int pos = 0;
+
+    while (fread(&aux, sizeof(Autoparte), 1, pfile) == 1) { // leer 1 registro
+        if (aux.getIDAutoparte() == id) {
+            fclose(pfile);
+            return pos;  // retornamos la posición correcta
         }
+        pos++;  // avanzamos manualmente
     }
 
-        fclose (pfile);
-
-        return pos;
-
+    fclose(pfile);
+    return -1; // no encontrado
 }
+
 int AutoparteArchivo::buscarTipo(int tipo){
     FILE *pfile;
     int pos = -1;

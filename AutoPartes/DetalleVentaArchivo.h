@@ -13,9 +13,9 @@ public:
     bool leer(DetalleVenta& reg, int pos);
     int contarRegistros();
     bool modificar(const DetalleVenta& reg, int pos);
-    DetalleVenta leerPorId(int idDetalle);
-    void listarTodos();
-    void listarPorIdVenta(int idVenta);
+    //DetalleVenta leerPorId(int idDetalle);
+    bool leerTodos(DetalleVenta* vec, int cantidad);
+    int buscarPorID(int idVenta);
     void buscarID(int id);
 
 };

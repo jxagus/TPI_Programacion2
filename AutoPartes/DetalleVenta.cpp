@@ -41,21 +41,3 @@ void DetalleVenta::setCantidad(int cantidad){
 void DetalleVenta::setPrecio(float precio){
      _precio = precio;
      }
-void DetalleVenta::cargar(int idVenta) {
-    _idVenta = idVenta;
-
-    cout << "Ingrese ID de la autoparte: ";
-    cin >> _idAutoparte;
-
-    cout << "Ingrese cantidad: ";
-    cin >> _cantidad;
-
-    cout << "Ingrese precio unitario: $";
-    cin >> _precio;
-}
-
-void DetalleVenta::mostrar()  {
-    cout << "ID Detalle: " << _idDetalle << " | ID Venta: " << _idVenta
-         << " | ID Autoparte: " << _idAutoparte << " | Cantidad: " << _cantidad
-         << " | Precio: $" << _precio << endl;
-}

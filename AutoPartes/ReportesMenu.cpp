@@ -12,9 +12,9 @@ void ReportesMenu::MostrarMenu() {
         system("cls");
 
         cout << "===== MENU DE REPORTES =====" << endl;
-        cout << "1. RECAUDACION TOTAL ANUAL Y POR MES" << endl;
+        cout << "1. RECAUDACION TOTAL ANUAL" << endl;
         cout << "2. RECAUDACION POR CLIENTE" << endl;
-        cout << "3. RECAUDACION POR AUTOPARTE (MENOR Y MAYOR)" << endl;
+        cout << "3. RECAUDACION POR AUTOPARTE" << endl;
         cout << "4. STOCK CRITICO" << endl;
         cout << "5. VALOR TOTAL DEL INVENTARIO" << endl;
         cout << "0. VOLVER AL MENU ANTERIOR" << endl;
@@ -51,13 +51,13 @@ void ReportesMenu::MostrarMenu() {
 
         switch (opcion) {
             case 1:
-                repor.RecaudacionTotal ();
+                repor.recaudacionTotalPorAnio();
                 break;
             case 2:
-                // repor.recaudacionCliente();
+                repor.recaudacionCliente();
                 break;
             case 3:
-                // repor.recaudacionAutoparte();
+                repor.recaudacionPorAutoparte();
                 break;
             case 4:
                 repor.stockCritico();

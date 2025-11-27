@@ -24,8 +24,4 @@ public:
     void setIdAutoparte(int idAutoparte);
     void setCantidad(int cantidad);
     void setPrecio(float precio);
-
-    void mostrar();
-    void cargar(int idVenta);
-
 };

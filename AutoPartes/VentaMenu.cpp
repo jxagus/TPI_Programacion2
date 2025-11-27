@@ -24,10 +24,10 @@ void VentaMenu::mostrarMenu() {
 
         switch (opcion) {
             case 1:
-                manager.listarVentas();
+               manager.listarVentas();
                 break;
             case 2:
-                manager.buscarVentaPorID();
+               manager.buscarVentaPorID();
                 break;
             case 3:
                 manager.agregarVenta();

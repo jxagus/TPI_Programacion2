@@ -1,13 +1,14 @@
 #pragma once
+#include "VentaManager.h"
 #include "DetalleVentaArchivo.h"
+#include "AutoparteManager.h"
 
 class DetalleVentaManager {
 private:
     DetalleVentaArchivo _archivo;
-
+    AutoparteArchivo _archAuto;
 public:
-    void agregarDetalleVenta();
-    void listarDetalles();
-    void listarPorIdVenta(int idVenta);
-    //float calcularTotalPorVenta(int idVenta);
+    DetalleVenta cargarDetalle(int idVenta);
+    void mostrarDetalleVenta(int idVenta);
+    void listarDetallesPorVenta (int idVenta);
 };

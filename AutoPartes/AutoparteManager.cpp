@@ -411,7 +411,7 @@ void AutoparteManager::BuscarPorTipo() {
             continue;
         }
 
-        break; // tipo válido
+        break; // tipo valido
     }
 
     int cant = _repor.getCantidadRegistros();
