@@ -28,9 +28,9 @@ De esta manera, la aplicación brinda por una parte, soluciona problemas reales 
 
 La aplicación elaborará tres tipos de salidas, categorizadas en Listados, Consultas e Informes:
 -	Listados: 
-1.	Listado de empresas: ordenados por su nombre o categoría
-2.	Listado de autopartes: ordenados por su nombre, stock/cantidad o tipo
-3.	Listado de ventas: ordenados fecha o cliente
+1.	Listado de empresas: oordenados por su nombre o categoría
+2.	Listado de autopartes: ordenados por su id, categoría, nombre, stock, precio unitario o tipo
+3.	Listado de ventas: ordenados fecha, id o cliente
 4.	Listado de personal: ordenados por rol o apellido
    
 -	Consultas: 
@@ -42,6 +42,8 @@ La aplicación elaborará tres tipos de salidas, categorizadas en Listados, Cons
 1.	Recaudación total anual y por mes
 2.	Recaudación por cliente
 3.	Recaudación por autoparte(Menor recaudación y mayor)
+4.	Stock critico
+5.	Valor total del inventario
 
 ## ARCHIVO
 
