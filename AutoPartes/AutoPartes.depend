@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1763683916 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autoparte.cpp
+1764455132 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autoparte.cpp
 	<iostream>
 	<cstring>
 	"Autoparte.h"
@@ -7,17 +7,17 @@
 1764036622 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autoparte.h
 	<string>
 
-1764215740 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartearchivo.cpp
+1764455132 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartearchivo.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
 	"Autoparte.h"
 	"AutoparteArchivo.h"
 
-1764215740 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartearchivo.h
+1764455132 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartearchivo.h
 	"Autoparte.h"
 
-1764219242 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartemanager.cpp
+1764455132 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\autopartemanager.cpp
 	<iostream>
 	<cstring>
 	<ctype.h>
@@ -51,7 +51,7 @@
 1764216265 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientesarchivo.h
 	"Clientes.h"
 
-1764216265 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientesmanager.cpp
+1764455132 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientesmanager.cpp
 	<iostream>
 	<vector>
 	<algorithm>
@@ -62,7 +62,7 @@
 	"Clientes.h"
 	"ClientesArchivo.h"
 
-1764216265 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientesmenu.cpp
+1764455132 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\clientesmenu.cpp
 	<iostream>
 	"ClientesMenu.h"
 
@@ -76,7 +76,7 @@
 1764215740 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventa.h
 	<iostream>
 
-1764215740 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventaarchivo.cpp
+1764455132 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventaarchivo.cpp
 	"DetalleVentaArchivo.h"
 	<iostream>
 
@@ -85,7 +85,7 @@
 	<iostream>
 	<cstdio>
 
-1764215740 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventamanager.cpp
+1764455132 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\detalleventamanager.cpp
 	"DetalleVentaManager.h"
 	<iostream>
 
@@ -94,7 +94,7 @@
 	"DetalleVentaArchivo.h"
 	"AutoparteManager.h"
 
-1764215740 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamanager.h
+1764455132 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamanager.h
 	"ClientesArchivo.h"
 	"ClienteManager.h"
 	"AutoparteArchivo.h"
@@ -129,14 +129,12 @@
 	<iostream>
 	"PersonalArchivo.h"
 
-1764216265 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personalmanager.cpp
+1764455132 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personalmanager.cpp
 	<iostream>
-	<vector>
-	<algorithm>
 	"PersonalManager.h"
 	"Personal.h"
 
-1764216265 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personalmenu.cpp
+1764455132 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\personalmenu.cpp
 	<iostream>
 	"PersonalMenu.h"
 	"PersonalArchivo.h"
@@ -153,12 +151,13 @@
 	<iostream>
 	"Menu.h"
 
-1764036785 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\menu.h
+1764455132 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\menu.h
 	"ClientesMenu.h"
 	"AutoparteMenu.h"
 	"PersonalMenu.h"
 	"VentaMenu.h"
 	"ReportesMenu.h"
+	"Validaciones.h"
 
 1762033809 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamenu.h
 	"VentaManager.h"
@@ -171,16 +170,16 @@
 	"DetalleVentaArchivo.h"
 	"VentaManager.h"
 
-1764039187 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\menu.cpp
+1764455132 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\menu.cpp
 	<iostream>
 	"Menu.h"
 
-1764215740 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\reportes.cpp
+1764456138 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\reportes.cpp
 	<iostream>
 	<iomanip>
 	"Reportes.h"
 
-1764215740 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\reportesmenu.cpp
+1764455975 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\reportesmenu.cpp
 	"ReportesMenu.h"
 	<iostream>
 	<cctype>
@@ -189,12 +188,12 @@
 	"VentaArchivo.h"
 	<cstdio>
 
-1764215740 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamenu.cpp
+1764455132 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamenu.cpp
 	<iostream>
 	<cstdlib>
 	"VentaMenu.h"
 
-1764216760 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamanager.cpp
+1764459222 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\ventamanager.cpp
 	"VentaManager.h"
 	<iostream>
 	<ctime>
@@ -202,7 +201,7 @@
 1764217200 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\validaciones.h
 	<string>
 
-1764219030 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\validaciones.cpp
+1764455132 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\validaciones.cpp
 	<iostream>
 	"Validaciones.h"
 	<limits>
@@ -413,4 +412,12 @@
 	<iostream>
 	<cstdlib>
 	"VentaMenu.h"
+
+1764459249 source:c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\fecha.cpp
+	<iostream>
+	<sstream>
+	<ctime>
+	"Fecha.h"
+
+1764459222 c:\users\user\desktop\repositorios - programacion 2\tpi_programacion2\autopartes\fecha.h
 

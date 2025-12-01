@@ -78,17 +78,17 @@ float Reportes::recaudacionTotalPorAnio() {
             return 0; // corta la ejecución
     }
 
-    // === Cargar cantidad de ventas ===
+    // Cargar cantidad de ventas
     int cantVentas = _archivo.getCantidadRegistros();
     if (cantVentas == 0) {
         cout << "No hay ventas registradas." << endl;
         return 0;
     }
 
-    // === Reservar memoria dinámica ===
+    //  Reservar memoria dinámica
     Venta* ventas = new Venta[cantVentas];
 
-    // === Leer todas las ventas ===
+    // Leer todas las ventas
     if (!_archivoventas.leerTodos(ventas, cantVentas)) {
         cout << "ERROR al leer ventas." << endl;
         delete[] ventas;
@@ -98,7 +98,7 @@ float Reportes::recaudacionTotalPorAnio() {
     float total = 0;
     bool encontrado = false;
 
-    // === Recorrer ventas ===
+    // Recorrer ventas
     for (int i = 0; i < cantVentas; i++) {
         int anioVenta = ventas[i].getFechaEntrega() / 10000; // AAAAMMDD -> obtiene AAAA
 

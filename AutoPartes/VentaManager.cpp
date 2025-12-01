@@ -8,17 +8,7 @@ void VentaManager::agregarVenta() {
      float importeTotal = 0.0;
      cout <<"INGRESAR ID DE LA VENTA" << endl;
      cin >> idVenta;
-     time_t t = time(nullptr);
-     tm* fechaActual = localtime(&t);
 
-     int dia = fechaActual->tm_mday;
-     int mes = fechaActual->tm_mon + 1;     // tm_mon va de 0 a 11
-     int anio = fechaActual->tm_year + 1900; // tm_year cuenta desde 1900
-
-    cout << "FECHA ASIGNADA AUTOMATICAMENTE: "
-         << dia << "/" << mes << "/" << anio << endl;
-
-    fecha = anio * 10000 + mes * 100 + dia;
 
 
     int posCliente;

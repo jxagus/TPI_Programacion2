@@ -58,6 +58,8 @@
 		<Unit filename="DetalleVentaArchivo.h" />
 		<Unit filename="DetalleVentaManager.cpp" />
 		<Unit filename="DetalleVentaManager.h" />
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
 		<Unit filename="Menu.cpp" />
 		<Unit filename="Menu.h" />
 		<Unit filename="Personal.cpp" />
