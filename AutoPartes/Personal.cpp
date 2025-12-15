@@ -10,6 +10,7 @@ Personal::Personal()
     _apellido[0] = '\0';
     _telefono[0] = '\0';
     _mail[0] = '\0';
+    //_estado = -1;
 }
 
 Personal::Personal(int id, int dni, const string &nombre,const string &apellido, const string &telefono, const string &mail)
@@ -20,6 +21,7 @@ Personal::Personal(int id, int dni, const string &nombre,const string &apellido,
     setApellido(apellido);
     setTelefono(telefono);
     setMail(mail);
+
 }
 
 //Setters
