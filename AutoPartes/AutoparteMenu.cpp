@@ -19,35 +19,9 @@ void AutoparteMenu::mostrarMenu() {
         cout << "6. Buscar autoparte por nombre" << endl;
         cout << "0. Volver al menu anterior" << endl;
         cout << "-----------------------------" << endl;
-        cout << "Opcion: ";
-        string entrada;
-        bool aux = false;
+        opcion = _validaciones.leerIntEnRango("opcion: ", 0, 6);
 
-        while (!aux) {
-            cin >> entrada;
-
-            if (entrada.size() > 10) {
-                cout << "ERROR: El numero es demasiado largo..." << endl;
-                break;
-            }
-
-            bool esNumero = true;
-            for (char c : entrada) {
-                if (!isdigit(c)) {
-                    esNumero = false;
-                    break;
-                }
-            }
-
-            if (!esNumero) {
-                cout << "ERROR: Solo se permiten numeros..." << endl;
-                break;
-            }
-
-            opcion = stoi(entrada);
-            aux = true;
-        }
-
+        system("cls");
         switch (opcion) {
             case 1:
                 manager.listar();

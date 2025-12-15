@@ -36,7 +36,7 @@ void VentaMenu::mostrarMenu() {
                 manager.buscarVentaPorCliente();
                 break;
             case 4:
-                manager.buscarVentaPorAutopartes();
+               manager.buscarVentaPorAutopartes();
                 break;
             case 5:
                 manager.buscarVentasPorFecha();

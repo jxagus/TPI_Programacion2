@@ -7,16 +7,14 @@ class Venta {
 
 
 public:
-    // Constructores
     Venta();
-    Venta(int idVenta, int fecha, int idCliente, int idPersonal, float importeTotal);
+    Venta(int idVenta, string fecha, int idCliente, int idPersonal, float importeTotal);
 
-    // Getters y Setters
     void setIdVenta(int id);
     int getIdVenta();
 
-    void setFechaEntrega(int fecha);
-    int getFechaEntrega();
+    void setFechaEntrega(string fecha);
+    string getFechaEntrega();
 
     void setIdCliente(int idCliente);
     int getIdCliente();
@@ -29,7 +27,7 @@ public:
 
     private:
     int _idVenta;
-    int _fechaEntrega;
+    char _fechaEntrega [10];
     int _idCliente;
     int _idPersonal;
     float _importeTotal;

@@ -1,19 +1,20 @@
 #include "Venta.h"
 #include "DetalleVentaArchivo.h"
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 Venta::Venta() {
     _idVenta = 0;
-    _fechaEntrega = 0;
+    strcpy(_fechaEntrega, "");
     _idCliente = 0;
     _importeTotal = 0;
     _idPersonal = 0;
 }
 
-Venta::Venta(int idVenta, int fecha, int idCliente, int idPersonal, float importeTotal) {
+Venta::Venta(int idVenta, string fecha, int idCliente, int idPersonal, float importeTotal) {
     _idVenta = idVenta;
-    _fechaEntrega = fecha;
+    strncpy(_fechaEntrega, fecha.c_str(), 10);
     _idCliente = idCliente;
     _importeTotal = importeTotal;
     _idPersonal = idPersonal;
@@ -26,12 +27,13 @@ void Venta::setIdVenta(int id) {
      _idVenta = id;
      }
 
-int Venta::getFechaEntrega()  {
+string Venta::getFechaEntrega()  {
      return _fechaEntrega;
     }
-void Venta::setFechaEntrega(int fecha) {
-     _fechaEntrega = fecha;
-     }
+void Venta::setFechaEntrega(string fecha) {
+    strncpy(_fechaEntrega, fecha.c_str(), sizeof(_fechaEntrega));
+    _fechaEntrega[sizeof(_fechaEntrega) - 1] = '\0'; // seguridad
+}
 
 int Venta::getIdCliente()  {
      return _idCliente;

@@ -2,23 +2,14 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="VentaManager.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="DetalleVentaManager.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3819" topLine="3" />
-		</Cursor>
-		<Folding>
-			<Collapse line="5" />
-			<Collapse line="252" />
-		</Folding>
-	</File>
-	<File name="AutoparteArchivo.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="497" topLine="0" />
+			<Cursor1 position="327" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="ReportesMenu.cpp" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Venta.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="39" />
+			<Cursor1 position="509" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Autoparte.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -26,23 +17,46 @@
 			<Cursor1 position="155" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Reportes.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="PersonalMenu.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="249" topLine="0" />
+			<Cursor1 position="710" topLine="28" />
 		</Cursor>
 	</File>
-	<File name="DetalleVentaArchivo.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="VentaArchivo.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="742" topLine="0" />
+			<Cursor1 position="1715" topLine="0" />
 		</Cursor>
 		<Folding>
-			<Collapse line="5" />
-			<Collapse line="18" />
-			<Collapse line="27" />
-			<Collapse line="46" />
-			<Collapse line="55" />
-			<Collapse line="64" />
+			<Collapse line="3" />
+			<Collapse line="7" />
+			<Collapse line="15" />
+			<Collapse line="25" />
+			<Collapse line="34" />
+			<Collapse line="50" />
+			<Collapse line="59" />
 		</Folding>
+	</File>
+	<File name="AutoparteManager.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3035" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="9" />
+			<Collapse line="13" />
+			<Collapse line="69" />
+			<Collapse line="104" />
+			<Collapse line="112" />
+			<Collapse line="171" />
+			<Collapse line="222" />
+			<Collapse line="237" />
+			<Collapse line="263" />
+			<Collapse line="311" />
+		</Folding>
+	</File>
+	<File name="VentaMenu.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1164" topLine="17" />
+		</Cursor>
 	</File>
 	<File name="ClientesArchivo.cpp" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
@@ -57,24 +71,17 @@
 			<Collapse line="82" />
 		</Folding>
 	</File>
-	<File name="VentaMenu.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="DetalleVentaArchivo.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1777" topLine="23" />
-		</Cursor>
-	</File>
-	<File name="Clientes.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="343" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="DetalleVentaManager.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1541" topLine="0" />
+			<Cursor1 position="742" topLine="0" />
 		</Cursor>
 		<Folding>
-			<Collapse line="4" />
-			<Collapse line="61" />
-			<Collapse line="84" />
+			<Collapse line="5" />
+			<Collapse line="18" />
+			<Collapse line="27" />
+			<Collapse line="46" />
+			<Collapse line="55" />
+			<Collapse line="64" />
 		</Folding>
 	</File>
 	<File name="ClientesMenu.cpp" open="0" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -82,41 +89,63 @@
 			<Cursor1 position="511" topLine="18" />
 		</Cursor>
 	</File>
-	<File name="Validaciones.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="AutoparteManager.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2062" topLine="0" />
+			<Cursor1 position="611" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="ReportesMenu.cpp" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="39" />
+		</Cursor>
+	</File>
+	<File name="Fecha.cpp" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="999" topLine="56" />
+		</Cursor>
+	</File>
+	<File name="VentaManager.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14434" topLine="0" />
 		</Cursor>
 		<Folding>
-			<Collapse line="7" />
-			<Collapse line="27" />
-			<Collapse line="38" />
-			<Collapse line="58" />
-			<Collapse line="77" />
-			<Collapse line="88" />
-			<Collapse line="107" />
-			<Collapse line="121" />
+			<Collapse line="6" />
+			<Collapse line="126" />
+			<Collapse line="172" />
+			<Collapse line="205" />
+			<Collapse line="280" />
+			<Collapse line="302" />
+			<Collapse line="331" />
+			<Collapse line="375" />
+			<Collapse line="396" />
 		</Folding>
 	</File>
-	<File name="VentaArchivo.cpp" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="AutoparteArchivo.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1715" topLine="0" />
+			<Cursor1 position="497" topLine="0" />
 		</Cursor>
-		<Folding>
-			<Collapse line="3" />
-			<Collapse line="7" />
-			<Collapse line="15" />
-			<Collapse line="25" />
-			<Collapse line="34" />
-			<Collapse line="50" />
-			<Collapse line="59" />
-		</Folding>
+	</File>
+	<File name="AutoparteMenu.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="140" topLine="0" />
+		</Cursor>
 	</File>
 	<File name="DetalleVenta.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="6" />
 		</Cursor>
 	</File>
-	<File name="Menu.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Clientes.cpp" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="137" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="VentaManager.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="508" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Menu.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1333" topLine="0" />
 		</Cursor>
@@ -127,14 +156,36 @@
 			<Collapse line="39" />
 		</Folding>
 	</File>
-	<File name="Clientes.cpp" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Venta.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="137" topLine="0" />
+			<Cursor1 position="1044" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Menu.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Autoparte.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="172" topLine="0" />
+			<Cursor1 position="171" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Reportes.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="249" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="PersonalManager.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1922" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="125" />
+			<Collapse line="134" />
+			<Collapse line="160" />
+			<Collapse line="196" />
+			<Collapse line="211" />
+		</Folding>
+	</File>
+	<File name="AutoparteMenu.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="833" topLine="1" />
 		</Cursor>
 	</File>
 	<File name="Personal.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -142,14 +193,38 @@
 			<Cursor1 position="67" topLine="24" />
 		</Cursor>
 	</File>
-	<File name="VentaManager.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Menu.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="753" topLine="0" />
+			<Cursor1 position="172" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="PersonalMenu.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ClientesManager.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="710" topLine="28" />
+			<Cursor1 position="8641" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="10" />
+			<Collapse line="126" />
+			<Collapse line="138" />
+			<Collapse line="162" />
+			<Collapse line="200" />
+			<Collapse line="269" />
+			<Collapse line="326" />
+		</Folding>
+	</File>
+	<File name="Validaciones.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Fecha.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="353" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="DetalleVentaManager.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1241" topLine="106" />
 		</Cursor>
 	</File>
 	<File name="PersonalArchivo.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -166,88 +241,57 @@
 			<Collapse line="85" />
 		</Folding>
 	</File>
-	<File name="Autoparte.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="AutoparteArchivo.cpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="171" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="AutoparteManager.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="611" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="PersonalManager.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1922" topLine="0" />
+			<Cursor1 position="641" topLine="0" />
 		</Cursor>
 		<Folding>
-			<Collapse line="125" />
-			<Collapse line="134" />
-			<Collapse line="160" />
-			<Collapse line="196" />
-			<Collapse line="211" />
-		</Folding>
-	</File>
-	<File name="AutoparteManager.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6473" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="10" />
-			<Collapse line="14" />
-			<Collapse line="69" />
-			<Collapse line="103" />
-			<Collapse line="111" />
-			<Collapse line="155" />
-			<Collapse line="206" />
-			<Collapse line="221" />
-			<Collapse line="247" />
-			<Collapse line="292" />
-		</Folding>
-	</File>
-	<File name="ClientesManager.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8641" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="10" />
-			<Collapse line="126" />
-			<Collapse line="138" />
-			<Collapse line="162" />
-			<Collapse line="200" />
-			<Collapse line="269" />
-			<Collapse line="326" />
-		</Folding>
-	</File>
-	<File name="Reportes.cpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1719" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="AutoparteArchivo.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="645" topLine="0" />
-		</Cursor>
-		<Folding>
+			<Collapse line="9" />
 			<Collapse line="13" />
-			<Collapse line="30" />
 			<Collapse line="49" />
 			<Collapse line="59" />
+			<Collapse line="80" />
 			<Collapse line="91" />
 			<Collapse line="112" />
 		</Folding>
 	</File>
-	<File name="Validaciones.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Validaciones.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="0" />
+			<Cursor1 position="2062" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="27" />
+			<Collapse line="38" />
+			<Collapse line="58" />
+			<Collapse line="77" />
+			<Collapse line="88" />
+			<Collapse line="107" />
+			<Collapse line="121" />
+		</Folding>
+	</File>
+	<File name="Reportes.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3362" topLine="86" />
 		</Cursor>
 	</File>
-	<Target name="Debug" top="AutoparteManager.cpp">
-		<File name="AutoparteManager.cpp" />
-		<File name="AutoparteManager.h" />
+	<File name="Clientes.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="343" topLine="0" />
+		</Cursor>
+	</File>
+	<Target name="Debug" top="VentaManager.cpp">
 		<File name="VentaManager.cpp" />
-		<File name="Reportes.h" />
-		<File name="Validaciones.cpp" />
-		<File name="Validaciones.h" />
+		<File name="DetalleVentaManager.cpp" />
+		<File name="VentaMenu.cpp" />
+		<File name="VentaManager.h" />
+		<File name="AutoparteManager.h" />
+		<File name="AutoparteManager.cpp" />
+		<File name="Venta.h" />
+		<File name="Venta.cpp" />
+		<File name="VentaArchivo.cpp" />
+		<File name="DetalleVentaManager.h" />
+		<File name="AutoparteArchivo.cpp" />
+		<File name="Fecha.cpp" />
+		<File name="Fecha.h" />
 	</Target>
 </CodeBlocks_layout_file>

@@ -28,7 +28,7 @@ bool AutoparteArchivo::guardarAutoparte (Autoparte _registro){
     return result;
 }
 
-bool AutoparteArchivo::ModificarAutoparte (int pos,Autoparte modificar){ //-
+bool AutoparteArchivo::ModificarAutoparte (int pos,Autoparte modificar){
     FILE *pfile;
     bool result;
 

@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cstring>
-#include <ctype.h> //permite usar funcion isdigir, usada para validar que se ingresan solo numeros en el id
 #include "AutoparteManager.h"
 
 
@@ -62,6 +61,7 @@ void AutoparteManager::cargarAutoparte() {
     // Guardar la autoparte en el repositorio
     if (_repor.guardarAutoparte(autoparte)) {
         cout << "Autoparte guardada exitosamente." << endl;
+        system ("pause");
     } else {
         cout << "Error al guardar el autoparte." << endl;
     }
@@ -71,25 +71,26 @@ void AutoparteManager::cargarStock() {
     int id;
 
     // Validación del ID
-        id = Validaciones::leerIntEnRango("Ingresar ID del autoparte a modificar stock: ",1,700);
+        id = _validaciones.leerInt("Ingresar ID: ");
 
 
     int pos = _repor.buscarID(id);
     if (pos == -1) {
-        cout << "No existe una autoparte con ese ID.\n";
+        cout << "No existe una autoparte con ese ID..."<<endl;
         return;
     }
 
     _autoparte = _repor.leer(pos);
 
     float stockActual = _autoparte.getStock();
-    cout << "AUTOPARTE ENCOTRADO " << _autoparte.getNombre() << endl;
+    cout << "AUTOPARTE ENCOTRADO: " << _autoparte.getNombre() << endl;
     cout << "ID: " << id << endl;
     cout << "STOCK: " << stockActual << endl;
+    cout << endl;
 
     // Validación de cantidad a agregar
     int cantidad = 0;
-        cantidad = Validaciones::leerIntEnRango("Ingresar cantidad de Stock fisico a agregar: ",1,1000);
+        cantidad = _validaciones.leerInt("Ingresar material: ");
     // Actualizar stock
     float nuevoStock = stockActual + cantidad;
     _autoparte.setStock(nuevoStock);
@@ -97,7 +98,7 @@ void AutoparteManager::cargarStock() {
     if (_repor.ModificarAutoparte(pos, _autoparte)) {
         cout << "Stock actualizado. Nuevo stock: " << nuevoStock << endl;
     } else {
-        cout << "Error al actualizar el stock.\n";
+        cout << "Error al actualizar el stock" << endl;
     }
 }
 
@@ -111,46 +112,61 @@ void AutoparteManager::mostrarAutoparte (Autoparte autoparte){
 
 void AutoparteManager::listar() {
     int cant = _repor.getCantidadRegistros();
+    int campo, modo, ordenar;
     if (cant == 0) {
         cout << "No hay Autopartes registradas.\n";
         return;
     }
 
-    int campo, modo;
+    ordenar = _validaciones.leerIntEnRango("ORDENAR AUTOPARTE (1: SI /NO: 2) ", 1, 2);
 
-    // Validación de campo de orden
-        cout << "ORDENAR SEGUN: : " << endl;
-        cout << "1- ID"  << endl;
-        cout << "2- NOMBRE" << endl;
-        cout << "3- CATEGORIA " << endl;
-        cout << "4- PRECIO UNITARIO" << endl;
+    if (ordenar == 1){
+        // Validación de campo de orden
+            cout << "ORDENAR SEGUN: : " << endl;
+            cout << "1- ID"  << endl;
+            cout << "2- NOMBRE" << endl;
+            cout << "3- CATEGORIA " << endl;
+            cout << "4- PRECIO UNITARIO" << endl;
 
-        campo = Validaciones::leerIntEnRango("Seleccione una opcion: ",1,4);
+            campo = Validaciones::leerIntEnRango("Seleccione una opcion: ",1,4);
 
-    // Validación de modo
-        cout << "MODO:" << endl;
-        cout << "1- ASCENDENTE " << endl;
-        cout << "2- DESCENDENTE " << endl;
+        // Validación de modo
+            cout << "MODO:" << endl;
+            cout << "1- ASCENDENTE " << endl;
+            cout << "2- DESCENDENTE " << endl;
 
-        modo = Validaciones::leerIntEnRango("Seleciione una opcion: ",1,2);
+            modo = Validaciones::leerIntEnRango("Seleciione una opcion: ",1,2);
 
-    bool asc = (modo == 1);
+        bool asc = (modo == 1);
 
-    // Leer todos los registros
-    Autoparte *vec = new Autoparte[cant];
-    _repor.leerTodos(vec, cant);
+        // Leer todos los registros
+        Autoparte *vec = new Autoparte[cant];
+        _repor.leerTodos(vec, cant);
 
-    // Ordenar
-    ordenarAutopartes(vec, cant, campo, asc);
+        // Ordenar
+        ordenarAutopartes(vec, cant, campo, asc);
 
-    // Mostrar
-    for (int i = 0; i < cant; i++) {
-        cout << "==============================" << endl;
-        mostrarAutoparte(vec[i]);
-        cout << "==============================" << endl;
+        // Mostrar
+        for (int i = 0; i < cant; i++) {
+            cout << "==============================" << endl;
+            mostrarAutoparte(vec[i]);
+            cout << "==============================" << endl;
+        }
+        delete[] vec;
     }
+    else {
+        // Leer todos los registros
+        Autoparte *vec = new Autoparte[cant];
+        _repor.leerTodos(vec, cant);
 
-    delete[] vec;
+        // Mostrar
+        for (int i = 0; i < cant; i++) {
+            cout << "==============================" << endl;
+            mostrarAutoparte(vec[i]);
+            cout << "==============================" << endl;
+        }
+        delete[] vec;
+    }
 }
 
 void AutoparteManager::ordenarAutopartes(Autoparte* vec, int cant, int campo, bool asc) {
@@ -206,8 +222,8 @@ void AutoparteManager::ordenarAutopartes(Autoparte* vec, int cant, int campo, bo
 
 void AutoparteManager::BuscarPorID() {
     int id;
-    cout << "Ingrese ID de Autoparte a buscar: ";
-    cin >> id;
+
+    id = _validaciones.leerInt ("Ingrese ID de Autoparte a buscar: ");
 
     int pos = _repor.buscarID(id);
     if (pos == -1) {
@@ -287,11 +303,10 @@ void AutoparteManager::BuscarPorTipo() {
             encontrado = true;
         }
     }
-
     if (!encontrado) {
         cout << "No se encontraron autopartes de ese tipo." << endl;
     }
-    }
+}
 }
 
 void AutoparteManager::BuscarPorNombre(){

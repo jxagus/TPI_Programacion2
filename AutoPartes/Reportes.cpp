@@ -99,8 +99,8 @@ float Reportes::recaudacionTotalPorAnio() {
     bool encontrado = false;
 
     // Recorrer ventas
-    for (int i = 0; i < cantVentas; i++) {
-        int anioVenta = ventas[i].getFechaEntrega() / 10000; // AAAAMMDD -> obtiene AAAA
+    /*for (int i = 0; i < cantVentas; i++) {
+        //int anioVenta = ventas[i].getFechaEntrega() / 10000; // AAAAMMDD -> obtiene AAAA
 
         if (anioVenta == anio) {
             total += ventas[i].getImporteTotal();
@@ -113,7 +113,7 @@ float Reportes::recaudacionTotalPorAnio() {
     if (!encontrado) {
         cout << "No se encontraron ventas del anio " << anio << "." << endl;
         return 0;
-    }
+    } */
 
     cout << fixed << setprecision(2);
     cout << "Recaudacion total del anio " << anio << ": $" << total << endl;

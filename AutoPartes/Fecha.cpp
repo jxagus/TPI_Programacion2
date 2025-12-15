@@ -21,7 +21,7 @@ int Fecha::getdia(){
 }
 
 void Fecha::setdia(int dia){
-    dia = _dia;
+    _dia = dia;
 }
 
 int Fecha::getmes(){
@@ -29,7 +29,7 @@ int Fecha::getmes(){
 }
 
 void Fecha::setmes(int mes){
-    mes = _mes;;
+    _mes = mes;
 }
 
 int Fecha::getanio(){
@@ -37,7 +37,7 @@ int Fecha::getanio(){
 }
 
 void Fecha::setanio(int anio){
-    anio = _anio;
+    _anio = anio;
 }
 
 string Fecha::toString(){
@@ -94,13 +94,13 @@ bool Fecha::fechaValida(const string &fechastr){
     return true;
 }
 
-void Fecha::asignarFechaSistema(){
+void Fecha::asignarFechaSistema() {
     time_t t = time(nullptr);
-     tm* fechaActual = localtime(&t);
+    tm* fechaActual = localtime(&t);
 
-     int dia = fechaActual->tm_mday;
-     int mes = fechaActual->tm_mon + 1;     // tm_mon va de 0 a 11
-     int anio = fechaActual->tm_year + 1900; // tm_year cuenta desde 1900
+    _dia  = fechaActual->tm_mday;
+    _mes  = fechaActual->tm_mon + 1;
+    _anio = fechaActual->tm_year + 1900;
 
     cout << "FECHA ASIGNADA AUTOMATICAMENTE: "
          << this->toString() << endl;
