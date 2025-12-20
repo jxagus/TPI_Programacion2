@@ -2,31 +2,44 @@
 #include <cstring>
 
 using namespace std;
+
 Personal::Personal()
 {
-    _id = -1;
+    _id = 0;
     _dni = 0;
+    _estado = true;
+
     _nombre[0] = '\0';
     _apellido[0] = '\0';
     _telefono[0] = '\0';
     _mail[0] = '\0';
-    //_estado = -1;
 }
 
-Personal::Personal(int id, int dni, const string &nombre,const string &apellido, const string &telefono, const string &mail)
+Personal::Personal(int id, int dni, const string &nombre,
+                   const string &apellido,
+                   const string &telefono,
+                   const string &mail)
 {
-    setID(id);
-    setDNI(dni);
+    _id = id;
+    _dni = dni;
+    _estado = true;
+
     setNombre(nombre);
     setApellido(apellido);
     setTelefono(telefono);
     setMail(mail);
-
 }
 
-//Setters
-void Personal::setID(int id) { _id = id; }
-void Personal::setDNI(int dni) { _dni = dni; }
+
+void Personal::setDNI(int dni)
+{
+    _dni = dni;
+}
+
+void Personal::setEstado(bool estado)
+{
+    _estado = estado;
+}
 
 void Personal::setNombre(const string &nombre)
 {
@@ -52,12 +65,38 @@ void Personal::setMail(const string &mail)
     _mail[sizeof(_mail) - 1] = '\0';
 }
 
-// getters
-int Personal::getID() const { return _id; }
-int Personal::getDNI() const { return _dni; }
 
-string Personal::getNombre() const { return string(_nombre); }
-string Personal::getApellido() const { return string(_apellido); }
-string Personal::getTelefono() const { return string(_telefono); }
-string Personal::getMail() const { return string(_mail); }
+int Personal::getID() const
+{
+    return _id;
+}
 
+int Personal::getDNI() const
+{
+    return _dni;
+}
+
+bool Personal::getEstado() const
+{
+    return _estado;
+}
+
+string Personal::getNombre() const
+{
+    return string(_nombre);
+}
+
+string Personal::getApellido() const
+{
+    return string(_apellido);
+}
+
+string Personal::getTelefono() const
+{
+    return string(_telefono);
+}
+
+string Personal::getMail() const
+{
+    return string(_mail);
+}

@@ -14,7 +14,9 @@ public:
     void eliminarPersonal();
     void buscarID();
     void listarPorApellido();
+    void listarPersonalBajado();
 
 private:
     ArchivoPersonal _repor;
+    int generarNuevoID();
 };
