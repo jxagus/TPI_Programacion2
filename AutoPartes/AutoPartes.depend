@@ -253,33 +253,33 @@
 	"AutoparteManager.h"
 	"Validaciones.h"
 
-1764192401 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientes.cpp
+1766450719 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientes.cpp
 	"Clientes.h"
 	<cstring>
 
-1764192424 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientes.h
+1766450779 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientes.h
 	<string>
 
-1764200203 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesarchivo.cpp
+1766450844 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesarchivo.cpp
 	<iostream>
 	<cstring>
 	"ClientesArchivo.h"
 
-1764194753 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesarchivo.h
+1766450902 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesarchivo.h
 	"Clientes.h"
 
-1764282538 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmanager.cpp
+1766450904 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmanager.cpp
 	<iostream>
 	<vector>
 	<algorithm>
 	<cctype>
 	"ClienteManager.h"
 
-1764206734 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientemanager.h
+1766450687 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientemanager.h
 	"Clientes.h"
 	"ClientesArchivo.h"
 
-1764269501 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmenu.cpp
+1766450905 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmenu.cpp
 	<iostream>
 	"ClientesMenu.h"
 
@@ -365,7 +365,7 @@
 1764166396 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\reportesmenu.h
 	"Reportes.h"
 
-1764251750 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\reportes.h
+1766450927 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\reportes.h
 	"AutoparteArchivo.h"
 	"DetalleVentaArchivo.h"
 	"VentaManager.h"
@@ -417,7 +417,7 @@
 	"VentaArchivo.h"
 	<cstdio>
 
-1766160911 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventamanager.cpp
+1766450982 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\ventamanager.cpp
 	"VentaManager.h"
 	<iostream>
 	<ctime>

@@ -37,6 +37,3 @@ public:
     string getCUIT() const;
     string getMail() const;
 };
-
-
-

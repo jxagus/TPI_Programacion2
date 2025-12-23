@@ -3,6 +3,8 @@
 #include <ctime>
 #include <iomanip>
 
+//usamos _validar en cada ingreso por teclado del usuario con el fin de validar correctamente lo que se ingresa
+
 using namespace std;
 void VentaManager::agregarVenta() {
     ClienteManager clienteM;
@@ -280,31 +282,35 @@ void VentaManager::listarVentas() {
 
 void VentaManager::buscarVentaPorID() {
     int idVenta;
-    cout << "Ingrese el ID de la venta a buscar: ";
-    cin >> idVenta;
+    system ("cls");
+    idVenta = _validar.leerInt("INGRESAR ID DE VENTA A FILTRAR: ");
+
 
     int pos = _archivo.buscarPorID(idVenta);
 
+    system ("cls");
     if (pos == -1) {
-        cout << "No se encontro la venta con ese ID." << endl;
+        cout << "NO EXISTEN VENTAS CON ESE ID" << endl;
         return;
     }
 
-    // Mostrar la venta
+    // se va a mostrar la venta la venta
     Venta venta = _archivo.leer(pos);
-    cout << "\n=== DATOS DE LA VENTA ===" << endl;
+    cout << "=== VENTA " << idVenta << " ===" << endl;
     mostrarVenta(venta);
-
-    // Mostrar detalles asociados
-    DetalleVentaManager detManager;
-    detManager.listarDetallesPorVenta(idVenta);
+    cout << "==========================================" << endl;
 }
 
 void VentaManager::buscarVentaPorCliente (){
     int id;
 
-    cout << "INGRESAR ID DE CLIENTE..." << endl;
-    cin >> id;
+    system ("cls");
+    ClienteManager ClientesM;
+    ClientesM.listar();
+
+    id = _validar.leerInt("INGRESAR ID DEL CLIENTE: ");
+
+    system ("cls");
     cout << "MOSTRANDO VENTAS ASOCIADAS A ID: " << id <<endl;
     int cantidad = _archivo.getCantidadRegistros ();
     if (cantidad == 0) {
@@ -320,7 +326,7 @@ void VentaManager::buscarVentaPorCliente (){
 
         if(venta.getIdCliente() == id){
             mostrarVenta(venta);
-            cout << "=========================" << endl;
+            cout << "==========================================" << endl;
             encontrado = true;
         }
     }
@@ -342,8 +348,7 @@ void VentaManager::buscarVentasPorFecha() {
         return;
     }
 
-    cout << "MOSTRANDO VENTAS ASOCIADAS A LA FECHA: "
-         << fechaBuscada << endl;
+    cout << "MOSTRANDO VENTAS ASOCIADAS A LA FECHA: " << fechaBuscada << endl;
 
     int cantidad = _archivo.getCantidadRegistros();
     if (cantidad == 0) {
@@ -375,23 +380,57 @@ void VentaManager::buscarVentasPorFecha() {
 
 void VentaManager::buscarVentaPorAutopartes (){
     int idAutoparte;
-    cout << "Ingrese el ID del autoparte a buscar: ";
-    cin >> idAutoparte;
+    AutoparteManager autoM;
 
-    DetalleVentaArchivo detmanagerArch;
-    int pos = detmanagerArch.buscarPorID(idAutoparte);
+    system ("cls");
+
+    autoM.listar ();
+    idAutoparte = _validar.leerInt("INGRESAR ID DE UN AUTOPARTE ");
+
+    system ("cls");
+
+    AutoparteArchivo autoA;
+    int pos = autoA.buscarID(idAutoparte);
 
     if (pos == -1) {
         cout << "No se encontro autoparte con ese ID." << endl;
         return;
     }
 
-    Venta venta = _archivo.leer(pos);
-    cout << "\n=== DATOS DE LA VENTA ===" << endl;
-    mostrarVenta(venta);
+    int cantidad = _archivo.getCantidadRegistros ();
+    if (cantidad == 0) {
+        cout << "No hay ventas registradas." << endl;
+        return;
+    }
 
-    DetalleVentaManager detManager;
-    detManager.listarDetallesPorVenta(idAutoparte);
+    bool encontrado = false;
+
+    Venta venta;
+    DetalleVenta detalleV;
+    DetalleVentaArchivo detalleA;
+    DetalleVentaManager detalleM;
+
+    for (int i = 0; i < cantidad; i++) {
+
+        if (detalleA.leer(detalleV, i)) {
+
+            if (detalleV.getIdAutoparte() == idAutoparte) {
+
+                int idVenta = detalleV.getIdVenta();
+                int posVenta = _archivo.buscarPorID(idVenta);
+
+                if (posVenta != -1) {
+                    venta = _archivo.leer(posVenta);
+                    mostrarVenta(venta);
+                    cout << "=========================================="  << endl;
+                    encontrado = true;
+                }
+            }
+        }
+    }
+    if (!encontrado) {
+        cout << "No se encontraron ventas de ese tipo." << endl;
+    }
 }
 
 void  VentaManager::ordenarVentas(Venta *vec, int cant, int campo, bool asc) {

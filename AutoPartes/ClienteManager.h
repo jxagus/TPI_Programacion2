@@ -25,5 +25,3 @@ class ClienteManager
         Clientes _clientes;
         ClienteArchivo _repor;
 };
-
-

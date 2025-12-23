@@ -72,4 +72,3 @@ string Clientes::getNombre() const { return string(_nombre); }
 int Clientes::getTelefono() const { return _telefono; }
 string Clientes::getCUIT() const { return string(_cuit); }
 string Clientes::getMail() const { return string(_mail); }
-
