@@ -72,16 +72,44 @@ void ClienteManager::cargarCliente() {
     } while (true);
 
     // CATEGORIA
+    string temp;
     int op;
-    cout << "1- Taller\n2- Concesionaria\n3- Fabrica\n4- Chapista\nOpcion: ";
-    cin >> op;
+    bool valido;
+    do {
+        valido = true;
+        cout << "Seleccione categoria:\n";
+        cout << "1- Taller\n";
+        cout << "2- Concesionaria\n";
+        cout << "3- Fabrica\n";
+        cout << "4- Chapista\n";
+        cout << "Opcion: ";
+        cin >> temp;
 
+    // validar solo numeros
+    for (char c : temp) {
+        if (!isdigit(c)) {
+            valido = false;
+            cout << "Error: solo se permiten numeros.\n\n";
+            break;
+        }
+    }
+
+    if (valido) {
+        op = stoi(temp);
+        if (op < 1 || op > 4) {
+            valido = false;
+            cout << "Error: debe ingresar un numero del 1 al 4.\n\n";
+        }
+    }
+
+    } while (!valido);
+
+    // asignar categoria
     switch (op) {
         case 1: Categoria = "Taller"; break;
         case 2: Categoria = "Concesionaria"; break;
         case 3: Categoria = "Fabrica"; break;
         case 4: Categoria = "Chapista"; break;
-        default: Categoria = "Otros";
     }
 
     Clientes cli(idCliente, Categoria, Direccion, Nombre, Telefono, Cuit, Mail);
