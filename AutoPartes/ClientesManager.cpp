@@ -1,7 +1,5 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cctype>  // Para isdigit
+#include <cctype>
 #include "ClienteManager.h"
 
 using namespace std;
@@ -9,38 +7,14 @@ using namespace std;
 ClienteManager::ClienteManager() {}
 
 void ClienteManager::cargarCliente() {
-    int idCliente, Telefono, pos;
+    int Telefono;
     string Nombre, Cuit, Categoria, Direccion, Mail;
 
-    // VALIDAR ID
-    do {
-        string temp;
-        bool valido = false;
+    int idCliente = _repor.getNuevoID();
+    cout << "ID asignado automaticamente: " << idCliente << endl;
 
-        do {
-            cout << "Ingresar ID (solo numeros): ";
-            cin >> temp;
-            valido = true;
-            for (size_t i = 0; i < temp.size(); i++) {
-                if (!isdigit(temp[i])) {
-                    valido = false;
-                    cout << "Error: solo se permiten numeros." << endl;
-                    break;
-                }
-            }
-        } while (!valido);
-
-        idCliente = stoi(temp);
-        cin.ignore();
-
-        pos = _repor.buscarID(idCliente);
-        if (pos != -1) {
-            cout << "ID ingresado ya está en uso. Intente nuevamente..." << endl;
-        }
-    } while (pos != -1);
-
-    // Razon social
     cout << "Ingresar Razon social: ";
+    cin.ignore();
     getline(cin, Nombre);
 
     // VALIDAR CUIT
@@ -48,111 +22,101 @@ void ClienteManager::cargarCliente() {
         bool valido = true;
         cout << "Ingresar CUIT (solo numeros): ";
         getline(cin, Cuit);
-        for (size_t i = 0; i < Cuit.size(); i++) {
-            if (!isdigit(Cuit[i])) {
+
+        for (char c : Cuit) {
+            if (!isdigit(c)) {
                 valido = false;
-                cout << "Error: solo se permiten numeros." << endl;
+                cout << "Error: solo numeros.\n";
                 break;
             }
         }
-        if (valido && (Cuit.size() != 10)) {
+
+        if (valido && Cuit.size() != 10) {
             valido = false;
-            cout << "Error: CUIT debe tener 10 digitos." << endl;
+            cout << "Error: debe tener 10 digitos.\n";
         }
+
         if (valido) break;
     } while (true);
 
-    // VALIDAR TELEFONO
+    // TELEFONO
     do {
         string temp;
-        bool valido = false;
-        do {
-            cout << "Ingresar Telefono (solo numeros): ";
-            cin >> temp;
-            valido = true;
-            for (size_t i = 0; i < temp.size(); i++) {
-                if (!isdigit(temp[i])) {
-                    valido = false;
-                    cout << "Error: solo se permiten numeros." << endl;
-                    break;
-                }
+        bool valido = true;
+        cout << "Ingrese Telefono: ";
+        getline(cin, temp);
+
+        for (char c : temp) {
+            if (!isdigit(c)) {
+                valido = false;
+                cout << "Error: solo numeros.\n";
+                break;
             }
-        } while (!valido);
-        Telefono = stoi(temp);
-        cin.ignore();
-        break;
+        }
+
+        if (valido) {
+            Telefono = stoi(temp);
+            break;
+        }
     } while (true);
 
-    // Direccion (sin validacion apropositto)
     cout << "Ingresar Direccion: ";
     getline(cin, Direccion);
 
-    // VALIDAR MAIL
+    // MAIL
     do {
-        cout << "Ingresar Mail (debe contener @): ";
+        cout << "Ingresar Mail: ";
         getline(cin, Mail);
         if (Mail.find('@') != string::npos) break;
-        cout << "Error: el mail debe contener '@'." << endl;
+        cout << "Mail invalido.\n";
     } while (true);
 
-    // Categoria
-    int opcionCategoria;
-    cout << "Seleccionar una Categoria:" << endl;
-    cout << "1- Taller" << endl;
-    cout << "2- Concesionaria" << endl;
-    cout << "3- Fabrica" << endl;
-    cout << "4- Chapista" << endl;
-    cout << "-----------------------------" << endl;
-    cout << "Ingrese opcion (1-4): ";
-    cin >> opcionCategoria;
-    cin.ignore();
+    // CATEGORIA
+    int op;
+    cout << "1- Taller\n2- Concesionaria\n3- Fabrica\n4- Chapista\nOpcion: ";
+    cin >> op;
 
-    switch(opcionCategoria) {
+    switch (op) {
         case 1: Categoria = "Taller"; break;
         case 2: Categoria = "Concesionaria"; break;
         case 3: Categoria = "Fabrica"; break;
         case 4: Categoria = "Chapista"; break;
-        default: Categoria = "Otros"; break;
+        default: Categoria = "Otros";
     }
 
-    Clientes clientes(idCliente, Categoria, Direccion, Nombre, Telefono, Cuit, Mail);
+    Clientes cli(idCliente, Categoria, Direccion, Nombre, Telefono, Cuit, Mail);
 
-    if (_repor.guardarCliente(clientes)) {
-        cout << "Cliente guardado exitosamente." << endl;
-    } else {
-        cout << "Error al guardar el cliente." << endl;
-    }
+    if (_repor.guardarCliente(cli))
+        cout << "Cliente guardado correctamente.\n";
+    else
+        cout << "Error al guardar cliente.\n";
 }
 
-void ClienteManager::mostrarCliente(Clientes cliente){
-    cout << "---------------------------\n";
-    cout << "ID : " << cliente.getIDCliente() << endl;
+void ClienteManager::mostrarCliente(Clientes cliente) {
+    cout << "--------------------------\n";
+    cout << "ID: " << cliente.getIDCliente() << endl;
     cout << "Nombre: " << cliente.getNombre() << endl;
-    cout << "CUIT : " << cliente.getCUIT() << endl;
+    cout << "CUIT: " << cliente.getCUIT() << endl;
     cout << "Telefono: " << cliente.getTelefono() << endl;
     cout << "Direccion: " << cliente.getDireccion() << endl;
-    cout << "Mail : " << cliente.getMail() << endl;
-    cout << "Categoria : " << cliente.getCategoria() << endl;
-    cout << "---------------------------\n";
+    cout << "Mail: " << cliente.getMail() << endl;
+    cout << "Categoria: " << cliente.getCategoria() << endl;
+    cout << "Estado: " << (cliente.getEstado() ? "Activo" : "Baja") << endl;
+    cout << "--------------------------\n";
 }
 
 void ClienteManager::listar() {
     int cant = _repor.getCantidadRegistros();
     if (cant == 0) {
-        cout << "No hay clientes registrados.\n";
-        return;
-    }
-    Clientes *vec = nullptr;
-    vec = new Clientes[cant];
-    if (vec == nullptr) {
-        cout << "ERROR DE ASIGNACION DE MEMORIA\n";
+        cout << "No hay clientes.\n";
         return;
     }
 
+    Clientes* vec = new Clientes[cant];
     int leidos = _repor.leerTodos(vec, cant);
 
     for (int i = 0; i < leidos; i++) {
-        if (vec[i].getIDCliente() != -1) { // id -1
+        if (vec[i].getEstado()) {
             mostrarCliente(vec[i]);
         }
     }
@@ -162,148 +126,92 @@ void ClienteManager::listar() {
 
 void ClienteManager::listarPorNombre() {
     int cant = _repor.getCantidadRegistros();
-
     if (cant == 0) {
-        cout << "No hay clientes registrados." << endl;
+        cout << "No hay clientes.\n";
         return;
     }
 
-    Clientes *vec = nullptr;
-    vec = new Clientes[cant];
-    if (vec == nullptr) {
-        cout << "ERROR DE ASIGNACION DE MEMORIA\n";
-        return;
-    }
-
+    Clientes* vec = new Clientes[cant];
     int leidos = _repor.leerTodos(vec, cant);
 
-    //Ordenamiento
+    // Ordenamiento burbuja
     for (int i = 0; i < leidos - 1; i++) {
         for (int j = 0; j < leidos - i - 1; j++) {
             if (vec[j].getNombre() > vec[j + 1].getNombre()) {
-                Clientes temp = vec[j];
+                Clientes aux = vec[j];
                 vec[j] = vec[j + 1];
-                vec[j + 1] = temp;
+                vec[j + 1] = aux;
             }
         }
     }
 
-    cout << "=== LISTADO DE CLIENTES ORDENADO POR NOMBRE ===\n";
-
     for (int i = 0; i < leidos; i++) {
-        if (vec[i].getIDCliente() != -1) {   // id -1 elimina2
+        if (vec[i].getEstado()) {
             mostrarCliente(vec[i]);
         }
     }
+
     delete[] vec;
 }
 
 void ClienteManager::listarPorCategoria() {
-    int opcion;
+    int op;
     string categoria;
 
-    do {
-        cout << "Seleccionar una Categoria:" << endl;
-        cout << "1- Taller" << endl;
-        cout << "2- Concesionaria" << endl;
-        cout << "3- Fabrica" << endl;
-        cout << "4- Chapista" << endl;
-        cout << "5- Cancelar" << endl;
-        cout << "Ingrese opcion (1-5): ";
-        cin >> opcion;
-        cin.ignore();
+    cout << "1- Taller\n2- Concesionaria\n3- Fabrica\n4- Chapista\nOpcion: ";
+    cin >> op;
 
-        if (opcion < 1 || opcion > 5) {
-            cout << "Opcion invalida. Intente nuevamente." << endl;
-        }
-    } while (opcion < 1 || opcion > 5);
-
-    if (opcion == 5) {
-        cout << "Operacion cancelada." << endl;
-        return;
-    }
-
-    switch(opcion) {
+    switch (op) {
         case 1: categoria = "Taller"; break;
         case 2: categoria = "Concesionaria"; break;
         case 3: categoria = "Fabrica"; break;
         case 4: categoria = "Chapista"; break;
+        default:
+            cout << "Opcion invalida.\n";
+            return;
     }
 
     int cant = _repor.getCantidadRegistros();
-
-    if (cant == 0) {
-        cout << "No hay clientes registrados." << endl;
-        return;
-    }
-
-    Clientes *vec = nullptr;
-    vec = new Clientes[cant];
-
-    if (vec == nullptr) {
-        cout << "ERROR DE ASIGNACION DE MEMORIA\n";
-        return;
-    }
-
+    Clientes* vec = new Clientes[cant];
     int leidos = _repor.leerTodos(vec, cant);
 
     bool hay = false;
 
-    cout << "=== LISTADO DE CLIENTES EN LA CATEGORIA: "
-         << categoria << " ===\n";
-
     for (int i = 0; i < leidos; i++) {
-        if (vec[i].getIDCliente() != -1 &&
-            vec[i].getCategoria() == categoria) {
-
+        if (vec[i].getEstado() && vec[i].getCategoria() == categoria) {
             mostrarCliente(vec[i]);
             hay = true;
         }
     }
 
     if (!hay) {
-        cout << "No hay clientes en esta categoria." << endl;
+        cout << "No hay clientes en esa categoria.\n";
     }
+
     delete[] vec;
 }
 
 void ClienteManager::BuscarPorNombre() {
-    string nombreBuscado;
-    cout << "Ingrese el nombre a buscar: ";
+    string nombre;
+    cout << "Ingrese nombre a buscar: ";
     cin.ignore();
-    getline(cin, nombreBuscado);
+    getline(cin, nombre);
 
     int cant = _repor.getCantidadRegistros();
-
-    if (cant == 0) {
-        cout << "No hay clientes registrados." << endl;
-        return;
-    }
-
-    Clientes *vec = nullptr;
-    vec = new Clientes[cant];
-
-    if (vec == nullptr) {
-        cout << "ERROR DE ASIGNACION DE MEMORIA\n";
-        return;
-    }
-
+    Clientes* vec = new Clientes[cant];
     int leidos = _repor.leerTodos(vec, cant);
 
     bool encontrado = false;
 
     for (int i = 0; i < leidos; i++) {
-        if (vec[i].getIDCliente() != -1 &&
-            vec[i].getNombre() == nombreBuscado) {
-
+        if (vec[i].getEstado() && vec[i].getNombre() == nombre) {
             mostrarCliente(vec[i]);
             encontrado = true;
         }
     }
 
     if (!encontrado) {
-        cout << "No se encontraron clientes con el nombre: "
-             << nombreBuscado << endl;
+        cout << "No se encontro el cliente.\n";
     }
 
     delete[] vec;
@@ -311,48 +219,83 @@ void ClienteManager::BuscarPorNombre() {
 
 void ClienteManager::BuscarID() {
     int id;
-    cout << "Ingrese ID del cliente a buscar: ";
+    cout << "Ingrese ID a buscar: ";
     cin >> id;
 
     int pos = _repor.buscarID(id);
     if (pos == -1) {
-        cout << "No se encontro el cliente.\n";
+        cout << "Cliente no encontrado.\n";
         return;
     }
 
-    Clientes cliente = _repor.leer(pos);
-    mostrarCliente(cliente);
+    Clientes cli = _repor.leer(pos);
+    if (cli.getEstado()) {
+        mostrarCliente(cli);
+    } else {
+        cout << "El cliente esta dado de baja.\n";
+    }
 }
 
 void ClienteManager::eliminarCliente() {
     int id;
-    cout << "Ingrese el ID del cliente a eliminar: ";
+    cout << "Ingrese ID del cliente a dar de baja: ";
     cin >> id;
 
     int pos = _repor.buscarID(id);
-
     if (pos == -1) {
-        cout << "No se encontró ningún cliente con ese ID." << endl;
+        cout << "Cliente no encontrado.\n";
         return;
     }
 
-    Clientes cliente = _repor.leer(pos);
+    Clientes cli = _repor.leer(pos);
 
-    cout << "Se eliminará el siguiente cliente:" << endl;
-    mostrarCliente(cliente);
+    if (!cli.getEstado()) {
+        cout << "El cliente ya esta dado de baja.\n";
+        return;
+    }
 
-    char opcion;
-    cout << "¿Está seguro? (s/n): ";
-    cin >> opcion;
+    mostrarCliente(cli);
 
-    if (opcion == 's' || opcion == 'S') {
-        cliente.setIDCliente(-1);
-        if (_repor.modificarCliente(cliente, pos)) {
-            cout << "Cliente eliminado correctamente." << endl;
-        } else {
-            cout << "Error al eliminar el cliente." << endl;
-        }
+    char op;
+    cout << "Confirmar baja (s/n): ";
+    cin >> op;
+
+    if (op == 's' || op == 'S') {
+        cli.setEstado(false);
+        _repor.modificarCliente(cli, pos);
+        cout << "Cliente dado de baja.\n";
+    }
+}
+
+void ClienteManager::reactivarCliente() {
+    int id;
+    cout << "Ingrese ID del cliente a reactivar: ";
+    cin >> id;
+
+    int pos = _repor.buscarID(id);
+    if (pos <= 0) {
+        cout << "ID invalido. Los IDs deben ser positivos." << endl;
+        return;
+    }
+
+    Clientes cli = _repor.leer(pos);
+
+    if (cli.getEstado()) {
+        cout << "El cliente ya esta activo." << endl;
+        return;
+    }
+
+    mostrarCliente(cli);
+
+    char op;
+    cout << "Confirmar reactivacion (s/n): ";
+    cin >> op;
+
+    if (op == 's' || op == 'S') {
+        cli.setEstado(true);
+        _repor.modificarCliente(cli, pos);
+        cout << "Cliente reactivado correctamente." << endl;
     } else {
-        cout << "Operación cancelada." << endl;
+        cout << "Operacion cancelada." << endl;
     }
 }
