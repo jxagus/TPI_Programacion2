@@ -253,11 +253,11 @@
 	"AutoparteManager.h"
 	"Validaciones.h"
 
-1766450719 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientes.cpp
+1766489095 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientes.cpp
 	"Clientes.h"
 	<cstring>
 
-1766450779 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientes.h
+1766488884 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientes.h
 	<string>
 
 1766450844 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesarchivo.cpp
@@ -268,18 +268,16 @@
 1766450902 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesarchivo.h
 	"Clientes.h"
 
-1766450904 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmanager.cpp
+1766490907 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmanager.cpp
 	<iostream>
-	<vector>
-	<algorithm>
 	<cctype>
 	"ClienteManager.h"
 
-1766450687 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientemanager.h
+1766499426 c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientemanager.h
 	"Clientes.h"
 	"ClientesArchivo.h"
 
-1766450905 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmenu.cpp
+1766491015 source:c:\users\agust\source\repos\tpi_programacion2\tpi_programacion2\autopartes\clientesmenu.cpp
 	<iostream>
 	"ClientesMenu.h"
 
