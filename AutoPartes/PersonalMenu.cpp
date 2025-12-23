@@ -18,6 +18,7 @@ void PersonalMenu::mostrarMenu() {
         cout << "4. Agregar nuevo personal" << endl;
         cout << "5. Eliminar personal" << endl;
         cout << "6. Listar personal bajado" << endl;
+        cout << "7. Reactivar personal" << endl;
         cout << "0. Volver al menu anterior" << endl;
         cout << "-----------------------------" << endl;
         cout << "Opcion: ";
@@ -45,6 +46,9 @@ void PersonalMenu::mostrarMenu() {
                 break;
             case 6:
                 _Manager.listarPersonalBajado();
+                break;
+            case 7:
+                _Manager.reactivarPersonal();
                 break;
             case 0:
                 cout << "Volviendo al menu principal..." << endl;

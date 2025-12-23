@@ -15,6 +15,7 @@ public:
     void buscarID();
     void listarPorApellido();
     void listarPersonalBajado();
+    void reactivarPersonal();
 
 private:
     ArchivoPersonal _repor;
