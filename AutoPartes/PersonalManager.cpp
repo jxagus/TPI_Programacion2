@@ -202,9 +202,28 @@ void PersonalManager::listarPersonalBajado() {
 }
 
 void PersonalManager::buscarID() {
+    string temp;
+    bool valido = false;
     int id;
-    cout << "Ingrese ID del personal: ";
-    cin >> id;
+
+    while (valido == false) {
+        cout << "Ingrese ID del personal: ";
+        cin >> temp;
+
+        valido = true;
+
+        for (int i = 0; i < temp.size(); i++) {
+            if (!isdigit(temp[i])) {
+                valido = false;
+            }
+        }
+
+        if (valido == false) {
+            cout << "Error: el ID debe contener solo numeros." << endl;
+        }
+    }
+
+    id = stoi(temp);
 
     int pos = _repor.buscarID(id);
     if (pos == -1) {
@@ -215,11 +234,92 @@ void PersonalManager::buscarID() {
     Personal reg = _repor.leer(pos);
 
     if (!reg.getEstado()) {
-        cout << "El registro existe pero está eliminado." << endl;
+        cout << "El registro existe pero esta eliminado." << endl;
         return;
     }
 
     mostrarPersonal(reg);
+}
+
+void PersonalManager::reactivarPersonal() {
+    int cant = _repor.getcantidadRegistros();
+    if (cant == 0) {
+        cout << "No hay personal cargado." << endl;
+        return;
+    }
+
+    Personal* vec = new Personal[cant];
+    int leidos = _repor.leerTodos(vec, cant);
+
+    bool hayBajas = false;
+
+    cout << "=== PERSONAL DADO DE BAJA ===" << endl;
+    for (int i = 0; i < leidos; i++) {
+        if (!vec[i].getEstado()) {
+            cout << "ID: " << vec[i].getID()
+                 << " | Nombre: " << vec[i].getNombre()
+                 << endl;
+            hayBajas = true;
+        }
+    }
+
+    if (!hayBajas) {
+        cout << "No hay personal dado de baja." << endl;
+        delete[] vec;
+        return;
+    }
+
+    // Validacion por ID
+    int id;
+    string temp;
+
+    do {
+        bool valido = true;
+        cout << "\nIngrese ID del personal a reactivar (0 para cancelar): ";
+        cin >> temp;
+
+        for (char c : temp) {
+            if (!isdigit(c)) {
+                valido = false;
+                cout << "Error: solo se permiten numeros." << endl;
+                break;
+            }
+        }
+
+        if (valido) {
+            id = stoi(temp);
+            break;
+        }
+
+    } while (true);
+
+    if (id == 0) {
+        cout << "Operacion cancelada." << endl;
+        delete[] vec;
+        return;
+    }
+
+    int pos = _repor.buscarID(id);
+    if (pos == -1) {
+        cout << "ID inexistente." << endl;
+        delete[] vec;
+        return;
+    }
+
+    Personal reg = _repor.leer(pos);
+
+    if (reg.getEstado()) {
+        cout << "El personal ya esta activo." << endl;
+        delete[] vec;
+        return;
+    }
+
+    reg.setEstado(true);
+    _repor.modificarPersonal(reg, pos);
+
+    cout << "Personal reactivado correctamente." << endl;
+
+    delete[] vec;
 }
 
 void PersonalManager::eliminarPersonal() {

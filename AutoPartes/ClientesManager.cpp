@@ -193,24 +193,47 @@ void ClienteManager::listarPorCategoria() {
 
 void ClienteManager::BuscarPorNombre() {
     string nombre;
-    cout << "Ingrese nombre a buscar: ";
-    cin.ignore();
-    getline(cin, nombre);
+    bool valido = false;
+
+    while (valido == false) {
+        cout << "Ingrese nombre a buscar: ";
+        cin.ignore();
+        getline(cin, nombre);
+
+        valido = true;
+
+        for (int i = 0; i < nombre.size(); i++) {
+            if (!isalpha(nombre[i]) && nombre[i] != ' ') {
+                valido = false;
+            }
+        }
+
+        if (valido == false) {
+            cout << "Error: solo se permiten letras y espacios.\n";
+        }
+    }
 
     int cant = _repor.getCantidadRegistros();
+    if (cant == 0) {
+        cout << "No hay clientes cargados.\n";
+        return;
+    }
+
     Clientes* vec = new Clientes[cant];
     int leidos = _repor.leerTodos(vec, cant);
 
     bool encontrado = false;
 
     for (int i = 0; i < leidos; i++) {
-        if (vec[i].getEstado() && vec[i].getNombre() == nombre) {
+        if (vec[i].getEstado() == true &&
+            vec[i].getNombre() == nombre) {
+
             mostrarCliente(vec[i]);
             encontrado = true;
         }
     }
 
-    if (!encontrado) {
+    if (encontrado == false) {
         cout << "No se encontro el cliente.\n";
     }
 
@@ -218,9 +241,28 @@ void ClienteManager::BuscarPorNombre() {
 }
 
 void ClienteManager::BuscarID() {
+    string temp;
+    bool valido = false;
     int id;
-    cout << "Ingrese ID a buscar: ";
-    cin >> id;
+
+    while (valido == false) {
+        cout << "Ingrese ID a buscar: ";
+        cin >> temp;
+
+        valido = true;
+
+        for (int i = 0; i < temp.size(); i++) {
+            if (!isdigit(temp[i])) {
+                valido = false;
+            }
+        }
+
+        if (valido == false) {
+            cout << "Error: el ID debe contener solo numeros.\n";
+        }
+    }
+
+    id = stoi(temp);
 
     int pos = _repor.buscarID(id);
     if (pos == -1) {
@@ -229,7 +271,8 @@ void ClienteManager::BuscarID() {
     }
 
     Clientes cli = _repor.leer(pos);
-    if (cli.getEstado()) {
+
+    if (cli.getEstado() == true) {
         mostrarCliente(cli);
     } else {
         cout << "El cliente esta dado de baja.\n";
