@@ -1,0 +1,12 @@
+# Code::Blocks
+*.layout
+*.depend
+
+# Build
+obj/
+bin/
+
+# Binarios
+*.o
+*.exe
+*.dat
