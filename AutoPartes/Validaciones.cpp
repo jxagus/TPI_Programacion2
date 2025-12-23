@@ -105,6 +105,32 @@ string Validaciones::leerString(const char* mensaje) {
     }
 }
 
+string Validaciones::leerTexto(const char* mensaje) {
+    string s;
+    bool valido;
+
+    do {
+        valido = true;
+        cout << mensaje;
+        getline(cin, s);
+
+        if (s.empty()) valido = false;
+
+        for (char c : s) {
+            if (!isalpha(c) && c != ' ') {
+                valido = false;
+                break;
+            }
+        }
+
+        if (!valido)
+            cout << "Solo se permiten letras y espacios.\n";
+
+    } while (!valido);
+
+    return s;
+}
+
 string Validaciones::leerLinea(const char* mensaje) {
     string s;
 

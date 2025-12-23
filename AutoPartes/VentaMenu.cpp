@@ -19,8 +19,7 @@ void VentaMenu::mostrarMenu() {
         cout << "6. Agregar nueva venta" << endl;
         cout << "0. Volver al menu anterior" << endl;
         cout << "--------------------------" << endl;
-        cout << "Opcion: ";
-        cin >> opcion;
+        opcion = _validaciones.leerIntEnRango("Opcion: ",0 ,6);
 
         cin.clear();
         system("cls");

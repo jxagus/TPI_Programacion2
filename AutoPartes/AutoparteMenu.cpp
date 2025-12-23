@@ -9,7 +9,7 @@ void AutoparteMenu::mostrarMenu() {
     int opcion;
 
     do {
-        system("cls"); // limpia pantalla (en Windows)
+        system("cls"); // limpia pantalla
         cout << "===== MENU DE AUTOPARTES =====" << endl;
         cout << "1. Listar autopartes" << endl;
         cout << "2. Buscar autoparte por ID" << endl;

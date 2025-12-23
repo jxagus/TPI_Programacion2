@@ -4,4 +4,7 @@
 class VentaMenu {
 public:
     void mostrarMenu();
+
+private:
+    Validaciones _validaciones;
 };

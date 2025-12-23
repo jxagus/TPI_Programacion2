@@ -2,6 +2,7 @@
 #include "AutoparteArchivo.h"
 #include "DetalleVentaArchivo.h"
 #include "VentaManager.h"
+#include "Validaciones.h"
 
 
 class Reportes{
@@ -9,6 +10,7 @@ private:
     AutoparteArchivo _archivo;
     ClienteArchivo _archivocliente;
     VentaArchivo _archivoventas;
+    Validaciones _validaciones;
 
 public:
     float recaudacionTotalPorAnio();

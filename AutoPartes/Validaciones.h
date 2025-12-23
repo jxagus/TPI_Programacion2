@@ -13,6 +13,7 @@ public:
 
     static std::string leerString(const char* mensaje);
     static std::string leerLinea(const char* mensaje);
+    static std::string leerTexto (const char* mensaje);
 
     static bool confirmar(const char* mensaje);
 };

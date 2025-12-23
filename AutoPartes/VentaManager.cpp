@@ -1,7 +1,8 @@
 #include "VentaManager.h"
 #include <iostream>
 #include <ctime>
-#include <iomanip>
+#include <iomanip> //setw fixed preccision right left...
+#include "rlutil.h"
 
 //usamos _validar en cada ingreso por teclado del usuario con el fin de validar correctamente lo que se ingresa
 
@@ -48,8 +49,6 @@ void VentaManager::agregarVenta() {
 
     do {
         system ("cls");
-        cout << "____LISTA DE COLABORADORES____ " << endl;
-        cout << endl;
         personalM.listar();
         idPersonal = _validar.leerInt("INGRESAR ID PERSONAL: ");
 
@@ -100,7 +99,6 @@ void VentaManager::agregarVenta() {
             // Podés decidir si romper o permitir reintentar
         }
 
-        // Preguntar si quiere agregar otro (opcional, porque puede usar id=0 para salir)
         opcion = _validar.leerInt("¿Agregar otro detalle? (1=si / 0=no): ");
     } while (opcion == 1);
 
@@ -173,7 +171,7 @@ void VentaManager::mostrarVenta(Venta venta) {
 }
 
 void VentaManager::obtenerNombresVenta(Venta &venta,string &nombreCliente,string &nombrePersonal){
-    // --- CLIENTES ---
+    // clientes : vamos a recorrer el archivoclientes a su vez recorremos el archivo y guardamos el nombre en un aux , lo mismo hacemos con personal, lo que necesitamos es pasar un objeto venta
     ClienteArchivo archClientes;
     int cantCli = archClientes.getCantidadRegistros();
     Clientes* clientes = new Clientes[cantCli];
@@ -182,12 +180,11 @@ void VentaManager::obtenerNombresVenta(Venta &venta,string &nombreCliente,string
     nombreCliente = "DESCONOCIDO";
     for (int i = 0; i < cantCli; i++) {
         if (clientes[i].getIDCliente() == venta.getIdCliente()) {
-            nombreCliente = clientes[i].getNombre();
+            nombreCliente = clientes[i].getNombre(); //pasamos el nombrecliente
             break;
         }
     }
 
-    // --- PERSONAL ---
     ArchivoPersonal archPersonal;
     int cantPer = archPersonal.getcantidadRegistros();
     Personal* personal = new Personal[cantPer];
@@ -234,47 +231,37 @@ void VentaManager::listarVentas() {
 
     ordenarVentas(vec, cant, campo, asc);
 
-    // ==============================
-    //       ENCABEZADO TABLA
-    // ==============================
-    cout << "=================================================================================================================\n";
-    cout << left
+    //se arma una tabla con left, que va a ser la posicion de las columnas junto con setw
+    cout << "================================================================================================================="<< endl;
+    cout << left << setw(5) << "|"
          << setw(8)  << "ID"
          << setw(15) << "FECHA"
-         << setw(15) << "CLIENTE"
+         << setw(30) << "CLIENTE"
          << setw(15) << "PERSONAL"
          << setw(20) << "IMPORTE"
-         //<< "DETALLES"
+         << right<< setw (20) << "|"
          << endl;
-    cout << "=================================================================================================================\n";
+    cout << "================================================================================================================="<< endl;
 
     for (int i = 0; i < cant; i++) {
 
-        // =======================================================
-        //   PRIMERA FILA: datos de venta
-        // =======================================================
+        // aca se van a mostrar los datos por las colummnas
         string nombreCliente, nombrePersonal;
-        obtenerNombresVenta(vec[i], nombreCliente, nombrePersonal);
-        cout << left
+        obtenerNombresVenta(vec[i], nombreCliente, nombrePersonal); //usamos el metodo y pasamos los parametos
+        cout << left << setw(5) << "|"
              << setw(8)  << vec[i].getIdVenta()
              << setw(15) << vec[i].getFechaEntrega()
-             << setw(15) << nombreCliente
+             << setw(30) << nombreCliente
              << setw(15) << nombrePersonal
-             << setw(15) << fixed << setprecision(2) << vec[i].getImporteTotal()
-             //<< ">> DETALLES:"
+             << setw(20) << fixed << setprecision(2) << vec[i].getImporteTotal()
+             << right<< setw (20) << "|"
              << endl;
 
-        // =======================================================
-        //   SEGUNDA PARTE: DETALLES EN FORMATO TABLA
-        // =======================================================
-
-        cout << "-----------------------------------------------------------------------------------------------------------------\n";
+        cout << "-----------------------------------------------------------------------------------------------------------------"<<endl;
         cout << " >>>>DETALLES VENTA ID:" << vec[i].getIdVenta()<< endl;
-        cout << "-----------------------------------------------------------------------------------------------------------------\n";
-
+        //mostramos los detalles
         detalleM.mostrarDetalleVenta(vec[i].getIdVenta());
-
-        cout << "=================================================================================================================\n";
+        cout << "================================================================================================================="<< endl;
     }
 
     delete[] vec;

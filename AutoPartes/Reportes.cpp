@@ -7,9 +7,14 @@ using namespace std;
 void Reportes::stockCritico(int limite) {
     int cantidad = _archivo.getCantidadRegistros();
 
-    cout << "------------- STOCK CRITICO  -------------\n";
-    cout << "ID    NOMBRE                STOCK     PRECIO\n";
-    cout << "---------------------------------------------------------------\n";
+    cout << "--------------------- STOCK CRITICO  -------------------------"<< endl;
+    cout << left
+    <<setw(5) << "ID"
+    <<setw(29) << "NOMBRE"
+    <<setw(12) << "STOCK"
+    <<setw(9) <<  "PRECIO"
+    << endl;
+    cout << "---------------------------------------------------------------"<< endl;
 
     bool encontrado = false;
 
@@ -19,7 +24,7 @@ void Reportes::stockCritico(int limite) {
         if (a.getStock() <= limite) {
             encontrado = true;
             cout << left << setw(6) << a.getIDAutoparte()
-                      <<setw(20) << a.getNombre()
+                      <<setw(30) << a.getNombre()
                       << setw(10) << a.getStock()
                       << setw(10) << a.getPrecioUnitario()
                       << "\n";
@@ -51,7 +56,6 @@ cout << "Valor total: $" << fixed << setprecision(2) << total << endl;
 cout << "========================================" << endl;
 }
 
-
 float Reportes::recaudacionTotalPorAnio() {
     int opcionAnio;
 
@@ -59,36 +63,29 @@ float Reportes::recaudacionTotalPorAnio() {
     cout << "1. 2023" << endl;
     cout << "2. 2024" << endl;
     cout << "3. 2025" << endl;
-    cout << "Seleccione el anio: ";
-    cin >> opcionAnio;
+
+    opcionAnio = _validaciones.leerIntEnRango("Seleccione el anio: ", 1, 3);
 
     int anio;
     switch (opcionAnio) {
-        case 1:
-            anio = 2023;
-            break;
-        case 2:
-            anio = 2024;
-            break;
-        case 3:
-            anio = 2025;
-            break;
+        case 1: anio = 2023; break;
+        case 2: anio = 2024; break;
+        case 3: anio = 2025; break;
         default:
             cout << "Opcion invalida." << endl;
-            return 0; // corta la ejecución
+            return 0;
     }
 
-    // Cargar cantidad de ventas
-    int cantVentas = _archivo.getCantidadRegistros();
+    // Cargar ventas
+    int cantVentas = _archivoventas.getCantidadRegistros();
     if (cantVentas == 0) {
         cout << "No hay ventas registradas." << endl;
         return 0;
     }
 
-    //  Reservar memoria dinámica
+    // Reservar memoria
     Venta* ventas = new Venta[cantVentas];
 
-    // Leer todas las ventas
     if (!_archivoventas.leerTodos(ventas, cantVentas)) {
         cout << "ERROR al leer ventas." << endl;
         delete[] ventas;
@@ -99,8 +96,15 @@ float Reportes::recaudacionTotalPorAnio() {
     bool encontrado = false;
 
     // Recorrer ventas
-    /*for (int i = 0; i < cantVentas; i++) {
-        //int anioVenta = ventas[i].getFechaEntrega() / 10000; // AAAAMMDD -> obtiene AAAA
+    for (int i = 0; i < cantVentas; i++) {
+
+        string fechaStr = ventas[i].getFechaEntrega(); // "DD/MM/AAAA"
+
+        int dia, mes, anioVenta;
+        char sep1, sep2;
+
+        stringstream ss(fechaStr);  //convertir numeros a texto (ej. int a string) y viceversa,
+        ss >> dia >> sep1 >> mes >> sep2 >> anioVenta;
 
         if (anioVenta == anio) {
             total += ventas[i].getImporteTotal();
@@ -108,26 +112,27 @@ float Reportes::recaudacionTotalPorAnio() {
         }
     }
 
-    delete[] ventas;  // liberar memoria
+    delete[] ventas;
 
     if (!encontrado) {
         cout << "No se encontraron ventas del anio " << anio << "." << endl;
         return 0;
-    } */
+    }
 
+    system ("cls");
     cout << fixed << setprecision(2);
-    cout << "Recaudacion total del anio " << anio << ": $" << total << endl;
+    cout << "---------------------------------------" <<endl;
+    cout << "RECAUDACION TOTAL EN " << anio << ": $" << total << endl;
+    cout << "---------------------------------------" <<endl;
 
     return total;
 }
 
 float Reportes::recaudacionCliente(){
-    int idCliente;
+    int idCliente, ventasRealizadas;
 
-    cout << "Ingrese el ID del cliente: ";
-    cin >> idCliente;
-    cin.clear();
-    cin.ignore(1000, '\n');
+    idCliente = _validaciones.leerInt("Ingrese el ID del cliente: ");
+
 
     int cantVentas = _archivo.getCantidadRegistros();
     if (cantVentas <= 0) {
@@ -135,57 +140,63 @@ float Reportes::recaudacionCliente(){
         return 0;
     }
 
-    // Reserva dinámica
     Venta* ventas = new Venta[cantVentas];
 
-    // Leer todos los registros
+    // leer todos los registros
     if (!_archivoventas.leerTodos(ventas, cantVentas)) {
-        cout << "Error al leer las ventas desde el archivo.\n";
+        cout << "Error al leer las ventas desde el archivo." << endl;
         delete[] ventas;
         return 0;
     }
 
     float total = 0;
-       bool encontrado = false;   // <<< NUEVO: para validar si el ID existe
+       bool encontrado = false;   //para validar si el ID existe
 
         // Recorrer ventas
         for (int i = 0; i < cantVentas; i++) {
             if (ventas[i].getIdCliente() == idCliente) {
                 total += ventas[i].getImporteTotal();
-                encontrado = true;   // <<< Se encontró al menos 1 venta del cliente
+                encontrado = true;
+                ventasRealizadas ++;
             }
         }
 
-        delete[] ventas;
-
-        // Validación: ID no encontrado
+        // id no encontrado
         if (!encontrado) {
-            cout << "---------------------------------------\n";
-            cout << "No se encontró ninguna venta del cliente con ID "
-                 << idCliente << ".\n";
-            cout << "---------------------------------------\n";
+            cout << "--------------------------------------" << endl;
+            cout << "No se encontro ninguna venta del cliente con ID "<< idCliente << endl;
+            cout << "--------------------------------------" << endl;
             return 0;
         }
 
-    // Liberar memoria
-    delete[] ventas;
+    ClienteArchivo archClientes;
+    int posCli = archClientes.buscarID(idCliente);
+
+    string nombreCliente = "DESCONOCIDO";
+    if (posCli != -1) {
+        Clientes cli = archClientes.leer(posCli);
+        nombreCliente = cli.getNombre();
+    }
 
     // Salida formateada
+    system ("cls");
     cout << fixed << setprecision(2);
-    cout << "---------------------------------------\n";
-    cout << "RECAUDACION DEL CLIENTE (ID " << idCliente << ")\n";
+    cout << "---------------------------------------" <<endl;
+    cout << "RECAUDACION DE: " << nombreCliente << endl;
     cout << "TOTAL: $" << total << endl;
-    cout << "---------------------------------------\n";
+    cout << "TOTAL DE VENTA/S: " << ventasRealizadas  << endl;
+    cout << "---------------------------------------" <<endl;
+
+        // Liberar memoria
+    delete[] ventas;
 
     return total;
 }
 
 float Reportes::recaudacionPorAutoparte() {
     int idAutoparte;
-    cout << "Ingrese el ID de la autoparte a consultar: ";
-    cin >> idAutoparte;
-    cin.clear();
-    cin.ignore(1000, '\n');
+
+    idAutoparte = _validaciones.leerInt("Ingrese el ID de la autoparte a consultar: ");
 
     DetalleVentaArchivo archDet;
     AutoparteArchivo archAuto;
@@ -223,16 +234,17 @@ float Reportes::recaudacionPorAutoparte() {
         }
     }
 
-    // Mostrar resultado
+    system ("cls");
     cout << fixed << setprecision(2);
-    cout << "Recaudacion total de la autoparte " << nombre
-         << " (ID " << idAutoparte << "): $" << total << endl;
+    cout << "------------------------------------------------------------------" <<endl;
+    cout << "Recaudacion total del autoparte (" << nombre << "): $" << total << endl;
+    cout << "------------------------------------------------------------------" <<endl;
 
-    // Liberar memoria
+    // liberar memoria
     delete[] detalles;
     delete[] autopartes;
 
-    return total;   // ⬅ OBLIGATORIO, tu función devuelve float
+    return total;
 }
 
 

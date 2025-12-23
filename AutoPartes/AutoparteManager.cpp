@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <iomanip>
 #include "AutoparteManager.h"
 
 
@@ -18,20 +19,20 @@ void AutoparteManager::cargarAutoparte() {
 
     // Validación del ID
     while (true) {
-        id = Validaciones::leerInt("Ingresar ID: ");
+        id = _validaciones.leerInt("Ingresar ID: ");
 
         pos = _repor.buscarID(id);
-        if (pos != -1) { // ID ya existe
+        if (pos != -1) { // verifiacamos si existen el id ingresado
             cout << "ERROR: ID ingresado ya esta en uso. Intente nuevamente..." << endl;
         } else {
-            break; // ID válido y no repetido
+            break;
         }
     }
 
-    // Nombre de la autoparte
-    nombre = Validaciones::leerLinea("Ingresar Nombre del Autoparte: ");
+    // nombre de la autoparte, verificamos solo se ingrese string
+    nombre = _validaciones.leerTexto("Ingresar Nombre del Autoparte: ");
 
-    // Selección de tipo
+    // se elige el tipo de repuesto (su uso)
     cout << "Ingrese la categoria de autoparte a buscar:" << endl;
     cout << "======================" << endl;
     cout << "1 = Motor" << endl;
@@ -46,19 +47,19 @@ void AutoparteManager::cargarAutoparte() {
     cout << "Ej: Kit Distribucion, 1 ..." << endl;
     cout << "-----------------------------" << endl;
 
-    tipo = Validaciones::leerIntEnRango("Ingrese el tipo de autoparte: ", 1, 6);
+    tipo = _validaciones.leerIntEnRango("Ingrese el tipo de autoparte: ", 1, 6);
 
-    // Precio unitario
-    precioUnitario = Validaciones::leerFloat("Ingresar Precio P/U: ");
-    while (precioUnitario <= 0) {
+    // precio unitario el mismo es flotante
+    precioUnitario = _validaciones.leerFloat("Ingresar Precio P/U: ");
+    while (precioUnitario <= 0) {  //por si el usario comete el error de indicar numero negativo
         cout << "Precio invalido. Intente nuevamente: ";
-        precioUnitario = Validaciones::leerFloat("");
+        precioUnitario = _validaciones.leerFloat("");
     }
 
-    // Crear la autoparte
+    // creamos el objeto nuevo con la descripcion del autoparte
     Autoparte autoparte(nombre, id, tipo, 0, precioUnitario);
 
-    // Guardar la autoparte en el repositorio
+    // guardamos el autoparte en el.dat
     if (_repor.guardarAutoparte(autoparte)) {
         cout << "Autoparte guardada exitosamente." << endl;
         system ("pause");
@@ -70,7 +71,8 @@ void AutoparteManager::cargarAutoparte() {
 void AutoparteManager::cargarStock() {
     int id;
 
-    // Validación del ID
+    // validamos id
+    system ("cls");
         id = _validaciones.leerInt("Ingresar ID: ");
 
 
@@ -83,14 +85,23 @@ void AutoparteManager::cargarStock() {
     _autoparte = _repor.leer(pos);
 
     float stockActual = _autoparte.getStock();
-    cout << "AUTOPARTE ENCOTRADO: " << _autoparte.getNombre() << endl;
+
+    system ("cls");
+    cout << right << setw (30) << "AUTOPARTE ENCOTRADO " << endl;
+    cout << "=============================================" << endl;
+    cout << "NOMBRE: " << _autoparte.getNombre () << endl;
     cout << "ID: " << id << endl;
     cout << "STOCK: " << stockActual << endl;
+    cout << "=============================================" << endl;
     cout << endl;
 
-    // Validación de cantidad a agregar
+    // validamos la cantidad a ingresar
     int cantidad = 0;
         cantidad = _validaciones.leerInt("Ingresar material: ");
+        if (cantidad <= 0){
+            cout << "ERROR: No se permiten numeros negativos ni cero..." << endl;
+            return;
+        }
     // Actualizar stock
     float nuevoStock = stockActual + cantidad;
     _autoparte.setStock(nuevoStock);
@@ -105,7 +116,7 @@ void AutoparteManager::cargarStock() {
 void AutoparteManager::mostrarAutoparte (Autoparte autoparte){
     cout << "ID: " << autoparte.getIDAutoparte() << endl;
     cout << "Nombre: " << autoparte.getNombre() << endl;
-    cout << "Tipo: " << autoparte.getTipo() << endl;
+    cout << "Tipo: " << mostrarTipo(autoparte.getTipo()) << endl;
     cout << "Precio Unitario: " << autoparte.getPrecioUnitario() << endl;
     cout << "Stock: " << autoparte.getStock() << endl;
 }
@@ -113,60 +124,48 @@ void AutoparteManager::mostrarAutoparte (Autoparte autoparte){
 void AutoparteManager::listar() {
     int cant = _repor.getCantidadRegistros();
     int campo, modo, ordenar;
+
     if (cant == 0) {
         cout << "No hay Autopartes registradas.\n";
         return;
     }
 
-    ordenar = _validaciones.leerIntEnRango("ORDENAR AUTOPARTE (1: SI /NO: 2) ", 1, 2);
+    ordenar = _validaciones.leerIntEnRango("ORDENAR AUTOPARTE (1: SI / 2: NO): ", 1, 2);
 
-    if (ordenar == 1){
-        // Validación de campo de orden
-            cout << "ORDENAR SEGUN: : " << endl;
-            cout << "1- ID"  << endl;
-            cout << "2- NOMBRE" << endl;
-            cout << "3- CATEGORIA " << endl;
-            cout << "4- PRECIO UNITARIO" << endl;
+    bool asc = true; // valor por defecto
 
-            campo = Validaciones::leerIntEnRango("Seleccione una opcion: ",1,4);
+    if (ordenar == 1) {
+        cout << "ORDENAR SEGUN:" << endl;
+        cout << "1- ID" << endl;
+        cout << "2- NOMBRE" << endl;
+        cout << "3- CATEGORIA" << endl;
+        cout << "4- PRECIO UNITARIO" << endl;
 
-        // Validación de modo
-            cout << "MODO:" << endl;
-            cout << "1- ASCENDENTE " << endl;
-            cout << "2- DESCENDENTE " << endl;
+        campo = _validaciones.leerIntEnRango("Seleccione una opcion: ", 1, 4);
 
-            modo = Validaciones::leerIntEnRango("Seleciione una opcion: ",1,2);
+        cout << "MODO:" << endl;
+        cout << "1- ASCENDENTE" << endl;
+        cout << "2- DESCENDENTE" << endl;
 
-        bool asc = (modo == 1);
+        modo = _validaciones.leerIntEnRango("Seleccione una opcion: ", 1, 2);
+        asc = (modo == 1);
+    }
 
-        // Leer todos los registros
-        Autoparte *vec = new Autoparte[cant];
-        _repor.leerTodos(vec, cant);
+    Autoparte *vec = new Autoparte[cant];
+    _repor.leerTodos(vec, cant);
 
-        // Ordenar
+    if (ordenar == 1) {
         ordenarAutopartes(vec, cant, campo, asc);
-
-        // Mostrar
-        for (int i = 0; i < cant; i++) {
-            cout << "==============================" << endl;
-            mostrarAutoparte(vec[i]);
-            cout << "==============================" << endl;
-        }
-        delete[] vec;
     }
-    else {
-        // Leer todos los registros
-        Autoparte *vec = new Autoparte[cant];
-        _repor.leerTodos(vec, cant);
 
-        // Mostrar
-        for (int i = 0; i < cant; i++) {
-            cout << "==============================" << endl;
-            mostrarAutoparte(vec[i]);
-            cout << "==============================" << endl;
-        }
-        delete[] vec;
+    system("cls");
+    for (int i = 0; i < cant; i++) {
+        cout << "==============================" << endl;
+        mostrarAutoparte(vec[i]);
+        cout << "==============================" << endl;
     }
+
+    delete[] vec;
 }
 
 void AutoparteManager::ordenarAutopartes(Autoparte* vec, int cant, int campo, bool asc) {
@@ -226,13 +225,20 @@ void AutoparteManager::BuscarPorID() {
     id = _validaciones.leerInt ("Ingrese ID de Autoparte a buscar: ");
 
     int pos = _repor.buscarID(id);
+    system ("cls");
+
     if (pos == -1) {
         cout << "No se encontro el autoparte\n";
         return;
     }
     _autoparte = _repor.leer(pos);
 
+    cout << right << setw(20) << "AUTOPARTE ID:"
+     << setw(5) << id << endl;
+
+    cout << "=======================================" << endl;
     mostrarAutoparte(_autoparte);
+    cout << "=======================================" << endl;
 }
 
 string AutoparteManager::mostrarTipo(int tipo) {
@@ -264,7 +270,8 @@ string AutoparteManager::mostrarTipo(int tipo) {
 void AutoparteManager::BuscarPorTipo() {
     int tipo;
 
-    // Validación del tipo usando Validaciones
+    // validación del tipo
+
     while (true) {
         cout << "Ingrese la categoria de autoparte a buscar:" << endl;
         cout << "======================" << endl;
@@ -276,37 +283,37 @@ void AutoparteManager::BuscarPorTipo() {
         cout << "6 = Encendido" << endl;
         cout << "======================" << endl;
         cout << "0 = Salir" << endl;
-
-    tipo = Validaciones::leerIntEnRango("Ingrese una opcion: ",0,6);
-    if (tipo == 0){
-            break;
-
-    }
-    int cant = _repor.getCantidadRegistros();
-    if (cant == 0) {
-        cout << "No hay autopartes registradas." << endl;
-        return;
-    }
-
-    Autoparte autoparte;
-    bool encontrado = false;
-
-    cout << "Categoria filtrada: " << mostrarTipo(tipo) << endl;
-    cout << "=========================" << endl;
-
-    for (int i = 0; i < cant; i++) {
-        autoparte = _repor.leer(i);
-
-        if (autoparte.getTipo() == tipo) {
-            mostrarAutoparte(autoparte);
-            cout << "=========================" << endl;
-            encontrado = true;
+        tipo = _validaciones.leerIntEnRango("Ingrese una opcion: ",0,6);
+        if (tipo == 0){
+                break;
         }
+        int cant = _repor.getCantidadRegistros();
+        if (cant == 0) {
+            cout << "No hay autopartes registradas." << endl;
+            return;
+        }
+
+        Autoparte autoparte;
+        bool encontrado = false;
+
+        system ("cls");
+        cout  << "CATEGORIA FILTRADA: " <<  mostrarTipo(tipo) << endl;
+        cout << "=========================" << endl;
+
+        for (int i = 0; i < cant; i++) {
+            autoparte = _repor.leer(i);
+
+            if (autoparte.getTipo() == tipo) {
+                mostrarAutoparte(autoparte);
+                cout << "=========================" << endl;
+                encontrado = true;
+            }
+        }
+        if (!encontrado) {
+            cout << "No se encontraron autopartes de ese tipo." << endl;
+        }
+        break;
     }
-    if (!encontrado) {
-        cout << "No se encontraron autopartes de ese tipo." << endl;
-    }
-}
 }
 
 void AutoparteManager::BuscarPorNombre(){
@@ -314,7 +321,7 @@ void AutoparteManager::BuscarPorNombre(){
     bool encontrado = false;
     string Nombre;
 
-    Nombre = Validaciones::leerString ("Ingresar Nombre del Autoparte: ");
+    Nombre = _validaciones.leerTexto ("Ingresar Nombre del Autoparte: ");
 
     int cant = _repor.getCantidadRegistros();
     if (cant == 0) {
