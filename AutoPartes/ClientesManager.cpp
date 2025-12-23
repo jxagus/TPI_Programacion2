@@ -85,7 +85,6 @@ void ClienteManager::cargarCliente() {
         cout << "Opcion: ";
         cin >> temp;
 
-    // validar solo numeros
     for (char c : temp) {
         if (!isdigit(c)) {
             valido = false;
