@@ -23,26 +23,47 @@ void VentaManager::agregarVenta() {
 
     do {
         system("cls");
-        clienteM.listar(); //mostramos lista para guiar al usuario, se muestran solo activos
-        idCliente = _validar.leerInt("INGRESAR ID CLIENTE: "); // vamos a ingresar el id del cliente para comenzar la transaccion
+        clienteM.listar(); // Muestra la lista de clientes
+
+        // Ingreso y validación de tipo de dato (letras/números)
+        idCliente = _validar.leerInt("INGRESAR ID CLIENTE: ");
+
+        // Buscar la posición en el archivo
         posCliente = archClientes.buscarID(idCliente);
 
         if (posCliente == -1) {
             cout << "ERROR: Cliente no encontrado." << endl;
             system("pause");
+        } else {
+            // Si el ID existe, traemos el objeto para checkear su estado
+            Clientes aux = archClientes.leer(posCliente);
+
+            if (!aux.getEstado()) { // Si el estado es false (dado de baja)
+                cout << "ERROR: El cliente se encuentra dado de baja." << endl;
+                posCliente = -1; // Forzamos que el bucle continúe
+                system("pause");
+            }
         }
     } while (posCliente == -1);
+        do {
+            system("cls");
+            personalM.listar();
+            idPersonal = _validar.leerInt("INGRESAR ID PERSONAL: ");
+            posPersonal = archPersonal.buscarID(idPersonal);
 
-    do {
-        system("cls");
-        personalM.listar();
-        idPersonal = _validar.leerInt("INGRESAR ID PERSONAL: "); // lo mismo hacemos con personal
-        posPersonal = archPersonal.buscarID(idPersonal);
+            if (posPersonal == -1) {
+                cout << "ERROR: Personal no encontrado." << endl;
+                system("pause");
+            } else {
+                // Leemos el registro para verificar el estado
+                Personal auxP = archPersonal.leer(posPersonal);
 
-        if (posPersonal == -1) {
-            cout << "ERROR: Personal no encontrado." << endl;
-            system("pause");
-        }
+                if (!auxP.getEstado()) { // Si el estado es false
+                    cout << "ERROR: El personal seleccionado no esta activo." << endl;
+                    posPersonal = -1; // Seteamos en -1 para que el bucle se repita
+                    system("pause");
+                }
+            }
     } while (posPersonal == -1);
 
     int idVenta = _archivo.getCantidadRegistros() + 1;  // asignamos id automatico a la venta
