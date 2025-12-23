@@ -72,7 +72,7 @@ void VentaManager::agregarVenta() {
         importeTotal += det.getCantidad() * det.getPrecio();
         cantidadDetalles++;
 
-        opcion = _validar.leerInt("AGREGAR OTRO DETALLE (1=SI / 0=NO): ");
+        opcion = _validar.leerIntEnRango("AGREGAR OTRO DETALLE (1=SI / 0=NO): ",0,1);
     } while (opcion == 1);
 
     if (cantidadDetalles == 0) {
@@ -81,15 +81,8 @@ void VentaManager::agregarVenta() {
     }
 
     Fecha f;
-    do {
-        cout << "INGRESAR FECHA (DD/MM/AAAA): ";
-        cin >> fecha;
-
-        if (!f.fechaValida(fecha)) {
-            cout << "Fecha invalida." << endl;
-            system("pause");
-        }
-    } while (!f.fechaValida(fecha));
+    f.asignarFechaSistema();
+    fecha = f.toString();
 
     int confirmar = _validar.leerInt("CONFIRMAR VENTA (1=SI / 0=NO): ");
 
@@ -127,9 +120,7 @@ void VentaManager::agregarVenta() {
     delete[] detalles;
 }
 
-    //Fecha f;
-    //f.asignarFechaSistema();
-    //fecha = f.toString();
+
 
 void VentaManager::mostrarVenta(Venta venta) {
     DetalleVentaManager detM;
