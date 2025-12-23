@@ -45,7 +45,8 @@ DetalleVenta DetalleVentaManager::cargarDetalle(int idVenta) {
 
     } while (!encontrado);
 
-    det.setIdAutoparte(encontrado->getIDAutoparte());
+    det.setIdAutoparte(encontrado->getIDAutoparte());  // aca y en todos los this, adjunto teoria  permite a un puntero acceder a las propiedades y métodos definidos en la clase a la que pertenece. Reemplaza al operador de indirección *
+
     det.setPrecio(encontrado->getPrecioUnitario());
 
     mostrarListaDeDetalles(det);
