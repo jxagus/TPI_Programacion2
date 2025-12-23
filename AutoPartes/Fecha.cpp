@@ -84,7 +84,7 @@ bool Fecha::fechaValida(const string &fechastr){
 
     int diasMes[] ={ 31,28,31,30,31,30,31,31,30,31,30,31 };
 
-    if ((anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0)) {
+    if (esBiciesto(anio)) {
         diasMes[1] = 29;
     }
     if (dia > diasMes[mes - 1]){

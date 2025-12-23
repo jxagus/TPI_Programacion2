@@ -8,7 +8,6 @@ DetalleVenta DetalleVentaManager::cargarDetalle(int idVenta) {
 
     int cant = _archAuto.getCantidadRegistros();
     if (cant == 0) {
-        cout << "No hay autopartes registradas.\n";
         det.setCantidad(0);
         return det;
     }
@@ -19,10 +18,10 @@ DetalleVenta DetalleVentaManager::cargarDetalle(int idVenta) {
     int idAutoparte;
     Autoparte* encontrado = nullptr;
 
-    while (true){
-        idAutoparte = _validaciones.leerInt("Ingrese ID de la autoparte: ");
-
+    do {
+        system("cls");
         encontrado = nullptr;
+        idAutoparte = _validaciones.leerInt("Ingrese ID de autoparte: ");
 
         for (int i = 0; i < cant; i++) {
             if (vec[i].getIDAutoparte() == idAutoparte) {
@@ -31,56 +30,39 @@ DetalleVenta DetalleVentaManager::cargarDetalle(int idVenta) {
             }
         }
 
-        if (encontrado != nullptr) {
-                break;
+        if (!encontrado) {
+            cout << "ERROR: Autoparte no encontrada. Reintente.\n";
+            system("pause");
+            continue;
         }
-        cout << "ERROR: autoparte no encontrada.\n";
-    }
+
+        if (encontrado->getStock() == 0) {
+            cout << "ERROR: Autoparte sin stock. Elija otra.\n";
+            encontrado = nullptr;
+            system("pause");
+            continue;
+        }
+
+    } while (!encontrado);
 
     det.setIdAutoparte(encontrado->getIDAutoparte());
     det.setPrecio(encontrado->getPrecioUnitario());
+
     mostrarListaDeDetalles(det);
 
-    int cantidad;
-    cantidad = _validaciones.leerIntEnRango("Ingrese cantidad ", 1, encontrado->getStock());
-
-    int nuevoStock = encontrado->getStock() - cantidad;
-    encontrado->setStock(nuevoStock);
-
-    // guardar en archivo
-    int pos = _archAuto.buscarID(encontrado->getIDAutoparte());
-    if (pos != -1) {
-        _archAuto.ModificarAutoparte(pos, *encontrado);
-    }
+    int cantidad = _validaciones.leerIntEnRango(
+        "INGRESAR CANTIDAD: ", 1, encontrado->getStock()
+    );
 
     det.setCantidad(cantidad);
     det.setIdDetalle(_archivo.contarRegistros() + 1);
 
+    int pos = _archAuto.buscarID(encontrado->getIDAutoparte());
+    encontrado->setStock(encontrado->getStock() - cantidad);
+    _archAuto.ModificarAutoparte(pos, *encontrado);
+
     delete[] vec;
     return det;
-}
-
-void DetalleVentaManager::listarDetallesPorVenta(int idVenta) {
-    DetalleVentaArchivo archDetalle;
-    int cant = archDetalle.contarRegistros();
-    if (cant == 0) {
-        cout << "No hay detalles registrados.\n";
-        return;
-    }
-
-    DetalleVenta* vec = new DetalleVenta[cant];
-    archDetalle.leerTodos(vec, cant);
-
-    for (int i = 0; i < cant; i++) {
-        // Filtrar solo los detalles de la venta actual
-        if (vec[i].getIdVenta() != idVenta) continue;
-        // Evitar mostrar registros vacíos
-        if (vec[i].getIdAutoparte() == -1 || vec[i].getCantidad() <= 0) continue;
-
-       // mostrarDetalleVenta(vec[i]);
-    }
-
-    delete[] vec;
 }
 
 void DetalleVentaManager::mostrarDetalleVenta(int idVenta) {

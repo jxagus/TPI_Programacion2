@@ -12,6 +12,5 @@ private:
 public:
     DetalleVenta cargarDetalle(int idVenta);
     void mostrarDetalleVenta(int idVenta);
-    void listarDetallesPorVenta (int idVenta);
     void mostrarListaDeDetalles(DetalleVenta& det);
 };

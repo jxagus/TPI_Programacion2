@@ -7,138 +7,145 @@
 //usamos _validar en cada ingreso por teclado del usuario con el fin de validar correctamente lo que se ingresa
 
 using namespace std;
+
 void VentaManager::agregarVenta() {
     ClienteManager clienteM;
-    AutoparteManager autoparteM;
     PersonalManager personalM;
     ClienteArchivo archClientes;
+    ArchivoPersonal archPersonal;
+    AutoparteArchivo archAuto;
+    DetalleVentaArchivo archDet;
+    DetalleVentaManager detalleventaM;
 
-    int idVenta, idCliente, idPersonal;
-    int cantidadDetalles = 0;
+    int idCliente, idPersonal, posCliente, posPersonal;
     float importeTotal = 0.0;
     string fecha;
 
-    int posCliente;
     do {
-        cout << "_____LISTA DE CLIENTES ACTIVOS_____"<< endl;
-        cout << endl;
-        clienteM.listar();
-        idCliente = _validar.leerInt("INGRESAR ID CLIENTE: ");
-
+        system("cls");
+        clienteM.listar(); //mostramos lista para guiar al usuario, se muestran solo activos
+        idCliente = _validar.leerInt("INGRESAR ID CLIENTE: "); // vamos a ingresar el id del cliente para comenzar la transaccion
         posCliente = archClientes.buscarID(idCliente);
-        Clientes cli;
 
         if (posCliente == -1) {
-            cout << "ERROR: Cliente NO encontrado. Reintente.\n";
-            system ("pause");
+            cout << "ERROR: Cliente no encontrado." << endl;
+            system("pause");
         }
-        else {
-            system ("cls");
-            cout << "Cliente encontrado:" << endl;
-            cout <<" DATOS: " <<endl;
-
-            Clientes cli = archClientes.leer(posCliente);
-            ClienteManager clientesM;
-            clientesM.mostrarCliente(cli);
-            system ("pause");
-        }
-
     } while (posCliente == -1);
-    ArchivoPersonal archPersonal;
-    int posPersonal;
 
     do {
-        system ("cls");
+        system("cls");
         personalM.listar();
-        idPersonal = _validar.leerInt("INGRESAR ID PERSONAL: ");
-
+        idPersonal = _validar.leerInt("INGRESAR ID PERSONAL: "); // lo mismo hacemos con personal
         posPersonal = archPersonal.buscarID(idPersonal);
 
         if (posPersonal == -1) {
-            cout << "ERROR: Personal NO encontrado. Reintente.\n";
-            system ("pause");
+            cout << "ERROR: Personal no encontrado." << endl;
+            system("pause");
         }
-        else {
-            system ("cls");
-            cout << "Personal encontrado:\n";
-            cout <<" DATOS: " <<endl;
-            Personal personal = archPersonal.leer(posPersonal);
-            PersonalManager personalM;
-            personalM.mostrarPersonal(personal);
-            system ("pause");
-        }
-
     } while (posPersonal == -1);
-    //Cargar los detalles de la venta
-    DetalleVentaArchivo archDetalle;
 
-        system ("cls");
-        cout <<  "--- Cargando detalle ---" << endl;
+    int idVenta = _archivo.getCantidadRegistros() + 1;  // asignamos id automatico a la venta
 
-        idVenta = _archivo.getCantidadRegistros() + 1;
-        DetalleVentaManager detalleventaM;
-        DetalleVenta det;
+    DetalleVenta* detalles = nullptr;
+    int cantidadDetalles = 0;
     int opcion;
+
     do {
-        det = detalleventaM.cargarDetalle(idVenta);
+        DetalleVenta det = detalleventaM.cargarDetalle(idVenta);
 
-        float subtotal = det.getCantidad() * det.getPrecio();
-
-        if (det.getCantidad() == 0){
+        if (det.getCantidad() == 0) {
             break;
         }
-        // Intentar guardar el detalle
-        if (archDetalle.guardar(det)) {
-            cout << "Detalle guardado correctamente." << endl;
-            cantidadDetalles++;
-            importeTotal += subtotal;
-        }
-        else {
-            cout << "ERROR: No se pudo guardar el detalle." << endl;
-            continue;
-            // Podés decidir si romper o permitir reintentar
+
+        DetalleVenta* aux = new DetalleVenta[cantidadDetalles + 1];  //reserva memoria dinamica para un arreglo de DetalleVenta
+
+        for (int i = 0; i < cantidadDetalles; i++) {
+            aux[i] = detalles[i];
         }
 
-        opcion = _validar.leerInt("¿Agregar otro detalle? (1=si / 0=no): ");
+        aux[cantidadDetalles] = det;
+
+        delete[] detalles; //liberamos la memoria
+        detalles = aux;
+
+        importeTotal += det.getCantidad() * det.getPrecio();
+        cantidadDetalles++;
+
+        opcion = _validar.leerInt("AGREGAR OTRO DETALLE (1=SI / 0=NO): ");
     } while (opcion == 1);
 
-    if (cantidadDetalles == 0){
+    if (cantidadDetalles == 0) {
+        delete[] detalles;
         return;
     }
+
     Fecha f;
-    f.asignarFechaSistema();
-    fecha = f.toString();
+    do {
+        cout << "INGRESAR FECHA (DD/MM/AAAA): ";
+        cin >> fecha;
 
-    Venta venta (idVenta, fecha, idCliente, idPersonal, importeTotal);
-    int cant = _archivo.getCantidadRegistros();
+        if (!f.fechaValida(fecha)) {
+            cout << "Fecha invalida." << endl;
+            system("pause");
+        }
+    } while (!f.fechaValida(fecha));
 
-    if (_archivo.guardar(venta)){
-        system ("cls");
+    int confirmar = _validar.leerInt("CONFIRMAR VENTA (1=SI / 0=NO): ");
+
+    if (confirmar == 0) {
+        for (int i = 0; i < cantidadDetalles; i++) {
+            int pos = archAuto.buscarID(detalles[i].getIdAutoparte());
+            if (pos != -1) {
+                Autoparte a = archAuto.leer(pos);
+                a.setStock(a.getStock() + detalles[i].getCantidad());// manejamos y devolvemos el stock al cancelar la venta
+                archAuto.ModificarAutoparte(pos, a);
+            }
+        }
+
+        delete[] detalles;
+        cout << "Venta cancelada. Stock restaurado.\n";
+        system("pause");
+        return;
+    }
+
+    for (int i = 0; i < cantidadDetalles; i++) {
+        archDet.guardar(detalles[i]);  //guardamos detalles
+    }
+
+    Venta venta(idVenta, fecha, idCliente, idPersonal, importeTotal);
+
+    if (_archivo.guardar(venta)) {
+        system("cls");
         cout << fixed << setprecision(2);
         cout << "TOTAL DE LA VENTA: $" << importeTotal << endl;
         cout << "Venta guardada correctamente.\n";
-    }
-    else {
-        system ("cls");
+    } else {
         cout << "Error al guardar la venta.\n";
     }
+
+    delete[] detalles;
 }
+
+    //Fecha f;
+    //f.asignarFechaSistema();
+    //fecha = f.toString();
 
 void VentaManager::mostrarVenta(Venta venta) {
     DetalleVentaManager detM;
-    // --- CARGAR CLIENTES ---
+    //cargamos personal y cliente
     ClienteArchivo archClientes;
     int cantCli = archClientes.getCantidadRegistros();
     Clientes* clientes = new Clientes[cantCli];
     archClientes.leerTodos(clientes, cantCli);
 
-    // --- CARGAR PERSONAL ---
+
     ArchivoPersonal archPersonal;
     int cantPer = archPersonal.getcantidadRegistros();
     Personal* personal = new Personal[cantPer];
     archPersonal.leerTodos(personal, cantPer);
 
-    // --- BUSCAR CLIENTE ---
+    //buscamos el personar  y cliente para luego mostrar
     string nombreCliente = "DESCONOCIDO";
     for (int i = 0; i < cantCli; i++) {
         if (clientes[i].getIDCliente() == venta.getIdCliente()) {
@@ -147,7 +154,6 @@ void VentaManager::mostrarVenta(Venta venta) {
         }
     }
 
-    // --- BUSCAR PERSONAL ---
     string nombrePersonal = "DESCONOCIDO";
     for (int i = 0; i < cantPer; i++) {
         if (personal[i].getID() == venta.getIdPersonal()) {
@@ -156,7 +162,6 @@ void VentaManager::mostrarVenta(Venta venta) {
         }
     }
 
-    // --- MOSTRAR VENTA ---
     cout << "FECHA: " << venta.getFechaEntrega() << endl;
     cout << "CLIENTE: " << nombreCliente << endl;
     cout << "PERSONAL ENCARGADO: " << nombrePersonal << endl;
@@ -165,7 +170,6 @@ void VentaManager::mostrarVenta(Venta venta) {
     cout << ">>>> DETALLES VENTA: " << venta.getIdVenta() << endl;
     detM.mostrarDetalleVenta (venta.getIdVenta());
 
-    // --- LIBERAR MEMORIA ---
     delete[] clientes;
     delete[] personal;
 }
@@ -281,7 +285,7 @@ void VentaManager::buscarVentaPorID() {
         return;
     }
 
-    // se va a mostrar la venta la venta
+    // se va a mostrar la venta
     Venta venta = _archivo.leer(pos);
     cout << "=== VENTA " << idVenta << " ===" << endl;
     mostrarVenta(venta);
