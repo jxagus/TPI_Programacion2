@@ -5,7 +5,8 @@ using namespace std;
 
 Clientes::Clientes()
 {
-    _idCliente = -1;
+    _idCliente = 0;     // 0 = sin asignar todavía
+    _estado = true;     // activo por defecto
     _categoria[0] = '\0';
     _direccion[0] = '\0';
     _nombre[0] = '\0';
@@ -16,7 +17,9 @@ Clientes::Clientes()
 
 Clientes::Clientes(int idCliente, const string &categoria, const string &direccion, const string &nombre, int telefono, const string &cuit, const string &mail)
 {
-    setIDCliente(idCliente);
+    _idCliente = idCliente;
+    _estado = true;
+
     setCategoria(categoria);
     setDireccion(direccion);
     setNombre(nombre);
@@ -26,8 +29,15 @@ Clientes::Clientes(int idCliente, const string &categoria, const string &direcci
 }
 
 // Setters
-void Clientes::setIDCliente(int idCliente) { _idCliente = idCliente; }
+void Clientes::setIDCliente(int idCliente)
+{
+    _idCliente = idCliente;
+}
 
+void Clientes::setEstado(bool estado)
+{
+    _estado = estado;
+}
 void Clientes::setCategoria(const string &categoria)
 {
     strncpy(_categoria, categoria.c_str(), sizeof(_categoria) - 1);
@@ -64,12 +74,11 @@ void Clientes::setMail(const string &mail)
 }
 
 // Getters
-int Clientes::getIDCliente() const { return _idCliente; }
-
+int Clientes::getIDCliente() const{return _idCliente;}
+bool Clientes::getEstado() const{return _estado;}
 string Clientes::getCategoria() const { return string(_categoria); }
 string Clientes::getDireccion() const { return string(_direccion); }
 string Clientes::getNombre() const { return string(_nombre); }
 int Clientes::getTelefono() const { return _telefono; }
 string Clientes::getCUIT() const { return string(_cuit); }
 string Clientes::getMail() const { return string(_mail); }
-

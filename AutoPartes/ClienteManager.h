@@ -11,19 +11,18 @@ class ClienteManager
         ClienteManager();
 
         void cargarCliente ();
-        void listarPorNombre();
-        void mostrarCliente (Clientes clientes);
         void listar ();
-        void BuscarID ();
+        void listarPorNombre();
+        void listarNoActivos();
         void listarPorCategoria();
+        void BuscarID ();
         void BuscarPorNombre();
+        void mostrarCliente (Clientes clientes);
         void eliminarCliente();
+        void reactivarCliente();
 
 
 
     private:
-        Clientes _clientes;
         ClienteArchivo _repor;
 };
-
-

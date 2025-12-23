@@ -6,6 +6,7 @@ class Clientes
 {
 private:
     int _idCliente;
+    bool _estado;               // true = activo | false = dado de baja
     char _categoria[20];  // tipo de empresa: talleres, concesionaria, distribuidoras, otros
     char _direccion[50];
     char _nombre[20];
@@ -20,6 +21,7 @@ public:
             const string &nombre, int telefono, const string &cuit, const string &mail);
 
     // Setters
+    void setEstado(bool estado);
     void setIDCliente(int idCliente);
     void setCategoria(const string &categoria);
     void setDireccion(const string &direccion);
@@ -29,6 +31,7 @@ public:
     void setMail(const string &mail);
 
     // Getters
+    bool getEstado() const;
     int getIDCliente() const;
     string getCategoria() const;
     string getDireccion() const;
@@ -37,6 +40,3 @@ public:
     string getCUIT() const;
     string getMail() const;
 };
-
-
-

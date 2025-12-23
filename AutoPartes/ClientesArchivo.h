@@ -22,5 +22,3 @@ class ClienteArchivo
        string _nombreArchivo;
        Clientes _registro;
 };
-
-
