@@ -268,13 +268,47 @@ void ClienteManager::eliminarCliente() {
 }
 
 void ClienteManager::reactivarCliente() {
+    int cant = _repor.getCantidadRegistros();
+    if (cant == 0) {
+        cout << "No hay clientes cargados." << endl;
+        return;
+    }
+
+    Clientes* vec = new Clientes[cant];
+    int leidos = _repor.leerTodos(vec, cant);
+
+    bool hayBajas = false;
+
+    cout << "=== CLIENTES DADOS DE BAJA ===" << endl;
+    for (int i = 0; i < leidos; i++) {
+        if (!vec[i].getEstado()) {
+            cout << "ID: " << vec[i].getIDCliente()
+                 << " | Nombre: " << vec[i].getNombre()
+                 << " | CUIT: " << vec[i].getCUIT() << endl;
+            hayBajas = true;
+        }
+    }
+
+    if (!hayBajas) {
+        cout << "No hay clientes dados de baja." << endl;
+        delete[] vec;
+        return;
+    }
+
     int id;
-    cout << "Ingrese ID del cliente a reactivar: ";
+    cout << "\nIngrese ID del cliente a reactivar (0 para cancelar): ";
     cin >> id;
 
+    if (id == 0) {
+        cout << "Operacion cancelada." << endl;
+        delete[] vec;
+        return;
+    }
+
     int pos = _repor.buscarID(id);
-    if (pos <= 0) {
-        cout << "ID invalido. Los IDs deben ser positivos." << endl;
+    if (pos == -1) {
+        cout << "ID inexistente." << endl;
+        delete[] vec;
         return;
     }
 
@@ -282,20 +316,15 @@ void ClienteManager::reactivarCliente() {
 
     if (cli.getEstado()) {
         cout << "El cliente ya esta activo." << endl;
+        delete[] vec;
         return;
     }
 
-    mostrarCliente(cli);
+    cli.setEstado(true);
+    _repor.modificarCliente(cli, pos);
 
-    char op;
-    cout << "Confirmar reactivacion (s/n): ";
-    cin >> op;
+    cout << "Cliente reactivado correctamente." << endl;
 
-    if (op == 's' || op == 'S') {
-        cli.setEstado(true);
-        _repor.modificarCliente(cli, pos);
-        cout << "Cliente reactivado correctamente." << endl;
-    } else {
-        cout << "Operacion cancelada." << endl;
-    }
+    delete[] vec;
 }
+

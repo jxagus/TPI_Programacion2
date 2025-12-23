@@ -20,6 +20,7 @@ void ClientesMenu::MostrarMenu() {
         cout << "5. Buscar cliente por Nombre" << endl;
         cout << "6. Cargar nuevo cliente" << endl;
         cout << "7. Dar de baja al cliente" << endl;
+        cout << "8. Reactivar cliente" << endl;
         cout << "0. Volver al menu anterior" << endl;
         cout << "-----------------------------" << endl;
         cout << "Opcion: ";
@@ -49,6 +50,9 @@ void ClientesMenu::MostrarMenu() {
                 break;
             case 7:
                 manager.eliminarCliente();
+                break;
+            case 8:
+                manager.reactivarCliente();
                 break;
             case 0:
                 cout << "Volviendo al menu principal..." << endl;
