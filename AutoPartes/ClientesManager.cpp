@@ -295,9 +295,29 @@ void ClienteManager::reactivarCliente() {
         return;
     }
 
+    //Validacion por id
     int id;
-    cout << "\nIngrese ID del cliente a reactivar (0 para cancelar): ";
-    cin >> id;
+    string temp;
+
+    do {
+        bool valido = true;
+        cout << "\nIngrese ID del cliente a reactivar (0 para cancelar): ";
+        cin >> temp;
+
+        for (char c : temp) {
+            if (!isdigit(c)) {
+                valido = false;
+                cout << "Error: solo se permiten numeros." << endl;
+                break;
+            }
+        }
+
+        if (valido) {
+            id = stoi(temp);
+            break;
+        }
+
+    } while (true);
 
     if (id == 0) {
         cout << "Operacion cancelada." << endl;
