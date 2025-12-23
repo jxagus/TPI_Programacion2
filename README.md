@@ -70,6 +70,8 @@ Cliente (Empresas)
 -	_telefono : int
 -	_cuit: char[10]
 -	_mail : char[100]
+-	estado: bool
+  
 
 Autoparte (Stock)
 -	_idAutoparte : int
@@ -93,3 +95,4 @@ Personal
 -	_rol:char[20]
 -	_telefono : char[15]
 -	_mail : char[40]
+-	_estado: bool
